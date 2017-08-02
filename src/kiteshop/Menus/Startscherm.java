@@ -40,10 +40,19 @@ public class Startscherm {
             case 5:
                 System.out.println("uitloggen");
                 uitloggen();
-                break;    
+                break;
             default:
                 System.out.println("Probeer opnieuw");
                 start();
         }
-    }    
+    }
+
+    public static void uitloggen() {
+        System.out.println("Weet u zeker dat u wilt afsluiten?\n Toets 1 voor ja\n Toets 2 om in het programma te blijven");
+        if (Inlog.input.nextInt() == 1) {
+            System.exit(0);
+        } else {
+            start();
+        }
+    }
 }
