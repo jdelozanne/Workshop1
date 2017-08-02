@@ -18,24 +18,23 @@ public class Klanten {
         System.out.println("Kies 3 voor Klantgegevens verwijderen");
         System.out.println("Kies 4 voor Overzicht klanten");
         System.out.println("Kies 5 voor terug naar Startscherm");
-        int keuze = Start.input.nextInt();
+        int keuze = Inlog.input.nextInt();
         switch (keuze) {
             case 1:
                 maakNieuweKlant();
                 break;
             case 2:
-                //overzicht printen klanten arrayList foreachloop
+                printKlanten();
                 System.out.println("Van welke klant wilt u de gegevens wijzigen?");
                 //door naar klantgevens
                 break;
             case 3:
                 //overzicht printen klanten
-                System.out.println("Van welke klant wilt u de gevens verwijderen?");
-                //door naar klant
-                verwijderKlant();
+                printKlanten();
+                verwijderenKlant();
                 break;
             case 4:
-                //overzicht printen klanten
+                printKlanten();
                 break;
             case 5:
                 Startscherm.start();
@@ -49,8 +48,19 @@ public class Klanten {
    public static void maakNieuweKlant(){
        /*nieuwe klant als object maken? Toevoegen aan arraylist
        naam, adres, email, telefoon
-       */
-       
-       
+       */ 
    }
+   
+  public static void printKlanten(){
+      //for( Klant element : ArrayList Klanten
+      //print
+  }
+  
+  public static void wijzigenKlant(){
+      //klant kiezen om te wijzigen en dan gegevens wijzigen
+  }
+  
+  public static void verwijderenKlant(){
+      //klant kiezen om te verwijderen
+  }
 }
