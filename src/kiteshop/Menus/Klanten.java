@@ -24,7 +24,7 @@ public class Klanten {
                 maakNieuweKlant();
                 break;
             case 2:
-                //overzicht printen klanten
+                //overzicht printen klanten arrayList foreachloop
                 System.out.println("Van welke klant wilt u de gegevens wijzigen?");
                 //door naar klantgevens
                 break;
@@ -47,7 +47,7 @@ public class Klanten {
     }
     
    public static void maakNieuweKlant(){
-       /*nieuwe klant als object maken? 
+       /*nieuwe klant als object maken? Toevoegen aan arraylist
        naam, adres, email, telefoon
        */
        
