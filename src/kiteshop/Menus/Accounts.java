@@ -5,18 +5,23 @@
  */
 package kiteshop.Menus;
 
+import java.io.Console;
+
+
 /**
  *
  * @author julia
  */
 public class Accounts {
 
+   static Console console = System.console();
+    
     public static void start() {
         System.out.println("Kies wat je wilt doen:");
         System.out.println("Kies 1 voor Nieuwe account maken");
         System.out.println("Kies 2 voor Je account wijzigen");
         System.out.println("Kies 3 voor Een account verwijderen");
-        int keuze = Start.input.nextInt();
+        int keuze = Inlog.input.nextInt();
         switch (keuze) {
             case 1:
                 maakNieuwAccount();
@@ -34,8 +39,26 @@ public class Accounts {
     }
 
     public static void maakNieuwAccount() {
-        //een object?
-        System.out.println("Geef gebruikersnaam: ");
+        Account account = new Account();
+        System.out.println("Gebruikersnaam?");
+        String gebruiker = Inlog.input.nextLine();
+        account.setGebruikersnaam(gebruiker);
+        maakNieuwww(account);
+    }
+    
+    public static void maakNieuwww(Account account) {   
+        System.out.println("Wachtwoord?");
+        String ww = Inlog.input.nextLine();
+        account.setWachtwoord(ww);
+        System.out.println("Geef uw ww nogmaals en druk op enter");
+        String wwControle = Inlog.input.nextLine();
+            if(wwControle.equals(account.getWachtwoord())){
+                System.out.println("Nieuw account succesvol aangemaakt");
+            }
+            else {
+                System.out.println("Probeer opnieuw");
+                maakNieuwww(account);
+            }
     }
 
     public static void printKlanten() {
