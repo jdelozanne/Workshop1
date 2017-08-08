@@ -5,6 +5,8 @@
  */
 package kiteshop.Menus;
 
+import kiteshop.pojos.Account;
+
 /**
  *
  * @author julia
