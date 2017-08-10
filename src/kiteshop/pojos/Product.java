@@ -20,6 +20,13 @@ public class Product {
     private int voorraad;
 
     public Product() {
+        
+    }
+    
+    @Override
+    public String toString(){
+    String productDisplay = this.getNaam();
+    return productDisplay;
     }
 
     public String getNaam() {
@@ -61,7 +68,5 @@ public class Product {
     public void setVoorraad(int voorraad) {
         this.voorraad = voorraad;
     }
-    
-    
 
 }

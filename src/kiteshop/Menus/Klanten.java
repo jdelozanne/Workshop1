@@ -5,6 +5,10 @@
  */
 package kiteshop.Menus;
 
+import java.util.ArrayList;
+import kiteshop.pojos.Klant;
+import static kiteshop.pojos.Klant.voegToe;
+
 /**
  *
  * @author julia
@@ -46,14 +50,17 @@ public class Klanten {
     }
     
    public static void maakNieuweKlant(){
-       /*nieuwe klant als object maken? Toevoegen aan arraylist
-       naam, adres, email, telefoon
-       */ 
+       System.out.println("Geef klantnummer");
+       int nummer = Inlog.input.nextInt();
+       Klant klant = new Klant(nummer);
+       voegToe(klant);
+       System.out.println(klant);
    }
    
-  public static void printKlanten(){
-      //for( Klant element : ArrayList Klanten
-      //print
+  public static void printKlanten(ArrayList <Klant> klant){
+      for( Klant element : klant){
+          System.out.println(element + "\n");
+      }
   }
   
   public static void wijzigenKlant(){

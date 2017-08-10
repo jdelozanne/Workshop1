@@ -5,9 +5,8 @@
  */
 package kiteshop.Menus;
 
+import java.util.ArrayList;
 import kiteshop.pojos.Account;
-import java.io.Console;
-
 
 /**
  *
@@ -15,8 +14,6 @@ import java.io.Console;
  */
 public class Accounts {
 
-   static Console console = System.console();
-    
     public static void start() {
         System.out.println("Kies wat je wilt doen:");
         System.out.println("Kies 1 voor Nieuwe account maken");
@@ -25,7 +22,7 @@ public class Accounts {
         int keuze = Inlog.input.nextInt();
         switch (keuze) {
             case 1:
-                maakNieuwAccount();
+                maakNieuwGebruikersnaam();
                 break;
             case 2:
                 wijzigAccount();
@@ -39,32 +36,32 @@ public class Accounts {
         }
     }
 
-    public static void maakNieuwAccount() {
+    public static void maakNieuwGebruikersnaam() {
         Account account = new Account();
         System.out.println("Gebruikersnaam?");
         String gebruiker = Inlog.input.nextLine();
         account.setGebruikersnaam(gebruiker);
-        maakNieuwww(account);
-    }
-    
-    public static void maakNieuwww(Account account) {   
-        System.out.println("Wachtwoord?");
-        String ww = Inlog.input.nextLine();
-        account.setWachtwoord(ww);
-        System.out.println("Geef uw ww nogmaals en druk op enter");
-        String wwControle = Inlog.input.nextLine();
-            if(wwControle.equals(account.getWachtwoord())){
-                System.out.println("Nieuw account succesvol aangemaakt");
-            }
-            else {
-                System.out.println("Probeer opnieuw");
-                maakNieuwww(account);
-            }
+        maakNieuwWachtwoord(account);//hier of bij de switch onder maakNieuwGebruikersnaam()?
     }
 
-    public static void printKlanten() {
-        //for( Klant element : ArrayList Klanten
-        //print
+    public static void maakNieuwWachtwoord(Account account) {
+        System.out.println("Kies een wachtwoord minimaal 4 karakters");
+        String ww = Inlog.input.nextLine();
+        account.setWachtwoord(ww);
+        System.out.println("Geef uw wachtwoord nogmaals en druk op enter");
+        String wwControle = Inlog.input.nextLine();
+        if (wwControle.equals(account.getWachtwoord())) {
+            System.out.println("Nieuw account succesvol aangemaakt");
+        } else {
+            System.out.println("Probeer opnieuw");
+            maakNieuwWachtwoord(account);
+        }
+    }
+    
+    public static printAccount(ArrayList <Account> lijst){
+        for(Account element: lijst){
+            System.out.println(element+ "\n");
+        }
     }
 
     public static void wijzigAccount() {
@@ -72,6 +69,9 @@ public class Accounts {
     }
 
     public static void verwijderAccount() {
-        //kies een account die je wil verwijderen
+        System.out.println("Welke account wil je verwijderen?");
+        //lijst printen van database accounts met gebruikersnamen
+        
+        
     }
 }

@@ -3,27 +3,23 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package kiteshop.Menus;
-
-import kiteshop.pojos.*;
+package kiteshop.pojos;
 
 /**
  *
  * @author julia
  */
-public class TestClass {
+public class Test {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-
-        Bestelling bestellingen = new Bestelling();
-        Product pr = new Product("board");
-        bestellingen.voegToe(pr);
-        Product p = new Product("kite");
-        bestellingen.voegToe(p);
-        bestellingen.printLijst();
-
+    ProductVoorBuilder builder = new ProductVoorBuilder.ProductBuilder()
+        .omschrijving("dit is een vlieger van het merk Cabrinha, type Drifter, maat 7")
+    .voorraad(2)
+    .build();
+    
     }
+    
 }
