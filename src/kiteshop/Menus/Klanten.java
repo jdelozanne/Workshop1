@@ -6,6 +6,7 @@
 package kiteshop.Menus;
 
 import java.util.ArrayList;
+import kiteshop.klantbuilder.*;
 import kiteshop.pojos.Klant;
 import static kiteshop.pojos.Klant.voegToe;
 
@@ -25,7 +26,19 @@ public class Klanten {
         int keuze = Inlog.input.nextInt();
         switch (keuze) {
             case 1:
-                System.out.println("Geef gegevens. Velden met * zijn verplicht");
+                System.out.println("Geef Voornaam en druk enter(verplicht)");
+                String vn = Inlog.input.next();
+                System.out.println("Geef Tussenvoegsel en druk enter");
+                String tv = Inlog.input.next();
+                System.out.println("Geef Achternaam en druk enter(verplicht)");
+                String an = Inlog.input.next();
+                
+                KlantNaam naam = new KlantNaam.KlantNaamBuilder()
+                        .voornaam(vn)
+                        .tussenvoegsel(tv)
+                        .achternaam(an)
+                        .build();
+                System.out.println(naam.toString());
                 break;
             case 2:
                 printKlanten();
@@ -42,33 +55,33 @@ public class Klanten {
                 break;
             case 5:
                 Startscherm.start();
-                break; 
+                break;
             default:
                 System.out.println("Probeer opnieuw");
                 start();
         }
     }
-    
-   public static void maakNieuweKlant(){
-       System.out.println("Geef klantnummer");
-       int nummer = Inlog.input.nextInt();
-       Klant klant = new Klant(nummer);
-       voegToe(klant);
-       System.out.println(klant);
-   }
-   
-  public static void printKlanten(){
-      ArrayList <Klant> klantenlijst = new ArrayList<>();
-      for( Klant element : klantenlijst){
-          System.out.println(element + "\n");
-      }
-  }
-  
-  public static void wijzigenKlant(){
-      //klant kiezen om te wijzigen en dan gegevens wijzigen
-  }
-  
-  public static void verwijderenKlant(){
-      //klant kiezen om te verwijderen
-  }
+
+    public static void maakNieuweKlant() {
+        System.out.println("Geef klantnummer");
+        int nummer = Inlog.input.nextInt();
+        Klant klant = new Klant(nummer);
+        voegToe(klant);
+        System.out.println(klant);
+    }
+
+    public static void printKlanten() {
+        ArrayList<Klant> klantenlijst = new ArrayList<>();
+        for (Klant element : klantenlijst) {
+            System.out.println(element + "\n");
+        }
+    }
+
+    public static void wijzigenKlant() {
+        //klant kiezen om te wijzigen en dan gegevens wijzigen
+    }
+
+    public static void verwijderenKlant() {
+        //klant kiezen om te verwijderen
+    }
 }
