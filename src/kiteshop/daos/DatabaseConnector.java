@@ -31,14 +31,15 @@ public class DatabaseConnector {
             //get a connection
             connection = DriverManager.getConnection(CONN_URL, USERNAME, PASSWORD);
             System.out.println("Database connected");
+            
 
             //create a statement
             statement = connection.createStatement();
 
             //execute query
             String sql  = "insert into account " 
-                        + "(accountID, gebruikersnaam, wachtwoord)" 
-                        + "values ('0', 'admin', 'ww')";
+                        + "(gebruikersnaam, wachtwoord)" 
+                        + "values ('admin', 'ww')";
             statement.executeUpdate(sql);
             System.out.println("insert");
             

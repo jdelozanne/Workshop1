@@ -10,9 +10,9 @@ public class Main {
 
     
     public static void main(String[] args) {
-    PreparedStatementTemplate test = new PreparedStatementTemplate();
-
     
+        PreparedStatementTemplate temp = new PreparedStatementTemplate();
+        temp.print();
     
     }
 }
