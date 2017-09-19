@@ -18,12 +18,15 @@ public class TestClass {
      */
     public static void main(String[] args) {
 
-        Bestelling bestellingen = new Bestelling();
+        /*Bestelling bestellingen = new Bestelling();
         Product pr = new Product("board");
         bestellingen.voegToe(pr);
         Product p = new Product("kite");
         bestellingen.voegToe(p);
         bestellingen.printLijst();
+        */
+        
+        Inlog.inloggen();
 
     }
 }

@@ -15,7 +15,7 @@ import static kiteshop.pojos.Klant.voegToe;
  */
 public class Klanten {
 
-    public static void start() {
+    public void start() {
         System.out.println("Kies wat je wilt doen:");
         System.out.println("Kies 1 voor Nieuwe klant maken");
         System.out.println("Kies 2 voor Klantgegevens wijzigen");
@@ -25,7 +25,7 @@ public class Klanten {
         int keuze = Inlog.input.nextInt();
         switch (keuze) {
             case 1:
-                maakNieuweKlant();
+                System.out.println("Geef gegevens. Velden met * zijn verplicht");
                 break;
             case 2:
                 printKlanten();
@@ -57,8 +57,9 @@ public class Klanten {
        System.out.println(klant);
    }
    
-  public static void printKlanten(ArrayList <Klant> klant){
-      for( Klant element : klant){
+  public static void printKlanten(){
+      ArrayList <Klant> klantenlijst = new ArrayList<>();
+      for( Klant element : klantenlijst){
           System.out.println(element + "\n");
       }
   }

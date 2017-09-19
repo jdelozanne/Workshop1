@@ -6,6 +6,7 @@
 package kiteshop.Menus;
 
 import java.util.Scanner;
+import kiteshop.pojos.Account;
 
 /**
  *
@@ -20,14 +21,16 @@ public static Scanner input = new Scanner(System.in);
         String user = input.nextLine();
         System.out.println("Geef uw wachtwoord: ");
         String ww = input.nextLine();
-        
-        if (user == Eigenaar.naam && Eigenaar.ww || user == Admin.naam && Admin.ww) {
+        Startscherm.start();
+        /*
+        if (user.equals(account.getGebruikersnaam()) && ww.equals(account.getWachtwoord())){
             //door naar het hoofdmenu van he programma
             System.out.println("programma start");
         } else {
             System.out.println("Onjuiste gegevens, probeer opnieuw");
             inloggen();
         }
+        */
 
     }
 }

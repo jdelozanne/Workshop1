@@ -58,8 +58,10 @@ public class Accounts {
         }
     }
     
-    public static printAccount(ArrayList <Account> lijst){
-        for(Account element: lijst){
+    public static void printAccount(){
+        //lijst ophalen met accounts
+        ArrayList <Account> accountlijst = new ArrayList<>();
+        for(Account element: accountlijst){
             System.out.println(element+ "\n");
         }
     }
