@@ -15,10 +15,14 @@ public class Test {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-    ProductVoorBuilder builder = new ProductVoorBuilder.ProductBuilder()
-        .omschrijving("dit is een vlieger van het merk Cabrinha, type Drifter, maat 7")
-    .voorraad(2)
-    .build();
+        Klant klant1 = new Klant(1);
+        Product p = new Product("kite");
+        Product c = new Product ("bar");
+    Bestelling order = new Bestelling();
+    order.voegToe(p);
+    order.voegToe(c);
+    order.printLijst();
+    
     
     }
     

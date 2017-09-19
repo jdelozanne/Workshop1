@@ -19,8 +19,11 @@ public class Product {
     private int productnummer;
     private int voorraad;
 
-    public Product() {
-        
+    public Product() {   
+    }
+    
+    public Product(String naam) {   
+        this.naam = naam;
     }
     
     @Override

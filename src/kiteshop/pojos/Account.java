@@ -15,7 +15,7 @@ public class Account {
 
     private String gebruikersnaam;
     private String wachtwoord;
-    ArrayList <Account> accountLijst = new ArrayList();
+    ArrayList <Account> accountLijst = new ArrayList<>();
     
     private static int count = 0;
 

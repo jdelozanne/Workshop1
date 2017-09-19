@@ -23,7 +23,9 @@ public class Bestelling {
     }
 
     public Bestelling(Klant klant) {
+        bestelling = new ArrayList<>();
         this.klant = klant;
+        
     }
     
     public void voegToe(Product p){

@@ -5,21 +5,10 @@
  */
 package kiteshop.pojos;
 
-import java.util.ArrayList;
 
-/**
- *
- * @author julia
- */
 public class Klant {
     
-    private String voornaam;
-    private String tussenvoegsel;
-    private String achternaam;
-    private String emailadres;
-    private int klantnummer;
-    private Adres adres;
-    static ArrayList <Klant> klantenLijst = new ArrayList<>();
+private Klant klant;
 
     public Klant() {
     }
