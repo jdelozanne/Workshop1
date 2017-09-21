@@ -26,19 +26,11 @@ public class Klanten {
         int keuze = Inlog.input.nextInt();
         switch (keuze) {
             case 1:
-                System.out.println("Geef Voornaam en druk enter(verplicht)");
-                String vn = Inlog.input.next();
-                System.out.println("Geef Tussenvoegsel en druk enter");
-                String tv = Inlog.input.next();
-                System.out.println("Geef Achternaam en druk enter(verplicht)");
-                String an = Inlog.input.next();
-                
-                KlantNaam naam = new KlantNaam.KlantNaamBuilder()
-                        .voornaam(vn)
-                        .tussenvoegsel(tv)
-                        .achternaam(an)
-                        .build();
-                System.out.println(naam.toString());
+                KlantNaam.KlantNaamBuilder x = new KlantNaam.KlantNaamBuilder();
+                x.maakNieuweKlantNaam();
+                x.build();
+                System.out.println(x.toString());
+
                 break;
             case 2:
                 printKlanten();
