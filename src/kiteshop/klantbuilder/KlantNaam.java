@@ -5,6 +5,8 @@
  */
 package kiteshop.klantbuilder;
 
+import kiteshop.Menus.Inlog;
+
 /**
  *
  * @author julia
@@ -48,6 +50,20 @@ public class KlantNaam {
         public KlantNaam build(){
             return new KlantNaam(this);
         }
+        public void maakNieuweKlantNaam(){
+            
+        System.out.println("geef voornaam: ");
+        voornaam(Inlog.input.next());
+        System.out.println("geef tussenvoegsel: ");
+        tussenvoegsel(Inlog.input.next());
+        System.out.println("geef achternaam: ");
+        achternaam(Inlog.input.next());
+        
+    }
+        @Override
+        public String toString(){
+        return ("\nVoornaam: " + this.voornaam + " \n Tussenvoegsel: " + this.tussenvoegsel + " \n Achternaam: " + this.achternaam);
+    }
     }
     
     @Override
