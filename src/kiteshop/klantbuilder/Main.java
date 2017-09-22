@@ -5,6 +5,8 @@
  */
 package kiteshop.klantbuilder;
 
+import kiteshop.View.*;
+
 /**
  *
  * @author julia
@@ -15,25 +17,9 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Adres x = new Adres.AdresBuilder()
-                .woonplaats("Amsterdam")
-                .postcode("1093EA")
-                .straatnaam("Wagenaarstraat")
-                .huisnummer(442)
-                .email("jdelozanne@gmail.com")
-                .build();
-
-        KlantNaam naam = new KlantNaam.KlantNaamBuilder()
-                .voornaam("Julia")
-                .tussenvoegsel("de")
-                .achternaam("Lozanne")
-                .build();
-
-        Klant klant = new Klant.KlantBuilder()
-                .klantnaam(naam)
-                .adres(x)
-                .build();
-        System.out.println(klant.toString());
+       Startscherm begin = new Startscherm();
+       begin.start();
+       
     }
 
 }

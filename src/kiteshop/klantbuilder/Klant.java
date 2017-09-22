@@ -11,7 +11,7 @@ package kiteshop.klantbuilder;
  */
 public class Klant {
     private final KlantNaam klantnaam;
-    private final Adres adres;
+    private final KlantAdres adres;
     
     //constructor klant met klantbuilder als argument
     public Klant(KlantBuilder builder){
@@ -21,7 +21,7 @@ public class Klant {
     //static innerclass
     public static class KlantBuilder{
     private KlantNaam klantnaam;
-    private Adres adres;
+    private KlantAdres adres;
     
     public KlantBuilder(){
     }
@@ -31,15 +31,18 @@ public class Klant {
         return this;
     }
     
-    public KlantBuilder adres(Adres adres){
+    public KlantBuilder adres(KlantAdres adres){
         this.adres = adres;
         return this;
     }
     public Klant build(){
         return new Klant(this);
     }
-    //gettermethode
     
+    @Override
+    public String toString(){
+        return ("Klantgevens: " + this.klantnaam + this.adres);
+    }
     }
     
     @Override

@@ -22,6 +22,7 @@ public class MenuKlanten {
         System.out.println("Kies 4 voor Overzicht klanten");
         System.out.println("Kies 5 voor terug naar Startscherm");
         int keuze = Inlog.input.nextInt();
+        
         switch (keuze) {
             case 1:
                 System.out.println("geef voornaam: ");
@@ -32,11 +33,45 @@ public class MenuKlanten {
                 String achternaam = Inlog.input.next();
 
                 KlantNaam.KlantNaamBuilder x = new KlantNaam.KlantNaamBuilder();
-                       x.voornaam(voornaam)
+
+                KlantNaam naam = x.voornaam(voornaam)
                         .tussenvoegsel(tussenvoegsel)
                         .achternaam(achternaam)
                         .build();
-                System.out.println("nieuwe klantnaam is: " + x.toString());
+
+                KlantAdres.AdresBuilder y = new KlantAdres.AdresBuilder();
+
+                System.out.println("geef woonplaats: ");
+                String woonplaats = Inlog.input.next();
+                System.out.println("geef postcode: ");
+                String postcode = Inlog.input.next();
+                System.out.println("geef straatnaam: ");
+                String straatnaam = Inlog.input.next();
+                System.out.println("geef huisnummer: ");
+                int huisnummer = Inlog.input.nextInt();
+                System.out.println("geef toevoeging: ");
+                String toevoeging = Inlog.input.next();
+                System.out.println("geef emailadres: ");
+                String email = Inlog.input.next();
+                System.out.println("geef telefoon: ");
+                int telefoon = Inlog.input.nextInt();
+
+                KlantAdres adres = y.woonplaats(woonplaats)
+                        .postcode(postcode)
+                        .straatnaam(straatnaam)
+                        .huisnummer(huisnummer)
+                        .toevoeging(toevoeging)
+                        .email(email)
+                        .telefoon(telefoon)
+                        .build();
+
+                Klant.KlantBuilder z = new Klant.KlantBuilder();
+
+                Klant klant = z.klantnaam(naam)
+                        .adres(adres)
+                        .build();
+
+                System.out.println(x.toString() + y.toString());
                 break;
             case 2:
                 printKlanten();

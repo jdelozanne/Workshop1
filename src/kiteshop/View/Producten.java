@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package kiteshop.Menus;
+package kiteshop.View;
 
 /**
  *
@@ -11,7 +11,7 @@ package kiteshop.Menus;
  */
 public class Producten {
 
-    public static void start() {
+    public void start() {
         System.out.println("Kies wat je wilt doen:");
         System.out.println("Kies 1 voor Nieuwe product maken");
         System.out.println("Kies 2 voor Een product wijzigen");
@@ -31,7 +31,7 @@ public class Producten {
                 verwijderenProduct();
                 break;
             case 4:
-                Startscherm.start();
+                start();
                 break;
             default:
                 System.out.println("Probeer opnieuw");

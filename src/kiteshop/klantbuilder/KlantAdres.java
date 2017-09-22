@@ -5,7 +5,7 @@
  */
 package kiteshop.klantbuilder;
 
-import kiteshop.Menus.Inlog;
+import kiteshop.View.Inlog;
 
 /**
  *

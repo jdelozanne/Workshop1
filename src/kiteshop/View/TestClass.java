@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package kiteshop.Menus;
+package kiteshop.View;
 
 import kiteshop.pojos.*;
 
@@ -26,7 +26,8 @@ public class TestClass {
         bestellingen.printLijst();
         */
         
-        Inlog.inloggen();
+        Startscherm start = new Startscherm();
+        start.uitloggen();
 
     }
 }

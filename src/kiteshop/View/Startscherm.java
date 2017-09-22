@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package kiteshop.Menus;
+package kiteshop.View;
 
 import kiteshop.pojos.Account;
 
@@ -14,7 +14,7 @@ import kiteshop.pojos.Account;
 public class Startscherm {
 //hoofdmenu keuze uit diverse opties
 
-    public static void start() {
+    public void start() {
         System.out.println("Maak uw keuze:");
         System.out.println("Kies 1 Klanten");
         System.out.println("Kies 2 Producten");
@@ -25,23 +25,24 @@ public class Startscherm {
         switch (keuze) {
             case 1:
                 System.out.println("naar menu klanten");
-                Klanten.start();
+                MenuKlanten klanten = new MenuKlanten();
+                klanten.start();
                 break;
             case 2:
                 System.out.println("naar menu producten");
-                Producten.start();
+                
                 break;
             case 3:
                 System.out.println("naar menu bestellingen");
-                Bestellingen.start();
+                
                 break;
             case 4:
                 System.out.println("naar menu account");
-                Accounts.start();
+                
                 break;
             case 5:
                 System.out.println("uitloggen");
-                uitloggen();
+                this.uitloggen();
                 break;
             default:
                 System.out.println("Probeer opnieuw");
@@ -49,7 +50,7 @@ public class Startscherm {
         }
     }
 
-    public static void uitloggen() {
+    public void uitloggen() {
         System.out.println("Weet u zeker dat u wilt afsluiten?\n Toets 1 voor ja\n Toets 2 om in het programma te blijven");
         if (Inlog.input.nextInt() == 1) {
             System.exit(0);
