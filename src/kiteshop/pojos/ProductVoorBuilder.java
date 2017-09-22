@@ -41,11 +41,11 @@ public class ProductVoorBuilder {
     public ProductBuilder(){
         
     }
-    // 2e test nu vanuit netbeans : dit is de Constructor
+   
     public ProductBuilder(String naam) {
         this.naam = naam;
     }
-
+    // 2e test nu vanuit netbeans : ik snap neit goed hoe dit gebruikt wordt
     public ProductBuilder omschrijving(String omschrijving) {
         this.omschrijving = omschrijving;
         return this;
