@@ -41,7 +41,7 @@ public class ProductVoorBuilder {
     public ProductBuilder(){
         
     }
-
+    // 2e test nu vanuit netbeans : dit is de Constructor
     public ProductBuilder(String naam) {
         this.naam = naam;
     }
