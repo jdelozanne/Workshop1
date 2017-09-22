@@ -41,11 +41,11 @@ public class ProductVoorBuilder {
     public ProductBuilder(){
         
     }
-
+   
     public ProductBuilder(String naam) {
         this.naam = naam;
     }
-
+    // 2e test nu vanuit netbeans : ik snap neit goed hoe dit gebruikt wordt
     public ProductBuilder omschrijving(String omschrijving) {
         this.omschrijving = omschrijving;
         return this;
@@ -65,7 +65,7 @@ public class ProductVoorBuilder {
         this.voorraad = voorraad;
         return this;
     }
-
+    //Even een test of de integratie werkt, mijn comment hier: hier wordt het product gegenereerd!
     public ProductVoorBuilder build() {
         return new ProductVoorBuilder(this); 
     }
