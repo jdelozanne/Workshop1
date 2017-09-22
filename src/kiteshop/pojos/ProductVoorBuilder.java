@@ -65,7 +65,7 @@ public class ProductVoorBuilder {
         this.voorraad = voorraad;
         return this;
     }
-
+    //Even een test of de integratie werkt, mijn comment hier: hier wordt het product gegenereerd!
     public ProductVoorBuilder build() {
         return new ProductVoorBuilder(this); 
     }
