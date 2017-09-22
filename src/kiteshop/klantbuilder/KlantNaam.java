@@ -5,7 +5,7 @@
  */
 package kiteshop.klantbuilder;
 
-import kiteshop.Menus.Inlog;
+
 
 /**
  *
@@ -41,33 +41,30 @@ public class KlantNaam {
             this.tussenvoegsel = tussenvoegsel;
             return this;
         }
-        
-        public KlantNaamBuilder achternaam (String achternaam){
+
+        public KlantNaamBuilder achternaam(String achternaam) {
             this.achternaam = achternaam;
             return this;
         }
-        
-        public KlantNaam build(){
+
+        public KlantNaam build() {
             return new KlantNaam(this);
         }
-        public void maakNieuweKlantNaam(){
+
+        public void maakNieuweKlantNaam(String voornaam, String tussenvoegsel, String achternaam ) {
+        }
             
-        System.out.println("geef voornaam: ");
-        voornaam(Inlog.input.next());
-        System.out.println("geef tussenvoegsel: ");
-        tussenvoegsel(Inlog.input.next());
-        System.out.println("geef achternaam: ");
-        achternaam(Inlog.input.next());
+
         
-    }
+
         @Override
-        public String toString(){
-        return ("\nVoornaam: " + this.voornaam + " \n Tussenvoegsel: " + this.tussenvoegsel + " \n Achternaam: " + this.achternaam);
+        public String toString() {
+            return ("\nVoornaam: " + this.voornaam + " \n Tussenvoegsel: " + this.tussenvoegsel + " \n Achternaam: " + this.achternaam);
+        }
     }
-    }
-    
+
     @Override
-    public String toString(){
+    public String toString() {
         return ("\nVoornaam: " + this.voornaam + " \n Tussenvoegsel: " + this.tussenvoegsel + " \n Achternaam: " + this.achternaam);
     }
 
