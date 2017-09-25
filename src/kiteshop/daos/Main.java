@@ -10,9 +10,7 @@ public class Main {
 
     
     public static void main(String[] args) {
-    
-        PreparedStatementTemplate temp = new PreparedStatementTemplate();
-        temp.print();
-    
+    ConnectFromFile file = new ConnectFromFile();
+    file.connect();
     }
 }

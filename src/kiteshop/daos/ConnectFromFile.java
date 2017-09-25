@@ -31,7 +31,7 @@ public class ConnectFromFile {
             //connect to database
             this.conn = DriverManager.getConnection(probsUrl, probsUser, probsWW);
         } catch (Exception ex) {
-
+            System.out.println("geen connectie gemaakt:" + ex);
         }
 
     }
