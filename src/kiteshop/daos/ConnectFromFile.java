@@ -11,7 +11,7 @@ import java.util.Properties;
 
 /**
  *
- * @author julia
+ * @author julia & en Steef
  */
 public class ConnectFromFile {
 
