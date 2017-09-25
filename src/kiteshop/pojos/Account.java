@@ -15,11 +15,19 @@ public class Account {
 
     private String gebruikersnaam;
     private String wachtwoord;
-    ArrayList <Account> accountLijst = new ArrayList<>();
+    private AccountType type;
     
-    private static int count = 0;
+    
 
     public Account() {
+    }
+
+    public AccountType getType() {
+        return type;
+    }
+
+    public void setType(AccountType type) {
+        this.type = type;
     }
 
     public void setGebruikersnaam(String s) {

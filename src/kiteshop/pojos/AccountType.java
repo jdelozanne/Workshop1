@@ -12,4 +12,5 @@ package kiteshop.pojos;
 public enum AccountType {
 Medewerker;
 
+
 }

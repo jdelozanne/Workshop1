@@ -5,20 +5,24 @@
  */
 package kiteshop.pojos;
 
-
 public class Klant {
-    
-private Klant klant;
+
+    //ID hier al of pas in DAO, omdat ie daar wordt gegenereerd als primairy key?
+    private int klantID;
+    private Adres adres;
+    private String voornaam;
+    private String tussenvoegsel;
+    private String achternaam;
 
     public Klant() {
     }
-    
-    public Klant(int klantNummer){ 
-        this.klantnummer = klantNummer;
+
+    public Adres getAdres() {
+        return adres;
     }
-    
-    public static void voegToe(Klant klant){
-        klantenLijst.add(klant);
+
+    public void setAdres(Adres adres) {
+        this.adres = adres;
     }
 
     public String getVoornaam() {
@@ -45,29 +49,4 @@ private Klant klant;
         this.achternaam = achternaam;
     }
 
-    public String getEmailadres() {
-        return emailadres;
-    }
-
-    public void setEmailadres(String emailadres) {
-        this.emailadres = emailadres;
-    }
-
-    public int getKlantnummer() {
-        return klantnummer;
-    }
-
-    public void setKlantnummer(int klantnummer) {
-        this.klantnummer = klantnummer;
-    }
-
-    public Adres getAdres() {
-        return adres;
-    }
-
-    public void setAdres(Adres adres) {
-        this.adres = adres;
-    }
-    
-    
 }

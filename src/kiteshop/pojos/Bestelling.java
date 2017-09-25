@@ -13,38 +13,33 @@ import java.util.ArrayList;
  * @author julia
  */
 public class Bestelling {
-    private int bestelnummer;
+
+    //ook hiervoor weer de vraag of de bestellingID niet pas in dao komt
+    private int bestellingID;
     private Klant klant;
-    private ArrayList <Product> bestelling;
+    private ArrayList<Product> bestelling;
     private BigDecimal totaalprijs;
 
     public Bestelling() {
-       bestelling = new ArrayList<>();
+        bestelling = new ArrayList<>();
     }
 
     public Bestelling(Klant klant) {
         bestelling = new ArrayList<>();
         this.klant = klant;
-        
+
     }
-    
-    public void voegToe(Product p){
+
+    public void voegToe(Product p) {
         bestelling.add(p);
     }
 
-    
-public void printLijst(){
-        for (Product product : bestelling) {
-            System.out.println(product.toString()+"\n");
-        }
+    public int getBestellingID() {
+        return bestellingID;
     }
 
-    public int getBestelnummer() {
-        return bestelnummer;
-    }
-
-    public void setBestelnummer(int bestelnummer) {
-        this.bestelnummer = bestelnummer;
+    public void setBestellingID(int bestellingID) {
+        this.bestellingID = bestellingID;
     }
 
     public Klant getKlant() {
@@ -70,6 +65,5 @@ public void printLijst(){
     public void setTotaalprijs(BigDecimal totaalprijs) {
         this.totaalprijs = totaalprijs;
     }
-    
-    
+
 }
