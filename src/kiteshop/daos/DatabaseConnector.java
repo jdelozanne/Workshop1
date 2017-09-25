@@ -9,7 +9,7 @@ import java.sql.*;
 
 /**
  *
- * @author julia
+ * @author julia en steef
  */
 public class DatabaseConnector {
 
