@@ -5,8 +5,10 @@
  */
 package kiteshop.View;
 
+import kiteshop.builderOefeningen.KlantAdres;
+import kiteshop.builderOefeningen.KlantNaam;
+import kiteshop.builderOefeningen.Klant;
 import java.util.ArrayList;
-import kiteshop.klantbuilder.*;
 
 /**
  *
