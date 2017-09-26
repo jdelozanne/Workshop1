@@ -13,6 +13,24 @@ public class Klant {
     private String voornaam;
     private String tussenvoegsel;
     private String achternaam;
+    public String getEmail() {
+		return email;
+	}
+
+	public String getTelefoonnummer() {
+		return telefoonnummer;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public void setTelefoonnummer(String telefoonnummer) {
+		this.telefoonnummer = telefoonnummer;
+	}
+
+	private String email;
+    private String telefoonnummer;
 
     public Klant() {
     }
