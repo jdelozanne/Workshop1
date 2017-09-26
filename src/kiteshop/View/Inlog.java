@@ -15,6 +15,8 @@ import kiteshop.pojos.Account;
  * @author julia
  */
 public class Inlog {
+	
+	ControllerInterface controller = new Controller();
     
 public static Scanner input = new Scanner(System.in);
 //inloggegevens opvragen, invoeren en controleren vanaf database? Dus al direct connectie maken?
@@ -27,7 +29,7 @@ public static Scanner input = new Scanner(System.in);
         ControllerInterface controller = new Controller();
         
         if(controller.checkLogin(user, ww)){
-        	new MenuKlanten().start();
+        	new Startscherm().start();
         } else {
         	System.out.println("Onjuiste gegevens, probeer opnieuw");
             inloggen();
@@ -43,5 +45,9 @@ public static Scanner input = new Scanner(System.in);
         }
         */
 
+    }
+    
+    public static void main (String args[]){
+    	new Inlog().inloggen();
     }
 }

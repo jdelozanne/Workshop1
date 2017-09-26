@@ -12,7 +12,7 @@ import kiteshop.pojos.Account;
  *
  * @author julia en steef
  */
-public class Accounts {
+public class MenuAccounts {
 
     public static void start() {
         System.out.println("Kies wat je wilt doen:");

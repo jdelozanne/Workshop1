@@ -5,11 +5,19 @@
  */
 package kiteshop.View;
 
+import java.util.Scanner;
+
+import kiteshop.controller.Controller;
+import kiteshop.controller.ControllerInterface;
+
 /**
  *
  * @author julia
  */
-public class Producten {
+public class MenuProducten {
+	
+	Scanner input = new Scanner(System.in);
+	ControllerInterface controller = new Controller();
 
     public void start() {
         System.out.println("Kies wat je wilt doen:");

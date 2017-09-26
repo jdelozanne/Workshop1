@@ -5,13 +5,20 @@
  */
 package kiteshop.View;
 
+import java.util.Scanner;
+
 import kiteshop.pojos.Account;
 
 /**
  *
  * @author julia
  */
+
+
+
 public class Startscherm {
+	
+	Scanner input = new Scanner(System.in);
 //hoofdmenu keuze uit diverse opties
 
     public void start() {
@@ -21,16 +28,19 @@ public class Startscherm {
         System.out.println("Kies 3 Bestellingen");
         System.out.println("Kies 4 Account");
         System.out.println("Kies 5 Uitloggen");
-        int keuze = Inlog.input.nextInt();
+        int keuze = input.nextInt();
         switch (keuze) {
             case 1:
                 System.out.println("naar menu klanten");
-                MenuKlanten klanten = new MenuKlanten();
-                klanten.start();
+                new MenuKlanten().start();
+                System.out.println("U bent terug in het startmenu");
+                start();
                 break;
             case 2:
                 System.out.println("naar menu producten");
-                
+                new MenuProducten().start();
+                System.out.println("U bent terug in het startmenu");
+                start();
                 break;
             case 3:
                 System.out.println("naar menu bestellingen");

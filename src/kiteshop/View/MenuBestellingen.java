@@ -9,6 +9,6 @@ package kiteshop.View;
  *
  * @author julia
  */
-public class Bestellingen {
+public class MenuBestellingen {
     
 }
