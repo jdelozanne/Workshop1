@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package kiteshop.View;
-
+import kiteshop.daos.*;
 import kiteshop.pojos.*;
 
 /**
@@ -17,17 +17,8 @@ public class TestClass {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-
-        /*Bestelling bestellingen = new Bestelling();
-        Product pr = new Product("board");
-        bestellingen.voegToe(pr);
-        Product p = new Product("kite");
-        bestellingen.voegToe(p);
-        bestellingen.printLijst();
-        */
-        
-        Startscherm start = new Startscherm();
-        start.uitloggen();
-
+new Startscherm().start();
+     
+     
     }
 }

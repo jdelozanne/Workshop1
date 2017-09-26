@@ -5,12 +5,10 @@
  */
 package kiteshop.daos;
 
-
-public class Main {
-
+/**
+ *
+ * @author julia
+ */
+public class KlantDAO {
     
-    public static void main(String[] args) {
-    ConnectFromFile file = new ConnectFromFile();
-    file.connect();
-    }
 }

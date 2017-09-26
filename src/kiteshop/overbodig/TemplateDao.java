@@ -1,4 +1,4 @@
-package kiteshop.daos;
+package kiteshop.overbodig;
 
 import java.sql.*;
 import java.util.logging.Level;

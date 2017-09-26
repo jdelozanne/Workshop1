@@ -6,6 +6,7 @@
 package kiteshop.pojos;
 
 import java.util.ArrayList;
+import kiteshop.daos.AccountDAO;
 
 /**
  *
@@ -20,6 +21,11 @@ public class Account {
     
 
     public Account() {
+    }
+    
+    public Account(String x, String y){
+        this.gebruikersnaam = x;
+        this.wachtwoord = y;
     }
 
     public AccountType getType() {
