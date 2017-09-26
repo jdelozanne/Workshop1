@@ -6,6 +6,8 @@
 package kiteshop.View;
 
 import java.util.ArrayList;
+import java.util.Scanner;
+
 import kiteshop.pojos.Account;
 
 /**
@@ -13,13 +15,15 @@ import kiteshop.pojos.Account;
  * @author julia en steef
  */
 public class MenuAccounts {
+	
+	private Scanner input = new Scanner(System.in);
 
-    public static void start() {
+    public void start() {
         System.out.println("Kies wat je wilt doen:");
         System.out.println("Kies 1 voor Nieuwe account maken");
         System.out.println("Kies 2 voor Je account wijzigen");
         System.out.println("Kies 3 voor Een account verwijderen");
-        int keuze = Inlog.input.nextInt();
+        int keuze = input.nextInt();
         switch (keuze) {
             case 1:
                 maakNieuwGebruikersnaam();
@@ -36,20 +40,20 @@ public class MenuAccounts {
         }
     }
 
-    public static void maakNieuwGebruikersnaam() {
+    public void maakNieuwGebruikersnaam() {
         Account account = new Account();
         System.out.println("Gebruikersnaam?");
-        String gebruiker = Inlog.input.nextLine();
+        String gebruiker = input.nextLine();
         account.setGebruikersnaam(gebruiker);
         maakNieuwWachtwoord(account);//hier of bij de switch onder maakNieuwGebruikersnaam()?
     }
 
-    public static void maakNieuwWachtwoord(Account account) {
+    public void maakNieuwWachtwoord(Account account) {
         System.out.println("Kies een wachtwoord minimaal 4 karakters");
-        String ww = Inlog.input.nextLine();
+        String ww = input.nextLine();
         account.setWachtwoord(ww);
         System.out.println("Geef uw wachtwoord nogmaals en druk op enter");
-        String wwControle = Inlog.input.nextLine();
+        String wwControle = input.nextLine();
         if (wwControle.equals(account.getWachtwoord())) {
             System.out.println("Nieuw account succesvol aangemaakt");
         } else {
@@ -58,7 +62,7 @@ public class MenuAccounts {
         }
     }
     
-    public static void printAccount(){
+    public void printAccount(){
         //lijst ophalen met accounts
         ArrayList <Account> accountlijst = new ArrayList<>();
         for(Account element: accountlijst){

@@ -27,7 +27,7 @@ public class MenuProducten {
         System.out.println("Kies 2 voor Een product wijzigen");
         System.out.println("Kies 3 voor Een product verwijderen");
         System.out.println("Kies 4 voor terug naar Startscherm");
-        int keuze = Inlog.input.nextInt();
+        int keuze = input.nextInt();
         switch (keuze) {
             case 1:
                 maakNieuwProduct();
