@@ -5,10 +5,12 @@
  */
 package kiteshop.View;
 
+import java.math.BigDecimal;
 import java.util.Scanner;
 
 import kiteshop.controller.Controller;
 import kiteshop.controller.ControllerInterface;
+import kiteshop.pojos.Product;
 
 /**
  *
@@ -31,28 +33,49 @@ public class MenuProducten {
                 maakNieuwProduct();
                 break;
             case 2:
-                printProduct();
                 wijzigenProduct();
                 break;
             case 3:
-                printProduct();
-                verwijderenProduct();
-                break;
+            	printProduct();
+            	verwijderenProduct();
+            	break;
             case 4:
-                start();
-                break;
+            	break;
             default:
-                System.out.println("Probeer opnieuw");
-                start();
+            	System.out.println("Probeer opnieuw");
+            	start();
         }
     }
 
-    public static void maakNieuwProduct() {
-        //constructor product
+    private void maakNieuwProduct() {
+    	Product product = new Product();
+    	
+    	System.out.println("geef productnaam: ");
+    	String productnaam = input.next();
+    	product.setNaam(productnaam);
+
+    	System.out.println("geef omschrijving ");
+    	String omschrijving = input.next();
+    	product.setOmschrijving(omschrijving);
+    	
+    	System.out.println("geef prijs ");
+    	BigDecimal prijs = (BigDecimal.valueOf(Double.parseDouble(input.next())));   // hier moet wsh nog een try catch omheen
+    	product.setPrijs(prijs);
+
+    	
+    	System.out.println("geef ProductID "); 
+    	Integer productID = Integer.parseInt(input.next());   // hier moet wsh nog een try catch omheen
+    	product.setProductID(productID);
+
+
+    	// product.setVoorraad(voorraad); vooraad beheer optioneel??
+
+
+
     }
 
     public static void printProduct() {
-        //print lijst met producten
+    	//print lijst met producten
     }
 
     public static void wijzigenProduct() {
