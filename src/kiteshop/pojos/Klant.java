@@ -13,6 +13,11 @@ public class Klant {
     private String voornaam;
     private String tussenvoegsel;
     private String achternaam;
+    private String email;
+    private String telefoonnummer;
+
+    
+    
     public String getEmail() {
 		return email;
 	}
@@ -29,9 +34,7 @@ public class Klant {
 		this.telefoonnummer = telefoonnummer;
 	}
 
-	private String email;
-    private String telefoonnummer;
-
+	
     public Klant() {
     }
 
@@ -65,6 +68,11 @@ public class Klant {
 
     public void setAchternaam(String achternaam) {
         this.achternaam = achternaam;
+    }
+    
+    @Override
+	public String toString(){
+    	return voornaam + " " +tussenvoegsel+" " +achternaam+" "+email+" " +telefoonnummer+" "+adres;
     }
 
 }
