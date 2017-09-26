@@ -111,11 +111,10 @@ public class MenuKlanten {
 		System.out.println("geef straatnaam: ");
 		String straatnaam = input.next();
 		adres.setStraatnaam(straatnaam);
-
-		System.out.println("geef huisnummer: ");
-		int huisnummer = input.nextInt();
-		adres.setHuisnummer(huisnummer);
-
+		
+		int huisnummer = geefHuisnummer();
+		
+		
 		System.out.println("geef toevoeging: ");
 		String toevoeging = input.next();
 		adres.setToevoeging(toevoeging);
@@ -127,7 +126,7 @@ public class MenuKlanten {
 	}
 
 	private void klantVerwijderenAchterNaam(){
-		System.out.println("Geef alstublieft de achternaam van de klant die u wil wijzigen?");
+		System.out.println("Geef alstublieft de achternaam van de klant die u wilt verwijderen?");
 		ArrayList<Klant> searchResult = controller.showKlantenAchternaam(input.next());
 
 		System.out.println("De volgende klanten zijn gevonden, geeft u alstublieft het nummer van de klant die u wil verwijderen");
@@ -142,12 +141,22 @@ public class MenuKlanten {
 
 		} else {
 			System.out.println("De klant is niet verwijderd");
-
-
 		}
 
 	}
 
+	private int geefHuisnummer(){
+		int huisnummer = 0;
+		System.out.println("geef huisnummer: ");  // ik heb hem hier twee pogingen gegeven, anders moet het een aparte methoede worden
+		String tempHuisnummer = input.next();
+		try {
+			huisnummer = Integer.parseInt(tempHuisnummer);
+		} catch (NumberFormatException e) {
+			System.out.println("Je hebt geen nummer in getoetst, probeer opnieuw");
+			geefHuisnummer();
+		}
+		return huisnummer;
+	}
 
 
 
@@ -165,4 +174,10 @@ public class MenuKlanten {
 	public static void verwijderenKlant() {
 		//klant kiezen om te verwijderen
 	}
+	
+	public static void main (String args[]){
+		new MenuKlanten().geefHuisnummer();
+	}
+	
+	
 }
