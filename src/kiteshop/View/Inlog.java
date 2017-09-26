@@ -15,10 +15,11 @@ import kiteshop.pojos.Account;
  * @author julia
  */
 public class Inlog {
-	
+
 	ControllerInterface controller = new Controller();
-    
-public static Scanner input = new Scanner(System.in);
+	private Scanner input = new Scanner(System.in);
+
+
 //inloggegevens opvragen, invoeren en controleren vanaf database? Dus al direct connectie maken?
     public void inloggen() {
         System.out.println("Geef uw gebruikersnaam: ");
