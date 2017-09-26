@@ -27,7 +27,7 @@ public static Scanner input = new Scanner(System.in);
         String ww = input.nextLine();
         
         ControllerInterface controller = new Controller();
-        
+    
         if(controller.checkLogin(user, ww)){
         	new Startscherm().start();
         } else {
