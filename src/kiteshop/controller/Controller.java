@@ -35,7 +35,7 @@ public class Controller implements ControllerInterface {
 
 	@Override
 	public void removeProduct(Product p) {
-		// TODO Auto-generated method stub
+		System.out.println("Product " + p  +" wordt toegevoegd aan database");
 
 	}
 

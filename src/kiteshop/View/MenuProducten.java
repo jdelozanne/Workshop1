@@ -70,6 +70,7 @@ public class MenuProducten {
 
     	// product.setVoorraad(voorraad); vooraad beheer optioneel??
 
+    	controller.addProduct(product);
 
 
     }
