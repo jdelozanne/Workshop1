@@ -7,6 +7,7 @@ package kiteshop.View;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+import kiteshop.controller.Controller;
 
 import kiteshop.pojos.Account;
 
@@ -26,7 +27,7 @@ public class MenuAccounts {
         int keuze = input.nextInt();
         switch (keuze) {
             case 1:
-                maakNieuwGebruikersnaam();
+                maakNieuwAccount();
                 break;
             case 2:
                 wijzigAccount();
@@ -40,12 +41,18 @@ public class MenuAccounts {
         }
     }
 
-    public void maakNieuwGebruikersnaam() {
+    public void maakNieuwAccount() {
         Account account = new Account();
         System.out.println("Gebruikersnaam?");
-        String gebruiker = input.nextLine();
+        String gebruiker = input.next();
         account.setGebruikersnaam(gebruiker);
-        maakNieuwWachtwoord(account);//hier of bij de switch onder maakNieuwGebruikersnaam()?
+        
+        System.out.println("Wachtwoord?");
+        String wachtwoord = input.next();
+        account.setWachtwoord(wachtwoord);
+        
+        Controller controller = new Controller();
+        controller.addAccount(account);
     }
 
     public void maakNieuwWachtwoord(Account account) {

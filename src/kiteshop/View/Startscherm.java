@@ -48,7 +48,7 @@ public class Startscherm {
                 break;
             case 4:
                 System.out.println("naar menu account");
-                
+                new MenuAccounts().start();
                 break;
             case 5:
                 System.out.println("uitloggen");

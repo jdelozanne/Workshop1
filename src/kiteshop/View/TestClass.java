@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package kiteshop.View;
+
 import kiteshop.daos.*;
 import kiteshop.pojos.*;
 
@@ -17,8 +18,7 @@ public class TestClass {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-new Startscherm().start();
-     
-     
+        Startscherm start = new Startscherm();
+        start.start();
     }
 }
