@@ -18,7 +18,7 @@ public class TestClass {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Startscherm start = new Startscherm();
-        start.start();
+        AccountDAO a = new AccountDAO();
+        a.controleerInlog("julia");
     }
 }

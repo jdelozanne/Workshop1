@@ -11,9 +11,10 @@ import kiteshop.pojos.Product;
 public class Controller implements ControllerInterface {
 
     @Override
-    public boolean checkLogin(String gebruikersNaam, String wachtWoord) {
+    public boolean checkLogin(String gebruikersnaam, String wachtwoord) {
         AccountDAO check = new AccountDAO();
-        return true;
+        return check.controleerInlog(gebruikersnaam).equals(wachtwoord);
+                
     }
 
     @Override

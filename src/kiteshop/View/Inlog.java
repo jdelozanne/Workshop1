@@ -8,6 +8,7 @@ package kiteshop.View;
 import java.util.Scanner;
 
 import kiteshop.controller.*;
+import kiteshop.daos.AccountDAO;
 import kiteshop.pojos.Account;
 
 /**
@@ -52,3 +53,4 @@ public class Inlog {
     	new Inlog().inloggen();
     }
 }
+  

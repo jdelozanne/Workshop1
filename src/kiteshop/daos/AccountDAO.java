@@ -20,7 +20,8 @@ public class AccountDAO {
 
     Connection connection;
     PreparedStatement statement;
-    Statement state;
+    
+    ResultSet result;
 
     public AccountDAO() {
         this.connection = DBConnect.getConnection();
@@ -46,25 +47,28 @@ public class AccountDAO {
 
     }
 
-    public void controleerInlog(String gebruiker, String ww) {
+
+    public String controleerInlog(String gebruiker){
+        String wwCheck = null;
         try {
-            String sqlQuery = "SELECT wachtwoord FROM account WHERE gebruikersnaam = gebruikersnaam";
+            String sqlQuery = "SELECT * FROM account WHERE gebruikersnaam = ? ";
 
-           state = connection.createStatement();
+           PreparedStatement prepstat = this.connection.prepareStatement(sqlQuery);
+           prepstat.setString(1, gebruiker);
 
-            ResultSet result = state.executeQuery(sqlQuery);
-            while(result.next()){
-                System.out.println(result.getString(1));
-                
+            ResultSet x = prepstat.executeQuery();
+            
+            while(x.next()){
+                wwCheck = x.getString("wachtwoord");
             }
-            
-            
-
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
+        return wwCheck;
 
-        
+       
     }
-
+public static void main (String args[]){
+    	
+    }
 }
