@@ -1,24 +1,35 @@
 package kiteshop.controller;
 
 import java.util.ArrayList;
+import java.util.logging.Logger;
+
+import com.sun.javafx.geom.transform.GeneralTransform3D;
+
 import kiteshop.daos.AccountDAO;
 
 import kiteshop.pojos.Account;
 import kiteshop.pojos.Bestelling;
 import kiteshop.pojos.Klant;
 import kiteshop.pojos.Product;
+import kiteshop.test.ProjectLog;
+
+import static kiteshop.test.ProjectLog.*;
 
 public class Controller implements ControllerInterface {
-
+	private final Logger logger = ProjectLog.getLogger();
+	
+	
     @Override
     public boolean checkLogin(String gebruikersnaam, String wachtwoord) {
         AccountDAO check = new AccountDAO();
+        logger.info("Gebruikers naam :"+ gebruikersnaam+ " Wachtwoord :" + wachtwoord + "Juiste wachtwoord :"+check.controleerInlog(gebruikersnaam)  );
         return check.controleerInlog(gebruikersnaam).equals(wachtwoord);
                 
     }
 
     @Override
     public void addKlant(Klant k) {
+    	
         System.out.println("Klant " + k + " wordt toegevoegd aan database");
 
     }

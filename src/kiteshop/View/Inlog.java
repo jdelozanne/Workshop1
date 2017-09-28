@@ -6,6 +6,10 @@
 package kiteshop.View;
 
 import java.util.Scanner;
+import java.util.logging.Logger;
+
+import kiteshop.test.ProjectLog;
+import kiteshop.test.ProjectLog.*;
 
 import kiteshop.controller.*;
 import kiteshop.daos.AccountDAO;
@@ -16,17 +20,26 @@ import kiteshop.pojos.Account;
  * @author julia
  */
 public class Inlog {
-
+	
+	private final Logger logger = ProjectLog.getLogger();
+	
+	
 	ControllerInterface controller = new Controller();
 	private Scanner input = new Scanner(System.in);
 
 
 //inloggegevens opvragen, invoeren en controleren vanaf database? Dus al direct connectie maken?
     public void inloggen() {
+    	
         System.out.println("Geef uw gebruikersnaam: ");
         String user = input.nextLine();
+        
         System.out.println("Geef uw wachtwoord: ");
         String ww = input.nextLine();
+        
+        logger.info("Gebruikersnaam en wachtwoord ingegeven");
+        
+        
         
         ControllerInterface controller = new Controller();
     
