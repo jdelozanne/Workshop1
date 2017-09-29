@@ -14,7 +14,7 @@ import java.util.logging.SimpleFormatter;
 
 public class ProjectLog {
 
-	public static void main(String[] args) throws SecurityException, IOException {
+	
 		
 		
 	
@@ -33,7 +33,7 @@ public class ProjectLog {
 		 * finest
 		 */
 
-	}
+	
 
 	public static Logger getLogger(){
 
