@@ -51,14 +51,15 @@ public class MenuProducten {
     	Product product = new Product();
     	
     	System.out.println("geef productnaam: ");
-       
+        input.nextLine();
     	String productnaam = input.nextLine();
     	product.setNaam(productnaam);
-
+        
     	System.out.println("geef omschrijving ");
         
     	String omschrijving = input.nextLine();
     	product.setOmschrijving(omschrijving);
+        
     	
     	System.out.println("geef prijs ");
         BigDecimal prijs = input.nextBigDecimal();
