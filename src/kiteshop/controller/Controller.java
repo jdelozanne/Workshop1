@@ -5,7 +5,7 @@ import java.util.logging.Logger;
 
 import com.sun.javafx.geom.transform.GeneralTransform3D;
 
-import kiteshop.daos.AccountDAO;
+import kiteshop.daos.*;
 
 import kiteshop.pojos.Account;
 import kiteshop.pojos.Bestelling;
@@ -19,6 +19,9 @@ public class Controller implements ControllerInterface {
 	private final Logger logger = ProjectLog.getLogger();
 	
 	
+	
+	
+	
     @Override
     public boolean checkLogin(String gebruikersnaam, String wachtwoord) {
         AccountDAO check = new AccountDAO();
@@ -28,38 +31,39 @@ public class Controller implements ControllerInterface {
     }
 
     @Override
-    public void addKlant(Klant k) {
-    	
-        System.out.println("Klant " + k + " wordt toegevoegd aan database");
+    public void addKlant(Klant klant) {
+    	logger.info("Klant " + klant + " wordt toegevoegd aan database");
+    	KlantDAOInterface klantDAO = new KlantDAO();
+    	klantDAO.addKlant(klant);
 
     }
 
     @Override
-    public void removeKlant(Klant k) {
+    public void removeKlant(Klant klant) {
+       
+
+    }
+
+    @Override
+    public void addProduct(Product product) {
         // TODO Auto-generated method stub
 
     }
 
     @Override
-    public void addProduct(Product p) {
+    public void removeProduct(Product product) {
+        System.out.println("Product " + product + " wordt toegevoegd aan database");
+
+    }
+
+    @Override
+    public void addBestelling(Bestelling bestelling) {
         // TODO Auto-generated method stub
 
     }
 
     @Override
-    public void removeProduct(Product p) {
-        System.out.println("Product " + p + " wordt toegevoegd aan database");
-
-    }
-
-    @Override
-    public void addBestelling(Bestelling b) {
-        // TODO Auto-generated method stub
-
-    }
-
-    @Override
-    public void removeBestlling(Bestelling b) {
+    public void removeBestlling(Bestelling bestelling) {
         // TODO Auto-generated method stub
 
     }
@@ -72,7 +76,7 @@ public class Controller implements ControllerInterface {
     }
 
     @Override
-    public void removeAccount(Account a) {
+    public void removeAccount(Account account) {
         // TODO Auto-generated method stub
 
     }

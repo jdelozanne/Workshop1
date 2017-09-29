@@ -7,14 +7,14 @@ import kiteshop.pojos.*;
 public interface ControllerInterface {
 	
 	  boolean checkLogin(String gebruikersNaam, String wachtWoord);
-	   void addKlant(Klant k);
-	   void removeKlant(Klant k);
-	   void addProduct(Product p);
-	   void removeProduct(Product p);
-	   void addBestelling(Bestelling b);
-	   void removeBestlling(Bestelling b);
-	   void addAccount(Account a);
-	   void removeAccount(Account a);
+	   void addKlant(Klant klant);
+	   void removeKlant(Klant klant);
+	   void addProduct(Product product);
+	   void removeProduct(Product product);
+	   void addBestelling(Bestelling bestelling);
+	   void removeBestlling(Bestelling bestelling);
+	   void addAccount(Account account);
+	   void removeAccount(Account account);
 	   
 	   //Functies om hele tabbellen op te halen onder, je zult waarschijnlijk ook selecties willen kunnen maken
 	   //maar welke dan precies is nog ter discussie, met sql kun je het zo gek maken als je wilt, dus je zult 
