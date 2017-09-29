@@ -83,4 +83,15 @@ public class Klant {
     	return voornaam + " " +tussenvoegsel+" " +achternaam+" "+email+" " +telefoonnummer+" "+adres;
     }
 
+	public Klant(int klantID, Adres adres, String voornaam, String tussenvoegsel, String achternaam, String email,
+			String telefoonnummer) {
+		this.klantID = klantID;
+		this.adres = adres;
+		this.voornaam = voornaam;
+		this.tussenvoegsel = tussenvoegsel;
+		this.achternaam = achternaam;
+		this.email = email;
+		this.telefoonnummer = telefoonnummer;
+	}
+
 }
