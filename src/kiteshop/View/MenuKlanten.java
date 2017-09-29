@@ -203,11 +203,11 @@ public class MenuKlanten {
 	}
 
 	public static void verwijderenKlant() {
-		//klant kiezen om te verwijderen
+		
 	}
 	
 	public static void main (String args[]){
-		new MenuKlanten().geefHuisnummer();
+		new MenuKlanten().klantVerwijderenAchterNaam();
 	}
 	
 	

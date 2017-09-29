@@ -40,8 +40,11 @@ public class Controller implements ControllerInterface {
 
     @Override
     public void removeKlant(Klant klant) {
+    	
     	KlantDAOInterface klantDAO = new KlantDAO();
     	klantDAO.deleteKlant(klant);
+    	
+    	logger.info("Deleting "+klant);
 
     }
 
@@ -102,8 +105,8 @@ public class Controller implements ControllerInterface {
 
     @Override
     public ArrayList<Klant> showKlantenAchternaam(String achterNaam) {
-        // TODO Auto-generated method stub
-        return null;
+    	KlantDAOInterface klantDAO = new KlantDAO();
+    	return klantDAO.showKlantenAchternaam(achterNaam);
     }
 
     public static void main(String args[]){
