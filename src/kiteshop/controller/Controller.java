@@ -40,7 +40,8 @@ public class Controller implements ControllerInterface {
 
     @Override
     public void removeKlant(Klant klant) {
-       
+    	KlantDAOInterface klantDAO = new KlantDAO();
+    	klantDAO.deleteKlant(klant);
 
     }
 
@@ -105,4 +106,10 @@ public class Controller implements ControllerInterface {
         return null;
     }
 
+    public static void main(String args[]){
+    	Klant klant = new Klant();
+    	klant.setKlantID(1);
+    			
+    	new Controller().removeKlant(klant);
+    }
 }
