@@ -9,7 +9,15 @@ public class Klant {
 
     //ID hier al of pas in DAO, omdat ie daar wordt gegenereerd als primairy key?
     private int klantID;
-    private Adres adres;
+    public int getKlantID() {
+		return klantID;
+	}
+
+	public void setKlantID(int klantID) {
+		this.klantID = klantID;
+	}
+
+	private Adres adres;
     private String voornaam;
     private String tussenvoegsel;
     private String achternaam;
