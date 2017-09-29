@@ -18,7 +18,6 @@ public class TestClass {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        AccountDAO a = new AccountDAO();
-        a.controleerInlog("julia");
+       new MenuProducten().maakNieuwProduct();
     }
 }

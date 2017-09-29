@@ -42,23 +42,14 @@ public class Inlog {
         
         
         ControllerInterface controller = new Controller();
-    
-        if(controller.checkLogin(user, ww)){
+            if(controller.checkLogin(user, ww)){
         	new Startscherm().start();
         } else {
         	System.out.println("Onjuiste gegevens, probeer opnieuw");
             inloggen();
         }
         
-        /*
-        if (user.equals(account.getGebruikersnaam()) && ww.equals(account.getWachtwoord())){
-            //door naar het hoofdmenu van he programma
-            System.out.println("programma start");
-        } else {
-            System.out.println("Onjuiste gegevens, probeer opnieuw");
-            inloggen();
-        }
-        */
+       
 
     }
     

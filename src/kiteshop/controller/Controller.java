@@ -5,7 +5,12 @@ import java.util.logging.Logger;
 
 import com.sun.javafx.geom.transform.GeneralTransform3D;
 
+<<<<<<< Updated upstream
 import kiteshop.daos.*;
+=======
+import kiteshop.daos.AccountDAO;
+import kiteshop.daos.ProductDAO;
+>>>>>>> Stashed changes
 
 import kiteshop.pojos.Account;
 import kiteshop.pojos.Bestelling;
@@ -46,7 +51,9 @@ public class Controller implements ControllerInterface {
 
     @Override
     public void addProduct(Product product) {
-        // TODO Auto-generated method stub
+
+        ProductDAO productdao = new ProductDAO();
+        productdao.postNieuwProduct(product);
 
     }
 

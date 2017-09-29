@@ -47,25 +47,25 @@ public class MenuProducten {
         }
     }
 
-    private void maakNieuwProduct() {
+    public void maakNieuwProduct() {
     	Product product = new Product();
     	
     	System.out.println("geef productnaam: ");
-    	String productnaam = input.next();
+       
+    	String productnaam = input.nextLine();
     	product.setNaam(productnaam);
 
     	System.out.println("geef omschrijving ");
-    	String omschrijving = input.next();
+        
+    	String omschrijving = input.nextLine();
     	product.setOmschrijving(omschrijving);
     	
     	System.out.println("geef prijs ");
-    	BigDecimal prijs = (BigDecimal.valueOf(Double.parseDouble(input.next())));   // hier moet wsh nog een try catch omheen
+        BigDecimal prijs = input.nextBigDecimal();
     	product.setPrijs(prijs);
 
     	
-    	System.out.println("geef ProductID "); 
-    	Integer productID = Integer.parseInt(input.next());   // hier moet wsh nog een try catch omheen
-    	product.setProductID(productID);
+    	
 
 
     	// product.setVoorraad(voorraad); vooraad beheer optioneel??

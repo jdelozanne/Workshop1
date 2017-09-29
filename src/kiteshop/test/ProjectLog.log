@@ -1,0 +1,20 @@
+sep 29, 2017 11:12:51 AM kiteshop.View.Inlog inloggen
+INFO: Gebruikersnaam en wachtwoord ingegeven
+sep 29, 2017 11:12:52 AM kiteshop.controller.Controller checkLogin
+INFO: Gebruikers naam :julia Wachtwoord :geheimJuiste wachtwoord :geheim
+sep 29, 2017 11:23:48 AM kiteshop.View.Inlog inloggen
+INFO: Gebruikersnaam en wachtwoord ingegeven
+sep 29, 2017 11:23:48 AM kiteshop.controller.Controller checkLogin
+INFO: Gebruikers naam :julia Wachtwoord :geheimJuiste wachtwoord :geheim
+sep 29, 2017 2:41:51 PM kiteshop.View.Inlog inloggen
+INFO: Gebruikersnaam en wachtwoord ingegeven
+sep 29, 2017 2:41:51 PM kiteshop.controller.Controller checkLogin
+INFO: Gebruikers naam :julia Wachtwoord :geheimJuiste wachtwoord :geheim
+sep 29, 2017 2:55:26 PM kiteshop.View.Inlog inloggen
+INFO: Gebruikersnaam en wachtwoord ingegeven
+sep 29, 2017 2:55:27 PM kiteshop.controller.Controller checkLogin
+INFO: Gebruikers naam :julia Wachtwoord :geheimJuiste wachtwoord :geheim
+sep 29, 2017 3:08:28 PM kiteshop.View.Inlog inloggen
+INFO: Gebruikersnaam en wachtwoord ingegeven
+sep 29, 2017 3:08:29 PM kiteshop.controller.Controller checkLogin
+INFO: Gebruikers naam :julia Wachtwoord :geheimJuiste wachtwoord :geheim
