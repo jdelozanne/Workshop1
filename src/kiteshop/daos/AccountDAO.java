@@ -16,7 +16,7 @@ import kiteshop.pojos.Account;
  *
  * @author julia
  */
-public class AccountDAO {
+public class AccountDAO implements AccountDAOInterface {
 
     Connection connection;
     PreparedStatement statement;
@@ -27,7 +27,11 @@ public class AccountDAO {
         this.connection = DBConnect.getConnection();
     }
 
-    public void postNieuwAccount(Account account) {
+    /* (non-Javadoc)
+	 * @see kiteshop.daos.AccountDAOInterface#postNieuwAccount(kiteshop.pojos.Account)
+	 */
+    @Override
+	public void postNieuwAccount(Account account) {
         try {
             String sql = "INSERT INTO account"
                     + "(accountID, gebruikersnaam, wachtwoord)"
@@ -48,7 +52,11 @@ public class AccountDAO {
     }
 
 
-    public String controleerInlog(String gebruiker){
+    /* (non-Javadoc)
+	 * @see kiteshop.daos.AccountDAOInterface#controleerInlog(java.lang.String)
+	 */
+    @Override
+	public String controleerInlog(String gebruiker){
         String wwCheck = null;
         try {
             String sqlQuery = "SELECT * FROM account WHERE gebruikersnaam = ? ";
