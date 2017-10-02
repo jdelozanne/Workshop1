@@ -8,6 +8,7 @@ package kiteshop.View;
 
 import kiteshop.controller.Controller;
 import kiteshop.controller.ControllerInterface;
+import kiteshop.controller.KlantenController;
 import kiteshop.pojos.*;
 
 import java.util.ArrayList;
@@ -20,7 +21,8 @@ import java.util.Scanner;
 public class MenuKlanten {
 
 	Scanner input = new Scanner(System.in);
-	ControllerInterface controller = new Controller();
+	
+	KlantenController controller = new KlantenController();
 
 	public void start() {
 		System.out.println("Kies wat je wilt doen:");
@@ -58,6 +60,7 @@ public class MenuKlanten {
 			System.out.println("Wilt u nog een een klant verwijderen J/N");
 			if(input.next().equalsIgnoreCase("J")){
 				klantVerwijderenAchterNaam();
+				start();
 			} else {
 				start();
 			}
