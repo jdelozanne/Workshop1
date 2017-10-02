@@ -77,5 +77,10 @@ public class Adres {
     public void setTelefoon(int telefoon) {
         this.telefoon = telefoon;
     }
+    
+    @Override
+    public String toString(){
+        return woonplaats + " "+ postcode+ " "+straatnaam  + " "+huisnummer  + " "+ toevoeging;
+    }
 
 }
