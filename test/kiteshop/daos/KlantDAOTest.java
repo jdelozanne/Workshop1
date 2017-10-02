@@ -35,11 +35,34 @@ public class KlantDAOTest {
     @Test
     public void testAddKlant() {
         System.out.println("addKlant");
-        Klant klant = null;
+        
+               
+        
+        Klant klant = new Klant();
+        klant.setVoornaam("Steef");
+        klant.setTussenvoegsel("v");
+        klant.setAchternaam("Pelgrom");
+        klant.setTelefoonnummer("06-26634587");
+        klant.setEmail("s.pelgrom@hotmail.com");
+        Adres adres = new Adres();
+        adres.setWoonplaats("Tilburg");
+        adres.setStraatnaam("Hendrik van Tulderstraat");
+        adres.setPostcode("5046NC");
+        adres.setHuisnummer(17);
+        adres.setToevoeging("a");
+        klant.setAdres(adres);
+        
         KlantDAO instance = new KlantDAO();
         instance.addKlant(klant);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
+        String expResult = klant.toString();
+        String result = instance.showKlantenAchternaam("Pelgrom").get(0).toString();
+        
+        System.out.println("Expected Result: " +expResult);
+        System.out.println("Reasult" +result);
+        
+        assertEquals(expResult, result);
+        
     }
 
     /**
@@ -69,30 +92,38 @@ public class KlantDAOTest {
     }
 
     /**
-     * Test of showKlantenAchternaam method, of class KlantDAO.
+     * Nog niet klaar!!
      */
     @Test
     public void testShowKlantenAchternaam() {
         System.out.println("showKlantenAchternaam");
-        String achterNaam = "Pelgrom";
-        ArrayList<Klant> klantenlijst = new ArrayList<Klant>();
+        
+        String achterNaam = "Pelegrino";
         Klant klant = new Klant();
-        klant.setVoornaam("Steef");
+        klant.setVoornaam("Stevey");
         klant.setTussenvoegsel("v");
-        klant.setAchternaam("Pelgrom");
+        klant.setAchternaam(achterNaam);
         klant.setTelefoonnummer("06-26634587");
         klant.setEmail("s.pelgrom@hotmail.com");
         Adres adres = new Adres();
+        adres.setWoonplaats("Tilburg");
         adres.setStraatnaam("Hendrik van Tulderstraat");
         adres.setPostcode("5046NC");
         adres.setHuisnummer(17);
         adres.setToevoeging("a");
         klant.setAdres(adres);
-        klant.setAchternaam(achterNaam);
+        
+        ArrayList<Klant> klantenlijst = new ArrayList<Klant>();
         klantenlijst.add(klant);
+        
+        
         KlantDAO instance = new KlantDAO();
+        instance.addKlant(klant);
         ArrayList<Klant> expResult = klantenlijst;
         ArrayList<Klant> result = instance.showKlantenAchternaam(achterNaam);
+        System.out.println(expResult);
+        System.out.println(result);
+        
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
