@@ -19,12 +19,12 @@ import kiteshop.pojos.Account;
  *
  * @author julia
  */
-public class Inlog {
+public class InlogMenu {
 	
 	private final Logger logger = ProjectLog.getLogger();
 	
 	
-	ControllerInterface controller = new Controller();
+	AccountController controller = new AccountController();
 	private Scanner input = new Scanner(System.in);
 
 
@@ -38,10 +38,8 @@ public class Inlog {
         String ww = input.nextLine();
         
         logger.info("Gebruikersnaam en wachtwoord ingegeven");
-        
-        
-        
-        ControllerInterface controller = new Controller();
+             
+      
             if(controller.checkLogin(user, ww)){
         	new Startscherm().start();
         } else {
@@ -54,7 +52,7 @@ public class Inlog {
     }
     
     public static void main (String args[]){
-    	new Inlog().inloggen();
+    	new InlogMenu().inloggen();
     }
 }
   
