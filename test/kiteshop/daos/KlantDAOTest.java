@@ -124,9 +124,10 @@ public class KlantDAOTest {
         System.out.println(expResult);
         System.out.println(result);
         
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+       
+        
+        assertEquals(expResult.toString(), result.toString());
+        
     }
 
     /**
