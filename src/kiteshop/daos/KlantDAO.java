@@ -85,6 +85,7 @@ public class KlantDAO implements KlantDAOInterface {
 
 
 	@Override
+	
 	public void updateKlant(Klant klant) {
 		try {
 

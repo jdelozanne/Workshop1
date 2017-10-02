@@ -9,6 +9,6 @@ package kiteshop.daos;
  *
  * @author julia
  */
-public class BestellingDAO {
+public class BestellingDAO implements BestellingDAOInterface {
     
 }

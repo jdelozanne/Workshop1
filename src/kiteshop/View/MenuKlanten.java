@@ -6,8 +6,6 @@
 package kiteshop.View;
 
 
-import kiteshop.controller.Controller;
-import kiteshop.controller.ControllerInterface;
 import kiteshop.controller.KlantenController;
 import kiteshop.pojos.*;
 
@@ -21,7 +19,6 @@ import java.util.Scanner;
 public class MenuKlanten {
 
 	Scanner input = new Scanner(System.in);
-	
 	KlantenController controller = new KlantenController();
 
 	public void start() {

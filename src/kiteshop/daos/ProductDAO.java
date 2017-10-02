@@ -14,7 +14,7 @@ import kiteshop.pojos.Product;
  *
  * @author julia
  */
-public class ProductDAO {
+public class ProductDAO implements ProductDAOInterface {
 
     Connection connection;
     PreparedStatement statement;
@@ -23,7 +23,11 @@ public class ProductDAO {
         this.connection = DBConnect.getConnection();
     }
 
-    public void postNieuwProduct(Product product) {
+    /* (non-Javadoc)
+	 * @see kiteshop.daos.ProductDAOInterface#postNieuwProduct(kiteshop.pojos.Product)
+	 */
+    @Override
+	public void postNieuwProduct(Product product) {
         try {
             String sql = "INSERT INTO product"
                     + "(idProduct, productnaam, omschrijving, prijs)"

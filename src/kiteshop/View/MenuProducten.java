@@ -8,8 +8,8 @@ package kiteshop.View;
 import java.math.BigDecimal;
 import java.util.Scanner;
 
-import kiteshop.controller.Controller;
-import kiteshop.controller.ControllerInterface;
+
+import kiteshop.controller.ProductenController;
 import kiteshop.pojos.Product;
 
 /**
@@ -19,8 +19,9 @@ import kiteshop.pojos.Product;
 public class MenuProducten {
 	
 	Scanner input = new Scanner(System.in);
-	ControllerInterface controller = new Controller();
+	ProductenController controller = new ProductenController();
 
+	
     public void start() {
         System.out.println("Kies wat je wilt doen:");
         System.out.println("Kies 1 voor Nieuwe product maken");

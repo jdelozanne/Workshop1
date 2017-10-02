@@ -7,8 +7,8 @@ package kiteshop.View;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-import kiteshop.controller.Controller;
 
+import kiteshop.controller.AccountController;
 import kiteshop.pojos.Account;
 
 /**
@@ -18,6 +18,8 @@ import kiteshop.pojos.Account;
 public class MenuAccounts {
 	
 	private Scanner input = new Scanner(System.in);
+	
+	AccountController controller = new AccountController();
 
     public void start() {
         System.out.println("Kies wat je wilt doen:");
@@ -50,8 +52,7 @@ public class MenuAccounts {
         System.out.println("Wachtwoord?");
         String wachtwoord = input.next();
         account.setWachtwoord(wachtwoord);
-        
-        Controller controller = new Controller();
+  
         controller.addAccount(account);
     }
 
