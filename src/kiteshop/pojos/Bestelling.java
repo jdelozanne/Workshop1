@@ -17,7 +17,7 @@ public class Bestelling {
     //ook hiervoor weer de vraag of de bestellingID niet pas in dao komt
     private int bestellingID;
     private Klant klant;
-    private ArrayList<Product> bestelling;
+    private ArrayList<BestellingRegel> bestelling;
     private BigDecimal totaalprijs;
 
     public Bestelling() {
@@ -30,8 +30,8 @@ public class Bestelling {
 
     }
 
-    public void voegToe(Product p) {
-        bestelling.add(p);
+    public void voegToe(BestellingRegel b) {
+        bestelling.add(b);
     }
 
     public int getBestellingID() {
@@ -50,11 +50,11 @@ public class Bestelling {
         this.klant = klant;
     }
 
-    public ArrayList<Product> getBestelling() {
+    public ArrayList<BestellingRegel> getBestelling() {
         return bestelling;
     }
 
-    public void setBestelling(ArrayList<Product> bestelling) {
+    public void setBestelling(ArrayList<BestellingRegel> bestelling) {
         this.bestelling = bestelling;
     }
 
