@@ -52,11 +52,11 @@ public class AccountDAO implements AccountDAOInterface {
     }
 
 
-    /* (non-Javadoc)
-	 * @see kiteshop.daos.AccountDAOInterface#controleerInlog(java.lang.String)
-	 */
-    @Override
-	public String controleerInlog(String gebruiker){
+
+    
+	
+    public String givePassword(String gebruiker){
+
         String wwCheck = null;
         try {
             String sqlQuery = "SELECT * FROM account WHERE gebruikersnaam = ? ";

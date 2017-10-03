@@ -66,7 +66,7 @@ public class MenuProducten {
         BigDecimal prijs = input.nextBigDecimal();
     	product.setPrijs(prijs);
 
-    	
+    
     	
 
 

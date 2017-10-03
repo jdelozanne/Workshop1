@@ -22,8 +22,8 @@ public class AccountController {
 	
 	 public boolean checkLogin(String gebruikersnaam, String wachtwoord) {
 	  
-	        logger.info("Gebruikers naam :"+ gebruikersnaam+ " Wachtwoord :" + wachtwoord + "Juiste wachtwoord :"+accountDAO.controleerInlog(gebruikersnaam)  );
-	        return accountDAO.controleerInlog(gebruikersnaam).equals(wachtwoord);
+	        logger.info("Gebruikers naam :"+ gebruikersnaam+ " Wachtwoord :" + wachtwoord + "Juiste wachtwoord :"+accountDAO.givePassword(gebruikersnaam)  );
+	        return accountDAO.givePassword(gebruikersnaam).equals(wachtwoord);
 	                
 	    }
 

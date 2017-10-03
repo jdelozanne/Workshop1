@@ -8,6 +8,6 @@ public interface AccountDAOInterface {
 
 	void postNieuwAccount(Account account);
 
-	String controleerInlog(String gebruiker);
+	String givePassword(String gebruiker);
 
 }

@@ -3,12 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/julia/Documents/NetBeansProjects/Kiteshop/src/kiteshop/pojos/Product.java</file>
-            <file>file:/C:/Users/julia/Documents/NetBeansProjects/Kiteshop/src/kiteshop/pojos/Account.java</file>
-            <file>file:/C:/Users/julia/Documents/NetBeansProjects/Kiteshop/src/kiteshop/daos/testDB.java</file>
-            <file>file:/C:/Users/julia/Documents/NetBeansProjects/Kiteshop/src/kiteshop/pojos/Klant.java</file>
-            <file>file:/C:/Users/julia/Documents/NetBeansProjects/Kiteshop/src/kiteshop/daos/PreparedStatementTemplate.java</file>
-            <file>file:/C:/Users/julia/Documents/NetBeansProjects/Kiteshop/src/kiteshop/pojos/Adres.java</file>
+            <file>file:/C:/Users/julia/Documents/NetBeansProjects/Kiteshop/test/kiteshop/daos/AccountDAOTest.java</file>
+            <file>file:/C:/Users/julia/Documents/NetBeansProjects/Kiteshop/src/kiteshop/daos/KlantDAO.java</file>
+            <file>file:/C:/Users/julia/Documents/NetBeansProjects/Kiteshop/src/kiteshop/daos/AccountDAO.java</file>
         </group>
     </open-files>
 </project-private>
