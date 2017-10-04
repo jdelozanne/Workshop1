@@ -1,13 +1,13 @@
 package kiteshop.pojos;
 
-public class BestellingRegel {
+public class BestelRegel {
 	
 	int aantal;
 	Product product;
 	
-	public BestellingRegel(int aantal, Product product) {
-		this.aantal = aantal;
+	public BestelRegel(Product product, int aantal) {
 		this.product = product;
+                this.aantal = aantal;
 	}
 
 	@Override
@@ -27,7 +27,7 @@ public class BestellingRegel {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		BestellingRegel other = (BestellingRegel) obj;
+		BestelRegel other = (BestelRegel) obj;
 		if (aantal != other.aantal)
 			return false;
 		if (product == null) {

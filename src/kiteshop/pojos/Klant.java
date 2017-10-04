@@ -21,27 +21,6 @@ public class Klant {
     private String voornaam;
     private String tussenvoegsel;
     private String achternaam;
-    private String email;
-    private String telefoonnummer;
-
-    
-    
-    public String getEmail() {
-		return email;
-	}
-
-	public String getTelefoonnummer() {
-		return telefoonnummer;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public void setTelefoonnummer(String telefoonnummer) {
-		this.telefoonnummer = telefoonnummer;
-	}
-
 	
     public Klant() {
     }
@@ -80,7 +59,7 @@ public class Klant {
     
     @Override
 	public String toString(){
-    	return voornaam + " " +tussenvoegsel+" " +achternaam+" "+email+" " +telefoonnummer+" "+adres;
+    	return voornaam + " " +tussenvoegsel+" " +achternaam+" "+adres;
     }
 
 	public Klant(int klantID, Adres adres, String voornaam, String tussenvoegsel, String achternaam, String email,
@@ -90,8 +69,6 @@ public class Klant {
 		this.voornaam = voornaam;
 		this.tussenvoegsel = tussenvoegsel;
 		this.achternaam = achternaam;
-		this.email = email;
-		this.telefoonnummer = telefoonnummer;
 	}
 
 }
