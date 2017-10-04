@@ -61,7 +61,7 @@ public class AccountDAOTest {
         account.setGebruikersnaam("User1");
         account.setWachtwoord("WW1");
         AccountDAO instance = new AccountDAO();
-        instance.postNieuwAccount(account);
+        instance.createAccount(account);
         
         String expResult = "WW1";
         String result = new AccountDAO().givePassword("User1");
@@ -89,7 +89,7 @@ public class AccountDAOTest {
         System.out.println("postNieuwAccount");
         Account account = null;
         AccountDAO instance = new AccountDAO();
-        instance.postNieuwAccount(account);
+        instance.createAccount(account);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }

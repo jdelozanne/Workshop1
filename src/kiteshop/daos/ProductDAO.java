@@ -24,19 +24,19 @@ public class ProductDAO implements ProductDAOInterface {
     }
 
     /* (non-Javadoc)
-	 * @see kiteshop.daos.ProductDAOInterface#postNieuwProduct(kiteshop.pojos.Product)
+	 * @see kiteshop.daos.ProductDAOInterface#createProduct(kiteshop.pojos.Product)
 	 */
     @Override
-	public void postNieuwProduct(Product product) {
+	public void createProduct(Product product) {
         try {
             String sql = "INSERT INTO product"
-                    + "(idProduct, productnaam, omschrijving, prijs)"
+                    + "(idProduct, productnaam, prijs, voorraad)"
                     + "values (?,?,?,?)";
             this.statement = connection.prepareStatement(sql);
             statement.setInt(1, 0);
             statement.setString(2, product.getNaam());
-            statement.setString(3, product.getOmschrijving());
-            statement.setBigDecimal(4, product.getPrijs());
+            statement.setBigDecimal(3, product.getPrijs());
+            statement.setInt(4, product.getVoorraad());
 
             statement.execute();
 
@@ -45,6 +45,21 @@ public class ProductDAO implements ProductDAOInterface {
 
         }
 
+    }
+
+    @Override
+    public void readProduct(Product product) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void updateProduct(Product product) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void deleteProduct(Product product) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }

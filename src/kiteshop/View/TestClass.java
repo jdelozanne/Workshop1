@@ -18,6 +18,6 @@ public class TestClass {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-       new MenuProducten().maakNieuwProduct();
+       new MenuProducten().createProduct();
     }
 }

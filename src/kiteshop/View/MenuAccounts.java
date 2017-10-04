@@ -53,7 +53,7 @@ public class MenuAccounts {
         String wachtwoord = input.next();
         account.setWachtwoord(wachtwoord);
   
-        controller.addAccount(account);
+        controller.createAccount(account);
     }
 
     public void maakNieuwWachtwoord(Account account) {

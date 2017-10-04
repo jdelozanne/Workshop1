@@ -6,12 +6,14 @@ import kiteshop.pojos.Klant;
 
 public interface KlantDAOInterface {
 
-	void addKlant(Klant klant);
+    void createKlant(Klant klant);
 
-	void deleteKlant(Klant klant);
+    void readKlant(Klant klant);
 
-	void updateKlant(Klant klant);
+    void updateKlant(Klant klant);
 
-	ArrayList<Klant> showKlantenAchternaam(String achterNaam);
+    void deleteKlant(Klant klant);
+
+    ArrayList<Klant> readSelectedKlantenAchternaam(String a);
 
 }

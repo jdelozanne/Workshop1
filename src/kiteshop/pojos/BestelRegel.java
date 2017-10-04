@@ -37,9 +37,5 @@ public class BestelRegel {
 			return false;
 		return true;
 	}
-	
-	
-	
-	
 
 }

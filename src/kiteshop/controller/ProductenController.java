@@ -9,39 +9,32 @@ import kiteshop.pojos.Product;
 import kiteshop.test.ProjectLog;
 
 public class ProductenController {
-	private final Logger logger = ProjectLog.getLogger();
-	
-	ProductDAOInterface productDAO;
-	
-	
-	public ProductenController() {
-		productDAO = new ProductDAO();
-	}
 
-	
-	
+    private final Logger logger = ProjectLog.getLogger();
 
-	    public void addProduct(Product product) {
-	        productDAO.postNieuwProduct(product);
+    ProductDAOInterface productDAO;
 
-	    }
-	    
-	    public ArrayList<Product> showProducten() {
-	        // TODO Auto-generated method stub
-	        return null;
-	    }
-	    
-	    public void updateProduct(){
-	    	
-	    }
+    public ProductenController() {
+        productDAO = new ProductDAO();
+    }
 
-	    
-	    public void removeProduct(Product product) {
-	        logger.info("Product " + product + " wordt toegevoegd aan database");
+    public void createProduct(Product product) {
+        productDAO.createProduct(product);
 
-	    }
+    }
 
+    public ArrayList<Product> showProducten() {
+        // TODO Auto-generated method stub
+        return null;
+    }
 
-		
+    public void updateProduct() {
+
+    }
+
+    public void removeProduct(Product product) {
+        logger.info("Product " + product + " wordt toegevoegd aan database");
+
+    }
 
 }

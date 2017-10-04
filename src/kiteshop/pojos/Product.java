@@ -26,10 +26,6 @@ public class Product {
         return productID;
     }
 
-    public void setProductID(int productID) {
-        this.productID = productID;
-    }
-
     public Product(String naam) {
         this.naam = naam;
     }

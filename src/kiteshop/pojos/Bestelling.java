@@ -29,16 +29,12 @@ public class Bestelling {
         this.klant = klant;
     }
 
-    public void voegToe(BestelRegel b) {
+    public void addBestelRegel(BestelRegel b) {
         bestelling.add(b);
     }
 
     public int getBestellingID() {
         return bestellingID;
-    }
-
-    public void setBestellingID(int bestellingID) {
-        this.bestellingID = bestellingID;
     }
 
     public Klant getKlant() {

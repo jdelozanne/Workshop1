@@ -30,7 +30,7 @@ public class KlantDAOTest {
     }
 
     /**
-     * Test of addKlant method, of class KlantDAO.
+     * Test of createKlant method, of class KlantDAO.
      */
     @Test
     public void testAddKlant() {
@@ -53,10 +53,10 @@ public class KlantDAOTest {
         klant.setAdres(adres);
         
         KlantDAO instance = new KlantDAO();
-        instance.addKlant(klant);
+        instance.createKlant(klant);
         
         String expResult = klant.toString();
-        String result = instance.showKlantenAchternaam("Pelgrom").get(0).toString();
+        String result = instance.readSelectedKlantenAchternaam("Pelgrom").get(0).toString();
         
         System.out.println("Expected Result: " +expResult);
         System.out.println("Reasult" +result);
@@ -118,9 +118,9 @@ public class KlantDAOTest {
         
         
         KlantDAO instance = new KlantDAO();
-        instance.addKlant(klant);
+        instance.createKlant(klant);
         ArrayList<Klant> expResult = klantenlijst;
-        ArrayList<Klant> result = instance.showKlantenAchternaam(achterNaam);
+        ArrayList<Klant> result = instance.readSelectedKlantenAchternaam(achterNaam);
         System.out.println(expResult);
         System.out.println(result);
         

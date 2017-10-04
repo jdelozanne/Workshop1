@@ -20,7 +20,6 @@ public class AccountDAO implements AccountDAOInterface {
 
     Connection connection;
     PreparedStatement statement;
-    
     ResultSet result;
 
     public AccountDAO() {
@@ -28,10 +27,10 @@ public class AccountDAO implements AccountDAOInterface {
     }
 
     /* (non-Javadoc)
-	 * @see kiteshop.daos.AccountDAOInterface#postNieuwAccount(kiteshop.pojos.Account)
+	 * @see kiteshop.daos.AccountDAOInterface#createAccount(kiteshop.pojos.Account)
 	 */
     @Override
-	public void postNieuwAccount(Account account) {
+	public void createAccount(Account account) {
         try {
             String sql = "INSERT INTO account"
                     + "(accountID, gebruikersnaam, wachtwoord)"

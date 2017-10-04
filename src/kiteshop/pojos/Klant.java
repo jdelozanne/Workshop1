@@ -9,20 +9,16 @@ public class Klant {
 
     //ID hier al of pas in DAO, omdat ie daar wordt gegenereerd als primairy key?
     private int klantID;
-    public int getKlantID() {
-		return klantID;
-	}
-
-	public void setKlantID(int klantID) {
-		this.klantID = klantID;
-	}
-
-	private Adres adres;
+    private Adres adres;
     private String voornaam;
     private String tussenvoegsel;
     private String achternaam;
-	
+    
     public Klant() {
+    }
+    
+    public int getKlantID() {
+        return klantID;
     }
 
     public Adres getAdres() {
@@ -56,19 +52,10 @@ public class Klant {
     public void setAchternaam(String achternaam) {
         this.achternaam = achternaam;
     }
-    
-    @Override
-	public String toString(){
-    	return voornaam + " " +tussenvoegsel+" " +achternaam+" "+adres;
-    }
 
-	public Klant(int klantID, Adres adres, String voornaam, String tussenvoegsel, String achternaam, String email,
-			String telefoonnummer) {
-		this.klantID = klantID;
-		this.adres = adres;
-		this.voornaam = voornaam;
-		this.tussenvoegsel = tussenvoegsel;
-		this.achternaam = achternaam;
-	}
+    @Override
+    public String toString() {
+        return voornaam + " " + tussenvoegsel + " " + achternaam + " " + adres;
+    }
 
 }

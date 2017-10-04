@@ -6,7 +6,7 @@ import kiteshop.pojos.Account;
 
 public interface AccountDAOInterface {
 
-	void postNieuwAccount(Account account);
+	void createAccount(Account account);
 
 	String givePassword(String gebruiker);
 

@@ -4,6 +4,13 @@ import kiteshop.pojos.Product;
 
 public interface ProductDAOInterface {
 
-	void postNieuwProduct(Product product);
+	void createProduct(Product product);
+        
+        void readProduct(Product product);
+        
+        void updateProduct(Product product);
+        
+        void deleteProduct(Product product);
+        
 
 }

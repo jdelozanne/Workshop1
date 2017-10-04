@@ -31,14 +31,13 @@ public class MenuProducten {
         int keuze = input.nextInt();
         switch (keuze) {
             case 1:
-                maakNieuwProduct();
+                createProduct();
                 break;
             case 2:
-                wijzigenProduct();
+                updateProduct();
                 break;
             case 3:
-            	printProduct();
-            	verwijderenProduct();
+            	deleteProduct();
             	break;
             case 4:
             	break;
@@ -48,7 +47,7 @@ public class MenuProducten {
         }
     }
 
-    public void maakNieuwProduct() {
+    public void createProduct() {
     	Product product = new Product();
     	
     	System.out.println("geef productnaam: ");
@@ -56,11 +55,12 @@ public class MenuProducten {
     	String productnaam = input.nextLine();
     	product.setNaam(productnaam);
         
-    	System.out.println("geef omschrijving ");
+    	System.out.println("geef voorraad");
         
-    	String omschrijving = input.nextLine();
-    	product.setOmschrijving(omschrijving);
+    	int voorraad = input.nextInt();
+    	product.setVoorraad(voorraad);
         
+        input.nextLine();
     	
     	System.out.println("geef prijs ");
         BigDecimal prijs = input.nextBigDecimal();
@@ -72,21 +72,21 @@ public class MenuProducten {
 
     	// product.setVoorraad(voorraad); vooraad beheer optioneel??
 
-    	controller.addProduct(product);
+    	controller.createProduct(product);
 
 
     }
 
-    public static void printProduct() {
+    public static void readProduct() {
     	//print lijst met producten
     }
 
-    public static void wijzigenProduct() {
+    public void updateProduct() {
         //print lijst product en maak een keuze welk product je wilt wijzigen
         //als alleen de eigenaar mag wijzigen verifieren met een ww
     }
 
-    public static void verwijderenProduct() {
+    public void deleteProduct() {
         //print lijst product en maak een keuze welk product je wilt verwijderen
         //als alleen de eigenaar mag wijzigen verifieren met een ww
     }

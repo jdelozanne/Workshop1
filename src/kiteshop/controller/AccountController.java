@@ -8,15 +8,17 @@ import kiteshop.pojos.Account;
 import kiteshop.test.ProjectLog;
 
 public class AccountController {
+    
 	private final Logger logger = ProjectLog.getLogger();
 
-	
 	AccountDAOInterface accountDAO;
 	
+	public AccountController() {
+			accountDAO = new AccountDAO();
+		}
 	
-	
-	 public void addAccount(Account account) {
-	        accountDAO.postNieuwAccount(account);
+	 public void createAccount(Account account) {
+	        accountDAO.createAccount(account);
     }
 	
 	
@@ -29,16 +31,14 @@ public class AccountController {
 
 
 	 
-	 public void removeAccount(Account account) {
+	 public void deleteAccount(Account account) {
 	        // TODO Auto-generated method stub
 
 	    }
 	 
 	 
 	 
-	 public AccountController() {
-			accountDAO = new AccountDAO();
-		}
+	 
 
 
 

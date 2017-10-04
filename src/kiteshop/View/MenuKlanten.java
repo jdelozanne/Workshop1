@@ -32,10 +32,10 @@ public class MenuKlanten {
 
 		switch (keuze) {
 		case 1:
-			nieuweKlantMaken();
+			createKlant();
 			System.out.println("Wilt u nog een nieuwe klant maken J/N");
 			if(input.next().equalsIgnoreCase("J")){
-				nieuweKlantMaken();
+				createKlant();
 			} else {
 				start();
 			}
@@ -63,7 +63,7 @@ public class MenuKlanten {
 			}
 			break;
 		case 4:
-			controller.showKlanten();
+			controller.readKlanten();
 			start();
 			break;
 		case 5:
@@ -78,12 +78,13 @@ public class MenuKlanten {
 
 	
 
-	private void nieuweKlantMaken(){
+	private void createKlant(){
 		
 		// om toch het 'teveel strings in contructor' te vermijden, alles met setters gedaan
 		// neemt wel iets meer plaats in
 		
 		Klant klant = new Klant();
+                Adres adres = new Adres();
 
 		System.out.println("geef voornaam: ");
 		String voornaam = input.next();
@@ -97,15 +98,9 @@ public class MenuKlanten {
 		String achternaam = input.next();
 		klant.setAchternaam(achternaam);
 		
-		System.out.println("geef emailadres: ");
-		String email = input.next();
-		klant.setEmail(email);
-				
-		System.out.println("geef telefoon: ");
-		String telefoonnr = input.next();
-		klant.setTelefoonnummer(telefoonnr);
+		
 
-		Adres adres = new Adres();
+		
 
 		System.out.println("geef woonplaats: ");
 		String woonplaats = input.next();
@@ -125,10 +120,17 @@ public class MenuKlanten {
 		System.out.println("geef toevoeging: ");
 		String toevoeging = input.next();
 		adres.setToevoeging(toevoeging);
-		
+                
+		System.out.println("geef emailadres: ");
+		String email = input.next();
+		adres.setEmail(email);
+				
+		System.out.println("geef telefoon: ");
+		int telefoonnr = input.nextInt();
+		adres.setTelefoon(telefoonnr);
 		klant.setAdres(adres);
 		
-		controller.addKlant(klant);
+		controller.createKlant(klant);
 
 	}
 
@@ -168,7 +170,7 @@ public class MenuKlanten {
 		Klant choosenKlant = searchResult.get(input.nextInt()-1);
 		System.out.println("Weet u zeker dat u de volgende klant wil verwijderen: "+ choosenKlant + "J/N");
 		if(input.next().equalsIgnoreCase("J")){
-			controller.removeKlant(choosenKlant);
+			controller.deleteKlant(choosenKlant);
 
 		} else {
 			System.out.println("De klant is niet verwijderd");
@@ -190,21 +192,14 @@ public class MenuKlanten {
 	}
 
 
-
-	public static void printKlanten() {
+        //niet hier lijkt mij?
+	public void printKlanten() {
 		ArrayList<Klant> klantenlijst = new ArrayList<>();
 		for (Klant element : klantenlijst) {
 			System.out.println(element + "\n");
 		}
 	}
 
-	public static void wijzigenKlant() {
-		//klant kiezen om te wijzigen en dan gegevens wijzigen
-	}
-
-	public static void verwijderenKlant() {
-		
-	}
 	
 	public static void main (String args[]){
 		new MenuKlanten().klantVerwijderenAchterNaam();

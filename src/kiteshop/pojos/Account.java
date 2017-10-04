@@ -17,8 +17,6 @@ public class Account {
     private String gebruikersnaam;
     private String wachtwoord;
     private AccountType type;
-    
-    
 
     public Account() {
     }
