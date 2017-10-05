@@ -5,18 +5,64 @@
  */
 package kiteshop.daos;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import kiteshop.pojos.BestelRegel;
+import kiteshop.pojos.Product;
+
 /**
  *
  * @author julia
  */
-public interface BestelRegelDAO {
+public class BestelRegelDAO implements BestelRegelDAOInterface {
     
-    void createBestelRegel(BestelRegel regel);
+    Connection connection;
+    PreparedStatement statement;
 
-    void readBestelRegel(BestelRegel regel);
-
-    void updateBestelRegel(BestelRegel regel);
-
-    void deleteBestelRegel(BestelRegel regel);
     
+    BestelRegelDAO(){
+        connection = DBConnect.getConnection();
+    }
+    
+
+
+    @Override
+    public void createBestelRegel(BestelRegel regel) {
+       try {
+            String sql = "INSERT INTO Bestel_regel"
+                    + "(bestel_regelID, productID, aantal)"
+                    + "values (?,?,?)";
+            this.statement = connection.prepareStatement(sql);
+
+            statement.setInt(1, 0);
+            statement.setInt(2, regel.getProduct().getProductID());
+            statement.setInt(3, regel.getAantal());
+
+            statement.execute();
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+
+        }
+    }
+
+    @Override
+    public void readBestelRegel(BestelRegel regel) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void updateBestelRegel(BestelRegel regel) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void deleteBestelRegel(BestelRegel regel) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+  
+    
+      
 }

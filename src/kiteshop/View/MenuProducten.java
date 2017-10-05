@@ -77,8 +77,8 @@ public class MenuProducten {
 
     }
 
-    public static void readProduct() {
-    	//print lijst met producten
+    public void readProduct() {
+    	   System.out.println("Geef de naam het het product");
     }
 
     public void updateProduct() {

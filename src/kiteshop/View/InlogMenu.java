@@ -41,7 +41,7 @@ public class InlogMenu {
              
       
             if(controller.checkLogin(user, ww)){
-        	new Startscherm().start();
+        	new HoofdMenu().start();
         } else {
         	System.out.println("Onjuiste gegevens, probeer opnieuw");
             inloggen();

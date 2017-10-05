@@ -42,3 +42,9 @@ okt 05, 2017 9:03:13 AM kiteshop.controller.KlantenController createKlant
 INFO: Klant julia de lozanne amsterdam 1093 wagenaar 0 geen wordt toegevoegd aan database
 okt 05, 2017 9:04:53 AM kiteshop.controller.KlantenController createKlant
 INFO: Klant julia de loxanne as 1093 wagenaar 0 geen wordt toegevoegd aan database
+okt 05, 2017 10:33:54 AM kiteshop.controller.KlantenController createKlant
+INFO: Klant julia de lozanne ams 1093 wage 0 geen wordt toegevoegd aan database
+okt 05, 2017 12:02:00 PM kiteshop.View.InlogMenu inloggen
+INFO: Gebruikersnaam en wachtwoord ingegeven
+okt 05, 2017 12:02:00 PM kiteshop.controller.AccountController checkLogin
+INFO: Gebruikers naam :julia Wachtwoord :geheimJuiste wachtwoord :null

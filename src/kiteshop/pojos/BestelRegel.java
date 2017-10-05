@@ -2,13 +2,31 @@ package kiteshop.pojos;
 
 public class BestelRegel {
 	
-	int aantal;
-	Product product;
+	private int aantal;
+	private Product product;
 	
 	public BestelRegel(Product product, int aantal) {
 		this.product = product;
                 this.aantal = aantal;
 	}
+
+    public int getAantal() {
+        return aantal;
+    }
+
+    public void setAantal(int aantal) {
+        this.aantal = aantal;
+    }
+
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
+    }
+        
+        
 
 	@Override
 	public int hashCode() {

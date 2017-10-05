@@ -63,7 +63,7 @@ public class Bestelling {
     
     public static void main(String[] args) {
         Klant klant = new Klant();
-        k
+        
     }
 
 }

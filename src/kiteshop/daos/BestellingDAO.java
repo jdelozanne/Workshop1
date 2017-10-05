@@ -34,7 +34,7 @@ public class BestellingDAO implements BestellingDAOInterface {
             this.statement = connection.prepareStatement(sql);
             statement.setInt(1, 0);
             statement.setInt(2, bestelling.getKlant().getKlantID());
-            statement.setString(3, bestelling.getBestelling().toString());
+            statement.setInt(3, bestelling.getBestelling().toString());
             statement.setBigDecimal(4, bestelling.getTotaalprijs());
 
             statement.execute();

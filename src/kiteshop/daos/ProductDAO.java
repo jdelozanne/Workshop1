@@ -7,6 +7,7 @@ package kiteshop.daos;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import kiteshop.pojos.Product;
 
@@ -18,6 +19,7 @@ public class ProductDAO implements ProductDAOInterface {
 
     Connection connection;
     PreparedStatement statement;
+    ResultSet result;
 
     public ProductDAO() {
         this.connection = DBConnect.getConnection();
@@ -25,20 +27,21 @@ public class ProductDAO implements ProductDAOInterface {
 
     /* (non-Javadoc)
 	 * @see kiteshop.daos.ProductDAOInterface#createProduct(kiteshop.pojos.Product)
-	 */
+     */
     @Override
-	public void createProduct(Product product) {
+    public void createProduct(Product product) {
         try {
             String sql = "INSERT INTO product"
-                    + "(idProduct, productnaam, prijs, voorraad)"
+                    + "(idProduct, productnaam, voorraad, prijs)"
                     + "values (?,?,?,?)";
             this.statement = connection.prepareStatement(sql);
             statement.setInt(1, 0);
             statement.setString(2, product.getNaam());
-            statement.setBigDecimal(3, product.getPrijs());
-            statement.setInt(4, product.getVoorraad());
-
+            statement.setInt(3, product.getVoorraad());
+            statement.setBigDecimal(4, product.getPrijs());
             statement.execute();
+            
+            System.out.println("Product " + product.getNaam() + "is succesvol teogevoegd");
 
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -48,8 +51,23 @@ public class ProductDAO implements ProductDAOInterface {
     }
 
     @Override
-    public void readProduct(Product product) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public int readProduct(Product product) {
+        int id = 0;
+        try {
+            String query = "Select productID from Product where productnaam = ?";
+            this.statement = connection.prepareStatement(query);
+            statement.setString(1, product.getNaam());
+
+            result = statement.executeQuery();
+
+            id = result.getInt(1);
+
+            connection.close();
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return id;
     }
 
     @Override
