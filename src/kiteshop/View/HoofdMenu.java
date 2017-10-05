@@ -44,6 +44,7 @@ public class HoofdMenu {
                 break;
             case 3:
                 System.out.println("naar menu bestellingen");
+                new MenuBestellingen().start();
                 
                 break;
             case 4:

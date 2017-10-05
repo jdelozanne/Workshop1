@@ -21,7 +21,7 @@ public class BestelRegelDAO implements BestelRegelDAOInterface {
     PreparedStatement statement;
 
     
-    BestelRegelDAO(){
+    public BestelRegelDAO(){
         connection = DBConnect.getConnection();
     }
     

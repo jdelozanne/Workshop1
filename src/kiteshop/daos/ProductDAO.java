@@ -41,6 +41,7 @@ public class ProductDAO implements ProductDAOInterface {
             statement.setBigDecimal(4, product.getPrijs());
             statement.execute();
             
+            product.setProductID(result.getInt(1));
             System.out.println("Product " + product.getNaam() + "is succesvol teogevoegd");
 
         } catch (SQLException ex) {
@@ -51,12 +52,12 @@ public class ProductDAO implements ProductDAOInterface {
     }
 
     @Override
-    public int readProduct(Product product) {
+    public int readProduct(String naamproduct) {
         int id = 0;
         try {
             String query = "Select productID from Product where productnaam = ?";
             this.statement = connection.prepareStatement(query);
-            statement.setString(1, product.getNaam());
+            statement.setString(1, naamproduct);
 
             result = statement.executeQuery();
 

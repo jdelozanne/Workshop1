@@ -7,6 +7,10 @@ package kiteshop.View;
 
 import java.util.Scanner;
 import kiteshop.controller.BestellingenController;
+import kiteshop.daos.BestelRegelDAO;
+import kiteshop.pojos.BestelRegel;
+import kiteshop.pojos.Bestelling;
+import kiteshop.pojos.Product;
 
 /**
  *
@@ -32,6 +36,26 @@ public class MenuBestellingen {
                 }
 }
     public void createBestelling(){
-        Bestel
+        //vraag om toe te voegen product
+        System.out.println("Welk product wilt u toevoegen aan de bestelling");
+        //verwerk input productnaam naar productID
+       Product choosenProduct = new Product();
+       String naamproduct = input.nextLine();
+       input.nextLine();
+        //Vraag om het aantal van dit specifieke product
+        System.out.println("Welk aantal wilt u van dit specifieke product toevoegen aan de bestelling?");
+        //verwerk input van aantal int
+        int aantal = input.nextInt();
+        //nieuwe regel instantieren
+        BestelRegel bestelregel = new BestelRegel(choosenProduct, aantal);
+        //nieuwe bestelling instantieren
+        Bestelling bestelling = new Bestelling();
+        //bestelregel toevoegen aan bestelling
+        bestelling.addBestelRegel(bestelregel);
+        BestelRegelDAO b = new BestelRegelDAO();
+        b.createBestelRegel(bestelregel);
+        
+        
+        
     }
 }

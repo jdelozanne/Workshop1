@@ -21,9 +21,14 @@ public class Product {
 
     public Product() {
     }
+    
 
     public int getProductID() {
         return productID;
+    }
+    
+    public void setProductID(int productID){
+        this.productID = productID;
     }
 
     public Product(String naam) {
