@@ -39,7 +39,7 @@ public class KlantDAO implements KlantDAOInterface {
     public void createKlant(Klant klant) {
         try {
             String sql = "INSERT INTO klant" + "(KlantID, voornaam, tussenvoegsel, achternaam, "
-                    + "emailadres, straatnaam, huisnummer, toevoeging, postcode, plaats, telefoon)" 
+                    + "emailadres, straatnaam, huisnummer, toevoeging, postcode, plaats, telefoonnummer)" 
                     + "values (?,?,?,?,?,?,?,?,?,?,?)";
             this.statement = connection.prepareStatement(sql);
 

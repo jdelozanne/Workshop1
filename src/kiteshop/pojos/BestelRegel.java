@@ -38,4 +38,10 @@ public class BestelRegel {
 		return true;
 	}
 
+    @Override
+    public String toString() {
+        
+        return "BestelRegel{" + "aantal=" + aantal + ", product=" + product + '}';
+    }
+
 }

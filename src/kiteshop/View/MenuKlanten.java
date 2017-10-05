@@ -202,7 +202,7 @@ public class MenuKlanten {
 
 	
 	public static void main (String args[]){
-		new MenuKlanten().klantVerwijderenAchterNaam();
+		new MenuKlanten().createKlant();
 	}
 	
 	

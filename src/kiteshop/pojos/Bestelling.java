@@ -60,5 +60,10 @@ public class Bestelling {
     public void setTotaalprijs(BigDecimal totaalprijs) {
         this.totaalprijs = totaalprijs;
     }
+    
+    public static void main(String[] args) {
+        Klant klant = new Klant();
+        k
+    }
 
 }
