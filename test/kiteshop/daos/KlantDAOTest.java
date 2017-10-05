@@ -8,6 +8,7 @@ package kiteshop.daos;
 import java.util.ArrayList;
 import kiteshop.pojos.*;
 import org.junit.AfterClass;
+import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -19,6 +20,19 @@ import static org.junit.Assert.*;
 public class KlantDAOTest {
     
     public KlantDAOTest() {
+    }
+    
+    @Before
+    public void initializeDatabase() {        
+        new DatabaseTest().initializeDatabase();
+        
+        
+        
+      
+       
+        
+                
+        
     }
     
     @BeforeClass
