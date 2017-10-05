@@ -78,12 +78,12 @@ public class DatabaseTest {
                 + "  INDEX `fk_bestel_regel_product1_idx` (`product_idProduct` ASC),\n"
                 + "  CONSTRAINT `fk_Bestel_regel_Bestelling1`\n"
                 + "    FOREIGN KEY (`Bestelling_bestellingID`)\n"
-                + "    REFERENCES `juliaworkshop`.`bestelling` (`bestellingID`)\n"
+                + "    REFERENCES `" + DATABASE + "`.`bestelling` (`bestellingID`)\n"
                 + "    ON DELETE NO ACTION\n"
                 + "    ON UPDATE NO ACTION,\n"
                 + "  CONSTRAINT `fk_bestel_regel_product1`\n"
                 + "    FOREIGN KEY (`product_idProduct`)\n"
-                + "    REFERENCES `juliaworkshop`.`product` (`idProduct`)\n"
+                + "    REFERENCES `" + DATABASE + "`.`product` (`idProduct`)\n"
                 + "    ON DELETE NO ACTION\n"
                 + "    ON UPDATE NO ACTION)\n"
                 + "ENGINE = InnoDB";
@@ -96,7 +96,7 @@ public class DatabaseTest {
                 + "  INDEX `klantID_idx` (`klantID` ASC),\n"
                 + "  CONSTRAINT `klantID`\n"
                 + "    FOREIGN KEY (`klantID`)\n"
-                + "    REFERENCES `juliaworkshop`.`klant` (`KlantID`)\n"
+                + "    REFERENCES `" + DATABASE + "`.`klant` (`KlantID`)\n"
                 + "    ON DELETE NO ACTION\n"
                 + "    ON UPDATE NO ACTION)\n"
                 + "ENGINE = InnoDB";
