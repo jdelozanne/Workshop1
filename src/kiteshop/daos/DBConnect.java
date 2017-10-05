@@ -25,7 +25,7 @@ public class DBConnect {
         try {
             //load properties file
             Properties props = new Properties();
-            props.load(new FileInputStream("src/kiteshop/daos/connect.properties"));
+            props.load(new FileInputStream("C:\\Users\\julia\\Documents\\NetBeansProjects\\Kiteshop\\src\\kiteshop\\daos\\connect.properties"));
             //read props
             String probsUser = props.getProperty("user");
             String probsWW = props.getProperty("password");
