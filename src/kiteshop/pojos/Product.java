@@ -22,6 +22,9 @@ public class Product {
     public Product() {
     }
     
+    public Product(String naam) {
+        this.naam = naam;
+    }
 
     public int getProductID() {
         return productID;
@@ -29,11 +32,7 @@ public class Product {
     
     public void setProductID(int productID){
         this.productID = productID;
-    }
-
-    public Product(String naam) {
-        this.naam = naam;
-    }
+    }   
 
     public String getNaam() {
         return naam;

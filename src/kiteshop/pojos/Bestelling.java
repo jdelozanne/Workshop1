@@ -65,5 +65,14 @@ public class Bestelling {
         Klant klant = new Klant();
         
     }
+    
+    public BigDecimal calculatePrijs() {
+        BigDecimal result;
+        for(BestelRegel b : bestelling){
+            BigDecimal x = new BigDecimal(b.getAantal()).multiply(b.getProduct().getPrijs());
+            result = x.add(x);
+        }
+        return totaalprijs;
+    }
 
 }

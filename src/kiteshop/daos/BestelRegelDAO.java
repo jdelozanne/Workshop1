@@ -48,8 +48,8 @@ public class BestelRegelDAO implements BestelRegelDAOInterface {
     }
 
     @Override
-    public void readBestelRegel(BestelRegel regel) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void readBestelRegel(BestelRegelID regel) {
+       
     }
 
     @Override

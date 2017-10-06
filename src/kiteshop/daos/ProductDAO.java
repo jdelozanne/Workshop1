@@ -52,23 +52,26 @@ public class ProductDAO implements ProductDAOInterface {
     }
 
     @Override
-    public int readProduct(String naamproduct) {
-        int id = 0;
+    public Product readProduct(String productnaam) {
+        Product p = new Product();
         try {
-            String query = "Select productID from Product where productnaam = ?";
+            String query = "Select * from Product where productnaam = ?";
             this.statement = connection.prepareStatement(query);
-            statement.setString(1, naamproduct);
+            statement.setString(1, productnaam);
 
             result = statement.executeQuery();
 
-            id = result.getInt(1);
+            p.setProductID(result.getInt(1));
+            p.setNaam(result.getString(2));
+            p.setPrijs(result.getBigDecimal(3));
+            p.setVoorraad(result.getInt(4));
 
             connection.close();
 
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
-        return id;
+        return p;
     }
 
     @Override

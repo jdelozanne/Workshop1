@@ -6,7 +6,7 @@ public interface ProductDAOInterface {
 
 	void createProduct(Product product);
         
-        int readProduct(Product product);
+        Product readProduct(String productnaam);
         
         void updateProduct(Product product);
         
