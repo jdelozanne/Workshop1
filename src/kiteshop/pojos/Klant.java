@@ -7,7 +7,7 @@ package kiteshop.pojos;
 
 public class Klant {
 
-    //ID hier al of pas in DAO, omdat ie daar wordt gegenereerd als primairy key?
+    
     private int klantID;
     private Adres adres;
     private String voornaam;

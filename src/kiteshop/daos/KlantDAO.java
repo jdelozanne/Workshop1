@@ -63,22 +63,24 @@ public class KlantDAO implements KlantDAOInterface {
     }
 
     
+    @Override
     public Klant readKlant(String achternaam) {
         Klant k = new Klant();
         try {
-            String query = "Select * from Klant where achternaam = ?";
+            String query = "Select * from klant where achternaam = ?";
             this.statement = connection.prepareStatement(query);
             statement.setString(1, achternaam);
 
             result = statement.executeQuery();
+            
+            while(result.next()){
 
             k.setKlantID(result.getInt(1));
             k.setVoornaam(result.getString(2));
             k.setTussenvoegsel(result.getString(3));
             k.setAchternaam(result.getString(4));
-            
+            }
 
-            connection.close();
 
         } catch (SQLException ex) {
             ex.printStackTrace();

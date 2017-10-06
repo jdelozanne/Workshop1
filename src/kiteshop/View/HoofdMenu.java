@@ -72,5 +72,7 @@ public class HoofdMenu {
     
     public static void main(String[] args) {
         new HoofdMenu().start();
+                
+                
     }
 }

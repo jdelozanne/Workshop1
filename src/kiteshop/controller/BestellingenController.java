@@ -19,7 +19,7 @@ public class BestellingenController {
     }
 
     public void createBestelling(Bestelling bestelling) {
-        // TODO Auto-generated method stub
+        bestellingDAO.createBestelling(bestelling);
     }
 
     public ArrayList<Bestelling> showSelectedBestellingen() {
