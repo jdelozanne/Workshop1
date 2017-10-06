@@ -8,8 +8,12 @@ package kiteshop.daos;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.logging.Logger;
+
+import kiteshop.pojos.Klant;
 import kiteshop.test.ProjectLog;
+import testConnection.DBConnectInit;
 
 /**
  *
@@ -22,6 +26,7 @@ public class DatabaseTest {
     Connection connection;
 
     public DatabaseTest() {
+    	DBConnect.setPathOfActivePropopertyFiletoTest();	
         this.connection = DBConnect.getConnection();
     }
 
@@ -101,7 +106,8 @@ public class DatabaseTest {
 
         try {
 
-            Statement stat = connection.createStatement();
+        	Connection initConnection = DBConnectInit.getConnection();
+            Statement stat = initConnection.createStatement();
          // Executes the given SQL statement, which may be an INSERT, UPDATE, or DELETE statement or an SQL statement that returns nothing, such as an SQL DDL statement. ExecuteQuery kan niet gebruikt worden voor DDL statements
           
             stat.executeUpdate(dropDatabase);
@@ -127,7 +133,7 @@ public class DatabaseTest {
     	// Prepare the SQL statements to insert the test data into the DATABASE
     	String insert_account = "INSERT INTO `" + DATABASE + "`.`account` (`gebruikersnaam`, `wachtwoord`) VALUES ('Steef2', 'Bier2');";
     	String insert_product = "INSERT INTO `" + DATABASE + "`.`product` (`idProduct`, `productnaam`, `omschrijving`, `prijs`) VALUES ('1', 'Cabrinha Drifter', 'Cabrinha Drifter 2017 Kite Only Red/Blue - 4,5 meter', '719.00'), ('2', 'Cabrinha Chaos', 'Cabrinha Chaos 2017 Kite Only Yellow/Orange - 5,5 meter', '719.00'),('3', 'Brunotti Virtuoso', 'Brunotti Dimension Kiteboard 136 (model 2015)', '399.00');";
-    	String insert_klant = "INSERT INTO `" + DATABASE + "`.`klant` (`KlantID`, `voornaam`, `achternaam`, `emailadres`, `straatnaam`, `huisnummer`, `postcode`, `plaats`, `telefoonnummer`) VALUES ('1', 'Steef', 'Pelgrom', 'stevey@hotmail.com', 'Willem de Zuiperlaan', '38', '5034KL', 'Tilburg', '06-56847965');";
+    	String insert_klant = "INSERT INTO `" + DATABASE + "`.`klant` (`KlantID`, `voornaam`, `achternaam`, `emailadres`, `straatnaam`, `huisnummer`, `postcode`, `plaats`, `telefoonnummer`) VALUES ('1', 'Steef', 'Pelgrom', 'stevey@hotmail.com', 'Hendriklaan', '38', '5034KL', 'Tilburg', '06-56847965');";
     	String insert_bestelling = "INSERT INTO `" + DATABASE + "`.`bestelling` (`bestellingID`, `klantID`) VALUES ('1', '1');";
     	String insert_bestelregel = "INSERT INTO `" + DATABASE + "`.`bestel_regel` (`bestel_regelID`, `aantal`, `Bestelling_bestellingID`, `product_idProduct`) VALUES ('1', '4', '1', '2'), ('2', '1', '1', '2');";
     	
@@ -140,13 +146,30 @@ public class DatabaseTest {
             stat.executeUpdate(insert_account);
             stat.executeUpdate(insert_product);
             stat.executeUpdate(insert_klant);
-            stat.executeUpdate(insert_bestelling);
-            stat.executeUpdate(insert_bestelregel);
+            //stat.executeUpdate(insert_bestelling);
+            //stat.executeUpdate(insert_bestelregel);
           
 
         } catch (SQLException ex) {
             logger.info("SQLException" + ex);
         }
     }
+    
+    public static void main(String args[]){
+    	
+    	
+    	
+    	new DatabaseTest().initializeDatabase();
+    	new DatabaseTest().populateDatabase();
+    	
+    	KlantDAO klantDAO = new KlantDAO();
+    	
+    	logger.info("Beginning klantDAO readselectedklantenAchternaam");
+    	ArrayList<Klant> testKlant = klantDAO.readSelectedKlantenAchternaam("Pelgrom");
+    	System.out.println(testKlant);
+    	
+    	
+    }
+    	
 
 }
