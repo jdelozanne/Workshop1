@@ -29,13 +29,14 @@ public class Bestelling {
         this.klant = klant;
     }
 
-    public void addBestelRegel(BestelRegel b) {
-        bestelling.add(b);
-    }
-
     public int getBestellingID() {
         return bestellingID;
     }
+
+    public void setBestellingID(int bestellingID) {
+        this.bestellingID = bestellingID;
+    }
+    
 
     public Klant getKlant() {
         return klant;
@@ -61,18 +62,20 @@ public class Bestelling {
         this.totaalprijs = totaalprijs;
     }
     
+    public void addBestelRegel(BestelRegel b) {
+        bestelling.add(b);
+    }
     public static void main(String[] args) {
         Klant klant = new Klant();
         
     }
     
     public BigDecimal calculatePrijs() {
-        BigDecimal result;
+        BigDecimal result = null;
         for(BestelRegel b : bestelling){
-            BigDecimal x = new BigDecimal(b.getAantal()).multiply(b.getProduct().getPrijs());
-            result = x.add(x);
+            result = new BigDecimal(b.getAantal()).multiply(b.getProduct().getPrijs());
         }
-        return totaalprijs;
+        return this.totaalprijs = result;
     }
 
 }

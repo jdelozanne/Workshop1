@@ -15,7 +15,7 @@ public interface BestelRegelDAOInterface {
     
     void createBestelRegel(BestelRegel regel);
 
-    void readBestelRegel(BestelRegel regel);
+    BestelRegel readBestelRegel(int bestelRegelID);
 
     void updateBestelRegel(BestelRegel regel);
 

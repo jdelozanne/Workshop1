@@ -48,3 +48,17 @@ okt 05, 2017 12:02:00 PM kiteshop.View.InlogMenu inloggen
 INFO: Gebruikersnaam en wachtwoord ingegeven
 okt 05, 2017 12:02:00 PM kiteshop.controller.AccountController checkLogin
 INFO: Gebruikers naam :julia Wachtwoord :geheimJuiste wachtwoord :null
+okt 06, 2017 10:26:03 AM kiteshop.daos.DatabaseTest initializeDatabase
+INFO: Entering initializeDatabase()
+okt 06, 2017 10:26:05 AM kiteshop.daos.DatabaseTest initializeDatabase
+INFO: Entering initializeDatabase()
+okt 06, 2017 10:26:07 AM kiteshop.daos.DatabaseTest initializeDatabase
+INFO: Entering initializeDatabase()
+okt 06, 2017 10:26:09 AM kiteshop.daos.DatabaseTest initializeDatabase
+INFO: Entering initializeDatabase()
+okt 06, 2017 10:26:11 AM kiteshop.daos.DatabaseTest initializeDatabase
+INFO: Entering initializeDatabase()
+okt 06, 2017 12:52:56 PM kiteshop.controller.KlantenController createKlant
+INFO: Klant klantID: 0 ju de lo wordt toegevoegd aan database
+okt 06, 2017 12:53:25 PM kiteshop.controller.KlantenController createKlant
+INFO: Klant klantID: 0 d de d wordt toegevoegd aan database

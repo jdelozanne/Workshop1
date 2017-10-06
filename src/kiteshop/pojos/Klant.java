@@ -20,6 +20,10 @@ public class Klant {
     public int getKlantID() {
         return klantID;
     }
+    
+    public void setKlantID(int id){
+        this.klantID = id;
+    }
 
     public Adres getAdres() {
         return adres;
@@ -55,7 +59,7 @@ public class Klant {
 
     @Override
     public String toString() {
-        return voornaam + " " + tussenvoegsel + " " + achternaam + " " + adres;
+        return "klantID: " + klantID + " naam " + voornaam + " " + tussenvoegsel + " " + achternaam;
     }
 
 }

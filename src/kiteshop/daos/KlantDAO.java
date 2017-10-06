@@ -62,9 +62,28 @@ public class KlantDAO implements KlantDAOInterface {
         }
     }
 
-    @Override
-    public void readKlant(Klant klant) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    
+    public Klant readKlant(String achternaam) {
+        Klant k = new Klant();
+        try {
+            String query = "Select * from Klant where achternaam = ?";
+            this.statement = connection.prepareStatement(query);
+            statement.setString(1, achternaam);
+
+            result = statement.executeQuery();
+
+            k.setKlantID(result.getInt(1));
+            k.setVoornaam(result.getString(2));
+            k.setTussenvoegsel(result.getString(3));
+            k.setAchternaam(result.getString(4));
+            
+
+            connection.close();
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return k;
     }
 
     @Override
@@ -159,9 +178,40 @@ public class KlantDAO implements KlantDAOInterface {
         }
         return selectionKlanten;
     }
+    
+    @Override
+    public void readAllKlanten(){
+        ArrayList <Klant> allKlanten = new ArrayList<>();
+        try {
+            statement = connection.prepareStatement("select * from klant");
+            
+            result = statement.executeQuery();
+            
+            while(result.next()){
+                Klant k = new Klant();
+                k.setKlantID(result.getInt(1));
+                k.setTussenvoegsel(result.getString(2));
+                k.setAchternaam(result.getString(3));
+        
+            allKlanten.add(k);
+            }
+        
+    }catch(SQLException ex){
+        
+    }
+        displayKlanten(allKlanten);
+        
+    }
+    
+    public void displayKlanten(ArrayList <Klant> klanten){
+        for(Klant k : klanten){
+            System.out.println(k.toString());
+        }
+    }
 
     public static void main(String args[]) {
         new KlantDAO().readSelectedKlantenAchternaam("Lol2");
     }
+
 
 }

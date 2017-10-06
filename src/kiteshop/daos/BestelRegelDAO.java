@@ -7,6 +7,7 @@ package kiteshop.daos;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import kiteshop.pojos.BestelRegel;
 import kiteshop.pojos.Product;
@@ -19,25 +20,25 @@ public class BestelRegelDAO implements BestelRegelDAOInterface {
     
     Connection connection;
     PreparedStatement statement;
+    ResultSet result;
 
     
     public BestelRegelDAO(){
         connection = DBConnect.getConnection();
     }
-    
-
 
     @Override
     public void createBestelRegel(BestelRegel regel) {
        try {
             String sql = "INSERT INTO Bestel_regel"
-                    + "(bestel_regelID, productID, aantal)"
-                    + "values (?,?,?)";
+                    + "(bestel_regelID, productID, aantal, bestellingID)"
+                    + "values (?,?,?,?)";
             this.statement = connection.prepareStatement(sql);
 
             statement.setInt(1, 0);
             statement.setInt(2, regel.getProduct().getProductID());
             statement.setInt(3, regel.getAantal());
+            statement.setInt(4, regel.getBestelling().getBestellingID());
 
             statement.execute();
 
@@ -48,8 +49,28 @@ public class BestelRegelDAO implements BestelRegelDAOInterface {
     }
 
     @Override
-    public void readBestelRegel(BestelRegelID regel) {
-       
+    public BestelRegel readBestelRegel(int bestellingID) {
+        
+        BestelRegel r = new BestelRegel();
+        try {
+            String query = "Select * from BestelRegel where bestellingID = ?";
+            this.statement = connection.prepareStatement(query);
+            statement.setInt(1, bestellingID);
+
+            result = statement.executeQuery();
+
+            r.setBestelRegelID(result.getInt(1));
+            r.getProduct().setProductID(result.getInt(2));
+            r.setAantal(result.getInt(3));
+            r.getBestelling().setBestellingID(result.getInt(4));
+
+            connection.close();
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return r;
+      
     }
 
     @Override

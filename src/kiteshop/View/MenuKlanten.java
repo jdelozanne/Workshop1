@@ -63,8 +63,8 @@ public class MenuKlanten {
 			}
 			break;
 		case 4:
-			controller.readKlanten();
-			start();
+			readKlanten();
+			
 			break;
 		case 5:
 			break; 
@@ -133,6 +133,10 @@ public class MenuKlanten {
 		controller.createKlant(klant);
 
 	}
+        
+        public void readKlanten(){
+            controller.showAllKlanten();
+        }
 
 	private void klantWijzigenAchternaam() {
 		System.out.println("Geef alstublieft de achternaam van de klant die u wilt wijzigen?");
@@ -202,7 +206,7 @@ public class MenuKlanten {
 
 	
 	public static void main (String args[]){
-		new MenuKlanten().createKlant();
+		new MenuKlanten().start();
 	}
 	
 	

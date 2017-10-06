@@ -29,14 +29,12 @@ public class BestellingDAO implements BestellingDAOInterface {
     public void createBestelling(Bestelling bestelling) {
         try {
             String sql = "INSERT INTO bestelling"
-                    + "(bestellingID, klantID, bestel_regelID, totaalprijs)"
-                    + "values (?,?,?,?)";
+                    + "(bestellingID, klantID)"
+                    + "values (?,?)";
             this.statement = connection.prepareStatement(sql);
             statement.setInt(1, 0);
             statement.setInt(2, bestelling.getKlant().getKlantID());
-            statement.setInt(3, bestelling.getBestelling().toString());
-            statement.setBigDecimal(4, bestelling.getTotaalprijs());
-
+            
             statement.execute();
 
         } catch (SQLException ex) {

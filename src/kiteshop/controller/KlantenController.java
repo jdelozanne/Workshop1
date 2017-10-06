@@ -23,9 +23,9 @@ public class KlantenController {
         klantDAO.createKlant(klant);
     }
 
-    public ArrayList<Klant> readKlanten() {
-        // TODO Auto-generated method stub
-        return null;
+    public Klant readKlanten(String achternaam) {
+        
+        return klantDAO.readKlant(achternaam);
     }
 
     public ArrayList<Klant> showKlantenAchternaam(String achternaam) {
@@ -40,8 +40,10 @@ public class KlantenController {
     public void deleteKlant(Klant klant) {
         logger.info("Deleting " + klant);
         klantDAO.deleteKlant(klant);
-        
-
+    }
+    
+    public void showAllKlanten(){
+        klantDAO.readAllKlanten();
     }
 
 }

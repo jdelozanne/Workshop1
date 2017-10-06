@@ -3,8 +3,19 @@ package kiteshop.pojos;
 public class BestelRegel {
 
     private int bestelRegelID;
-    private int aantal;
     private Product product;
+    private int aantal;
+    private Bestelling bestelling;
+
+    /**
+     *
+     */
+    public BestelRegel(){
+    }
+    
+    public BestelRegel(Bestelling bestelling) {
+        this.bestelling = bestelling;
+    }
 
     public BestelRegel(Product product, int aantal) {
         this.product = product;
@@ -33,6 +44,14 @@ public class BestelRegel {
 
     public void setAantal(int aantal) {
         this.aantal = aantal;
+    }
+
+    public Bestelling getBestelling() {
+        return bestelling;
+    }
+
+    public void setBestelling(Bestelling bestelling) {
+        this.bestelling = bestelling;
     }
 
     @Override
