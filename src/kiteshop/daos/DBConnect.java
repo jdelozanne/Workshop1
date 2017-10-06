@@ -17,6 +17,8 @@ public class DBConnect {
 
     private Connection connection;
     private static final DBConnect INSTANCE = new DBConnect();
+    
+    private static String pathOfActivePropopertyFile = "C:\\Users\\julia\\Documents\\NetBeansProjects\\Kiteshop\\src\\kiteshop\\daos\\connect.properties";
 
     private DBConnect() {
     }
@@ -25,7 +27,7 @@ public class DBConnect {
         try {
             //load properties file
             Properties props = new Properties();
-            props.load(new FileInputStream("C:\\Users\\julia\\Documents\\NetBeansProjects\\Kiteshop\\src\\kiteshop\\daos\\connect.properties"));
+            props.load(new FileInputStream(pathOfActivePropopertyFile));
             //read props
             String probsUser = props.getProperty("user");
             String probsWW = props.getProperty("password");
@@ -49,4 +51,10 @@ public class DBConnect {
         }
         return INSTANCE.connection;
     }
+
+    //Toegevoegd om voor het testen het pad te veranderen naar het de testdatabase, zodat de DAOs hier verbinding op maken
+	public static void setPathOfActivePropopertyFiletoTest() {
+		pathOfActivePropopertyFile = "C:\\Users\\julia\\Documents\\NetBeansProjects\\Kiteshop\\src\\kiteshop\\daos\\connectTestDB.properties";
+		
+	}
 }
