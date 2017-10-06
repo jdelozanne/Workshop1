@@ -8,6 +8,7 @@ package kiteshop.daos;
 import java.util.ArrayList;
 import kiteshop.pojos.*;
 import org.junit.AfterClass;
+import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -19,6 +20,19 @@ import static org.junit.Assert.*;
 public class KlantDAOTest {
     
     public KlantDAOTest() {
+    }
+    
+    @Before
+    public void initializeDatabase() {        
+        new DatabaseTest().initializeDatabase();
+        
+        
+        
+      
+       
+        
+                
+        
     }
     
     @BeforeClass
@@ -42,14 +56,17 @@ public class KlantDAOTest {
         klant.setVoornaam("Steef");
         klant.setTussenvoegsel("v");
         klant.setAchternaam("Pelgrom");
-        klant.setTelefoonnummer("06-26634587");
-        klant.setEmail("s.pelgrom@hotmail.com");
         Adres adres = new Adres();
         adres.setWoonplaats("Tilburg");
         adres.setStraatnaam("Hendrik van Tulderstraat");
         adres.setPostcode("5046NC");
         adres.setHuisnummer(17);
         adres.setToevoeging("a");
+        adres.setEmail("s.pelgrom@hotmail.com");
+        adres.setTelefoon(06-26634587);
+        
+        
+        
         klant.setAdres(adres);
         
         KlantDAO instance = new KlantDAO();
@@ -103,15 +120,19 @@ public class KlantDAOTest {
         klant.setVoornaam("Stevey");
         klant.setTussenvoegsel("v");
         klant.setAchternaam(achterNaam);
-        klant.setTelefoonnummer("06-26634587");
-        klant.setEmail("s.pelgrom@hotmail.com");
         Adres adres = new Adres();
         adres.setWoonplaats("Tilburg");
         adres.setStraatnaam("Hendrik van Tulderstraat");
         adres.setPostcode("5046NC");
         adres.setHuisnummer(17);
         adres.setToevoeging("a");
+        adres.setEmail("s.pelgrom@hotmail.com");
+        adres.setTelefoon(06-26634587);
+        
         klant.setAdres(adres);
+        
+        
+        
         
         ArrayList<Klant> klantenlijst = new ArrayList<Klant>();
         klantenlijst.add(klant);
