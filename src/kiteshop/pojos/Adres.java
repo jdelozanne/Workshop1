@@ -78,12 +78,16 @@ public class Adres {
         this.telefoon = telefoon;
     }
     
-    @Override
-    public String toString(){
-        return woonplaats + " "+ postcode+ " "+straatnaam  + " "+huisnummer  + " "+ toevoeging;
-    }
+  
 
-    //Benodigd voor het testen
+    @Override
+	public String toString() {
+		return "Adres [woonplaats=" + woonplaats + ", postcode=" + postcode + ", straatnaam=" + straatnaam
+				+ ", huisnummer=" + huisnummer + ", toevoeging=" + toevoeging + ", email=" + email + ", telefoon="
+				+ telefoon + "]";
+	}
+
+	//Benodigd voor het testen
 	@Override
 	public int hashCode() {
 		final int prime = 31;
