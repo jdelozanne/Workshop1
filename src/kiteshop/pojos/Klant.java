@@ -57,12 +57,15 @@ public class Klant {
         this.achternaam = achternaam;
     }
 
+    
+    
     @Override
-    public String toString() {
-        return "klantID: " + klantID + " naam " + voornaam + " " + tussenvoegsel + " " + achternaam;
-    }
+	public String toString() {
+		return "Klant [klantID=" + klantID + ", adres=" + adres + ", voornaam=" + voornaam + ", tussenvoegsel="
+				+ tussenvoegsel + ", achternaam=" + achternaam + "]";
+	}
 
-    //Benodigd voor het testen met JUnit
+	//Benodigd voor het testen met JUnit
 	@Override
 	public int hashCode() {
 		final int prime = 31;
