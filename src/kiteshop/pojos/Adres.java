@@ -83,4 +83,61 @@ public class Adres {
         return woonplaats + " "+ postcode+ " "+straatnaam  + " "+huisnummer  + " "+ toevoeging;
     }
 
+    //Benodigd voor het testen
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((email == null) ? 0 : email.hashCode());
+		result = prime * result + huisnummer;
+		result = prime * result + ((postcode == null) ? 0 : postcode.hashCode());
+		result = prime * result + ((straatnaam == null) ? 0 : straatnaam.hashCode());
+		result = prime * result + telefoon;
+		result = prime * result + ((toevoeging == null) ? 0 : toevoeging.hashCode());
+		result = prime * result + ((woonplaats == null) ? 0 : woonplaats.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Adres other = (Adres) obj;
+		if (email == null) {
+			if (other.email != null)
+				return false;
+		} else if (!email.equals(other.email))
+			return false;
+		if (huisnummer != other.huisnummer)
+			return false;
+		if (postcode == null) {
+			if (other.postcode != null)
+				return false;
+		} else if (!postcode.equals(other.postcode))
+			return false;
+		if (straatnaam == null) {
+			if (other.straatnaam != null)
+				return false;
+		} else if (!straatnaam.equals(other.straatnaam))
+			return false;
+		if (telefoon != other.telefoon)
+			return false;
+		if (toevoeging == null) {
+			if (other.toevoeging != null)
+				return false;
+		} else if (!toevoeging.equals(other.toevoeging))
+			return false;
+		if (woonplaats == null) {
+			if (other.woonplaats != null)
+				return false;
+		} else if (!woonplaats.equals(other.woonplaats))
+			return false;
+		return true;
+	}
+
+    
 }
