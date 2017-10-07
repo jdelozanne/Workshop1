@@ -80,6 +80,9 @@ public class KlantDAO implements KlantDAOInterface {
             k.setTussenvoegsel(result.getString(3));
             k.setAchternaam(result.getString(4));
             }
+            connection.close();
+            statement.close();
+            result.close();
 
 
         } catch (SQLException ex) {

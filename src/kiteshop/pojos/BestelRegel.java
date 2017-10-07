@@ -6,6 +6,7 @@ public class BestelRegel {
     private Product product;
     private int aantal;
     private Bestelling bestelling;
+    private int bestellingID;
 
     /**
      *
@@ -13,11 +14,12 @@ public class BestelRegel {
     public BestelRegel(){
     }
     
-    public BestelRegel(Bestelling bestelling) {
-        this.bestelling = bestelling;
+    public BestelRegel(int bestellingID) {
+        this.bestellingID = bestellingID;
     }
 
-    public BestelRegel(Product product, int aantal) {
+    public BestelRegel(int bestellingID, Product product, int aantal) {
+        this.bestellingID = bestellingID;
         this.product = product;
         this.aantal = aantal;
     }
@@ -53,6 +55,15 @@ public class BestelRegel {
     public void setBestelling(Bestelling bestelling) {
         this.bestelling = bestelling;
     }
+
+    public int getBestellingID() {
+        return bestellingID;
+    }
+
+    public void setBestellingID(int bestellingID) {
+        this.bestellingID = bestellingID;
+    }
+    
 
     @Override
     public int hashCode() {

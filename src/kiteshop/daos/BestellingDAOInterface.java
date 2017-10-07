@@ -5,7 +5,7 @@ import kiteshop.pojos.Bestelling;
 
 public interface BestellingDAOInterface {
     
-    void createBestelling(Bestelling bestelling);
+    int createBestelling(Bestelling bestelling);
 
     void readBestelling(Bestelling bestelling);
 

@@ -43,8 +43,10 @@ public class HoofdMenu {
                 start();
                 break;
             case 3:
+                    
                 System.out.println("naar menu bestellingen");
                 new MenuBestellingen().start();
+                
                 
                 break;
             case 4:
@@ -71,8 +73,10 @@ public class HoofdMenu {
     }
     
     public static void main(String[] args) {
-        new HoofdMenu().start();
-                
-                
+        
+                new MenuBestellingen().start();
+                        
+                   
+                            
     }
 }

@@ -29,7 +29,8 @@ public class BestellingDAO implements BestellingDAOInterface {
     }
 
     @Override
-    public void createBestelling(Bestelling bestelling) {
+    public int createBestelling(Bestelling bestelling) {
+        int id = 0;
         try {
             String sql = "INSERT INTO bestelling"
                     + "(bestellingID, klantID)"
@@ -42,9 +43,9 @@ public class BestellingDAO implements BestellingDAOInterface {
             result = statement.getGeneratedKeys();
             if (result.isBeforeFirst()) {
                 result.next();
-                int id = result.getInt(1);
+                id = result.getInt(1);
                 System.out.println("Nieuwe bestelling aangemaakt met bestelling id: " + id);
-                bestelling.setBestellingID(id);
+                
             }
 
             statement.close();
@@ -52,6 +53,7 @@ public class BestellingDAO implements BestellingDAOInterface {
             connection.close();
         } catch (SQLException ex) {
         }
+        return id;
     }
 
     @Override

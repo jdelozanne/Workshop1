@@ -38,7 +38,7 @@ public class BestelRegelDAO implements BestelRegelDAOInterface {
             statement.setInt(1, 0);
             statement.setInt(2, regel.getProduct().getProductID());
             statement.setInt(3, regel.getAantal());
-            statement.setInt(4, regel.getBestelling().getBestellingID());
+            statement.setInt(4, regel.getBestellingID());
 
             statement.execute();
 
@@ -53,18 +53,20 @@ public class BestelRegelDAO implements BestelRegelDAOInterface {
         
         BestelRegel r = new BestelRegel();
         try {
-            String query = "Select * from BestelRegel where bestellingID = ?";
+            String query = "Select * from bestel_regel where bestellingID = ?";
             this.statement = connection.prepareStatement(query);
             statement.setInt(1, bestellingID);
 
             result = statement.executeQuery();
+            
+            while(result.next()){
 
             r.setBestelRegelID(result.getInt(1));
             r.getProduct().setProductID(result.getInt(2));
             r.setAantal(result.getInt(3));
             r.getBestelling().setBestellingID(result.getInt(4));
+            }
 
-            connection.close();
 
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -82,7 +84,10 @@ public class BestelRegelDAO implements BestelRegelDAOInterface {
     public void deleteBestelRegel(BestelRegel regel) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
+    public static void main(String[] args) {
+        new BestelRegelDAO().readBestelRegel('1');
+        new BestelRegelDAO().readBestelRegel('2');
+    }
   
     
       

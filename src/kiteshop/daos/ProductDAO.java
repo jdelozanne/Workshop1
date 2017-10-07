@@ -40,10 +40,9 @@ public class ProductDAO implements ProductDAOInterface {
             statement.setInt(3, product.getVoorraad());
             statement.setBigDecimal(4, product.getPrijs());
             statement.execute();
-            
-            product.setProductID(result.getInt(1));
-            System.out.println("Product " + product.getNaam() + "is succesvol teogevoegd");
 
+            System.out.println("Product " + product.getNaam() + "is succesvol teogevoegd");
+            
         } catch (SQLException ex) {
             ex.printStackTrace();
 
@@ -55,19 +54,20 @@ public class ProductDAO implements ProductDAOInterface {
     public Product readProduct(String productnaam) {
         Product p = new Product();
         try {
-            String query = "Select * from Product where productnaam = ?";
-            this.statement = connection.prepareStatement(query);
+            String query = "Select * from product where productnaam = ?";
+            this.statement = this.connection.prepareStatement(query);
             statement.setString(1, productnaam);
 
             result = statement.executeQuery();
+            while (result.next()) {
 
-            p.setProductID(result.getInt(1));
-            p.setNaam(result.getString(2));
-            p.setPrijs(result.getBigDecimal(3));
-            p.setVoorraad(result.getInt(4));
+                p.setProductID(result.getInt(1));
+                p.setNaam(result.getString(2));
+                p.setPrijs(result.getBigDecimal(3));
+                p.setVoorraad(result.getInt(4));
+            }
 
-            connection.close();
-
+            
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
@@ -84,4 +84,7 @@ public class ProductDAO implements ProductDAOInterface {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    public static void main(String[] args) {
+        new ProductDAO().readProduct("kite 12");
+    }
 }

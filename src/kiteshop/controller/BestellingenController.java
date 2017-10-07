@@ -18,8 +18,8 @@ public class BestellingenController {
         bestellingDAO = new BestellingDAO();
     }
 
-    public void createBestelling(Bestelling bestelling) {
-        bestellingDAO.createBestelling(bestelling);
+    public int createBestelling(Bestelling bestelling) {
+        return bestellingDAO.createBestelling(bestelling);
     }
 
     public ArrayList<Bestelling> showSelectedBestellingen() {

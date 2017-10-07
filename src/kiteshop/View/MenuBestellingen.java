@@ -6,11 +6,11 @@
 package kiteshop.View;
 
 import java.util.Scanner;
+import kiteshop.controller.BestelRegelController;
 import kiteshop.controller.BestellingenController;
 import kiteshop.daos.*;
 
 import kiteshop.pojos.*;
-
 
 /**
  *
@@ -21,6 +21,7 @@ public class MenuBestellingen {
     private Scanner input = new Scanner(System.in);
 
     BestellingenController controller = new BestellingenController();
+    BestelRegelController controller2 = new BestelRegelController();
 
     public void start() {
         System.out.println("Kies wat je wilt doen:");
@@ -32,6 +33,8 @@ public class MenuBestellingen {
         switch (keuze) {
             case 1:
                 createBestelling();
+                System.out.println("voeg bestelregels toe aan de bestelling");
+                
 
             case 5:
                 new HoofdMenu().start();
@@ -39,9 +42,8 @@ public class MenuBestellingen {
     }
 
     public void createBestelling() {
+       int id;
 
-        
-        
         //Vraag naar de klant aan wie de bestelling gericht is
         System.out.println("Voor welke klant is deze bestelling? Geef de achternaam");
 
@@ -49,50 +51,41 @@ public class MenuBestellingen {
         KlantDAO k = new KlantDAO();
         Klant klant = k.readKlant(achternaam);
         Bestelling bestelling = new Bestelling(klant);
-        controller.createBestelling(bestelling);
+        id = controller.createBestelling(bestelling);
+        
+        System.out.println("Wilt u iets toevoegen aan de bestelling? J/N");
+                if (input.nextLine().equalsIgnoreCase("J")){
+                   createBestelRegel(id);      
+                }
+                else new HoofdMenu().start();
     }
-        
-        /*vraag om toe te voegen product
+
+    public void createBestelRegel(int bestellingID) {
+
         System.out.println("Welk product wilt u toevoegen aan de bestelling");
-
-        String naamproduct = input.nextLine();
-        input.nextLine();
-
-        //Vraag om het aantal van dit specifieke product
-        System.out.println("Welk aantal wilt u van dit specifieke product toevoegen aan de bestelling?");
+        String productnaam = input.nextLine();
+        Product p = new ProductDAO().readProduct(productnaam);
         
+        System.out.println("Hoeveel stuks wilt u van dit specifieke product toevoegen?");
         int aantal = input.nextInt();
-
+        input.nextLine();
         
-
-        //voor productID en klantID:
-        
-        Product p = new ProductDAO().readProduct(naamproduct);
-        int productID = p.getProductID();
-        
-        Klant k = new KlantDAO().readKlant(achternaam);
-        int klantID = k.getKlantID();
-        
-        //nieuwe bestelling instantieren en opslaan in database
-        Bestelling b = new Bestelling(k);
-        BestellingDAO bestel = new BestellingDAO();
-        bestel.createBestelling(b);
-        
-        BestelRegel r = new BestelRegel(p,aantal);
-        
-        BestelRegelDAO besteldao = new BestelRegelDAO();
+        BestelRegel b = new BestelRegel(bestellingID, p, aantal);
         
         
+        controller2.createBestelRegel(b);
         
+        System.out.println("Wilt u (nog)iets toevoegen aan de bestelling? J/N");
+                if (input.nextLine().equalsIgnoreCase("J")){
+                   createBestelRegel(bestellingID);      
+                }
+                else new HoofdMenu().start();
         
+    }
+    public static void main(String[] args) {
         
-        besteldao.createBestelRegel(r);
-
-        //bestelregel toevoegen aan bestelling
-        bestelling.addBestelRegel(r);
-        
-*/
-       
-
+   
+    new MenuBestellingen().createBestelRegel(3);
+ }
     
 }
