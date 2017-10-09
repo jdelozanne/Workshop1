@@ -3,15 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/julia/Documents/NetBeansProjects/Kiteshop/src/kiteshop/pojos/Product.java</file>
-            <file>file:/C:/Users/julia/Documents/NetBeansProjects/Kiteshop/src/kiteshop/daos/BestellingDAO.java</file>
             <file>file:/C:/Users/julia/Documents/NetBeansProjects/Kiteshop/src/kiteshop/pojos/Bestelling.java</file>
-            <file>file:/C:/Users/julia/Documents/NetBeansProjects/Kiteshop/src/kiteshop/controller/KlantenController.java</file>
+            <file>file:/C:/Users/julia/Documents/NetBeansProjects/Kiteshop/src/kiteshop/daos/BestellingDAO.java</file>
             <file>file:/C:/Users/julia/Documents/NetBeansProjects/Kiteshop/src/kiteshop/pojos/BestelRegel.java</file>
             <file>file:/C:/Users/julia/Documents/NetBeansProjects/Kiteshop/src/kiteshop/daos/ProductDAO.java</file>
-            <file>file:/C:/Users/julia/Documents/NetBeansProjects/Kiteshop/src/kiteshop/View/HoofdMenu.java</file>
+            <file>file:/C:/Users/julia/Documents/NetBeansProjects/Kiteshop/src/kiteshop/View/MenuProducten.java</file>
             <file>file:/C:/Users/julia/Documents/NetBeansProjects/Kiteshop/src/kiteshop/View/MenuBestellingen.java</file>
-            <file>file:/C:/Users/julia/Documents/NetBeansProjects/Kiteshop/src/kiteshop/daos/BestelRegelDAOInterface.java</file>
             <file>file:/C:/Users/julia/Documents/NetBeansProjects/Kiteshop/src/kiteshop/controller/BestellingenController.java</file>
             <file>file:/C:/Users/julia/Documents/NetBeansProjects/Kiteshop/src/kiteshop/daos/BestelRegelDAO.java</file>
             <file>file:/C:/Users/julia/Documents/NetBeansProjects/Kiteshop/src/kiteshop/controller/BestelRegelController.java</file>

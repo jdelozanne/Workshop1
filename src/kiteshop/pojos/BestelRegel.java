@@ -1,5 +1,7 @@
 package kiteshop.pojos;
 
+import java.math.BigDecimal;
+
 public class BestelRegel {
 
     private int bestelRegelID;
@@ -56,7 +58,12 @@ public class BestelRegel {
     }
 
     public int getBestellingID() {
-        return getBestelling().getBestellingID();
+        return getBestelling().getBestellingID(); 
+    }
+    
+    public BigDecimal pricePerLine(){
+        BigDecimal prijsPerRegel = null;
+        return prijsPerRegel = BigDecimal.valueOf(this.aantal).multiply(this.product.getPrijs());
         
     }
     

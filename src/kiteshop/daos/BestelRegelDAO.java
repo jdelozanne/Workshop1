@@ -54,7 +54,7 @@ public class BestelRegelDAO implements BestelRegelDAOInterface {
     
     @Override
     public void readBestelRegel(int bestellingID) {
-        Bestelling b = new Bestelling();
+        
         BestelRegel r = new BestelRegel();
         try {
             String query = "Select * from bestel_regel where bestellingID = ?";
@@ -69,13 +69,8 @@ public class BestelRegelDAO implements BestelRegelDAOInterface {
             r.getProduct().setProductID(result.getInt(2));
             r.setAantal(result.getInt(3));
             r.getBestelling().setBestellingID(result.getInt(4));
-            
-            
-            b.addBestelRegel(r);
-            }
-            
-            System.out.println(b.getBestelling().toString());
 
+            }
 
         } catch (SQLException ex) {
             ex.printStackTrace();

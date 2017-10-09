@@ -42,7 +42,7 @@ public class ProductDAO implements ProductDAOInterface {
             statement.execute();
 
             System.out.println("Product " + product.getNaam() + "is succesvol teogevoegd");
-            
+
         } catch (SQLException ex) {
             ex.printStackTrace();
 
@@ -63,17 +63,16 @@ public class ProductDAO implements ProductDAOInterface {
 
                 p.setProductID(result.getInt(1));
                 p.setNaam(result.getString(2));
-                p.setPrijs(result.getBigDecimal(3));
-                p.setVoorraad(result.getInt(4));
+                p.setVoorraad(result.getInt(3));
+                p.setPrijs(result.getBigDecimal(4));
             }
 
-            
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
         return p;
     }
-    
+
     public String readProduct(int productID) {
         Product p = new Product();
         try {
@@ -86,15 +85,14 @@ public class ProductDAO implements ProductDAOInterface {
 
                 p.setProductID(result.getInt(1));
                 p.setNaam(result.getString(2));
-                p.setPrijs(result.getBigDecimal(3));
-                p.setVoorraad(result.getInt(4));
+                p.setVoorraad(result.getInt(3));
+                p.setPrijs(result.getBigDecimal(4));
             }
 
-            
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
-        return p.getNaam() ;
+        return p.getNaam();
     }
 
     @Override
@@ -108,6 +106,6 @@ public class ProductDAO implements ProductDAOInterface {
     }
 
     public static void main(String[] args) {
-        new ProductDAO().readProduct("kite 12");
+        System.out.println(new ProductDAO().readProduct("kite 11").getPrijs());
     }
 }

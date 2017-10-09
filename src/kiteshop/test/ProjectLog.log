@@ -62,3 +62,93 @@ okt 06, 2017 12:52:56 PM kiteshop.controller.KlantenController createKlant
 INFO: Klant klantID: 0 ju de lo wordt toegevoegd aan database
 okt 06, 2017 12:53:25 PM kiteshop.controller.KlantenController createKlant
 INFO: Klant klantID: 0 d de d wordt toegevoegd aan database
+okt 09, 2017 4:11:48 PM kiteshop.controller.BestellingenController createBestelRegels
+INFO: bestelregels gemaakt
+okt 09, 2017 4:11:48 PM kiteshop.controller.BestellingenController createBestelling
+INFO: nieuwe bestelling gemaakt
+okt 09, 2017 4:11:48 PM kiteshop.View.MenuBestellingen createBestelling
+INFO: bereken de prijs
+okt 09, 2017 4:19:26 PM kiteshop.controller.BestellingenController createBestelRegels
+INFO: bestelregels gemaakt
+okt 09, 2017 4:19:26 PM kiteshop.controller.BestellingenController createBestelling
+INFO: nieuwe bestelling gemaakt
+okt 09, 2017 4:19:26 PM kiteshop.View.MenuBestellingen createBestelling
+INFO: bereken de prijs
+okt 09, 2017 4:21:14 PM kiteshop.controller.BestellingenController createBestelRegels
+INFO: bestelregels gemaakt
+okt 09, 2017 4:21:14 PM kiteshop.controller.BestellingenController createBestelling
+INFO: nieuwe bestelling gemaakt
+okt 09, 2017 4:21:14 PM kiteshop.View.MenuBestellingen createBestelling
+INFO: bereken de prijs
+okt 09, 2017 4:30:38 PM kiteshop.controller.BestellingenController createBestelRegels
+INFO: bestelregels gemaakt
+okt 09, 2017 4:30:38 PM kiteshop.controller.BestellingenController createBestelling
+INFO: nieuwe bestelling gemaakt
+okt 09, 2017 4:30:38 PM kiteshop.View.MenuBestellingen createBestelling
+INFO: bereken de prijs
+okt 09, 2017 4:36:52 PM kiteshop.controller.BestellingenController createBestelRegels
+INFO: bestelregels gemaakt
+okt 09, 2017 4:36:52 PM kiteshop.controller.BestellingenController createBestelling
+INFO: nieuwe bestelling gemaakt
+okt 09, 2017 4:36:52 PM kiteshop.View.MenuBestellingen createBestelling
+INFO: bereken de prijs
+okt 09, 2017 4:38:11 PM kiteshop.controller.BestellingenController createBestelRegels
+INFO: bestelregels gemaakt
+okt 09, 2017 4:38:11 PM kiteshop.controller.BestellingenController createBestelling
+INFO: nieuwe bestelling gemaakt
+okt 09, 2017 4:38:11 PM kiteshop.View.MenuBestellingen createBestelling
+INFO: bereken de prijs
+okt 09, 2017 4:38:55 PM kiteshop.controller.BestellingenController createBestelRegels
+INFO: bestelregels gemaakt
+okt 09, 2017 4:38:55 PM kiteshop.controller.BestellingenController createBestelling
+INFO: nieuwe bestelling gemaakt
+okt 09, 2017 4:38:55 PM kiteshop.View.MenuBestellingen createBestelling
+INFO: bereken de prijs
+okt 09, 2017 4:42:27 PM kiteshop.controller.BestellingenController createBestelRegels
+INFO: bestelregels gemaakt
+okt 09, 2017 4:42:27 PM kiteshop.controller.BestellingenController createBestelling
+INFO: nieuwe bestelling gemaakt
+okt 09, 2017 4:42:27 PM kiteshop.View.MenuBestellingen createBestelling
+INFO: bereken de prijs
+okt 09, 2017 4:43:46 PM kiteshop.controller.BestellingenController createBestelling
+INFO: nieuwe bestelling gemaakt
+okt 09, 2017 4:43:46 PM kiteshop.View.MenuBestellingen createBestelling
+INFO: bereken de prijs
+okt 09, 2017 4:44:02 PM kiteshop.controller.BestellingenController createBestelRegels
+INFO: bestelregels gemaakt
+okt 09, 2017 4:44:02 PM kiteshop.controller.BestellingenController createBestelling
+INFO: nieuwe bestelling gemaakt
+okt 09, 2017 4:44:02 PM kiteshop.View.MenuBestellingen createBestelling
+INFO: bereken de prijs
+okt 09, 2017 10:06:49 PM kiteshop.controller.BestellingenController createBestelRegels
+INFO: bestelregels gemaakt
+okt 09, 2017 10:06:49 PM kiteshop.controller.BestellingenController createBestelRegels
+INFO: bestelregels gemaakt
+okt 09, 2017 10:06:49 PM kiteshop.controller.BestellingenController createBestelling
+INFO: nieuwe bestelling gemaakt
+okt 09, 2017 10:06:49 PM kiteshop.View.MenuBestellingen createBestelling
+INFO: bereken de prijs
+okt 09, 2017 10:17:51 PM kiteshop.controller.KlantenController createKlant
+INFO: Klant KlantID = 0 voornaam = julia tussenvoegsel = de achternaam = lozanne wordt toegevoegd aan database
+okt 09, 2017 10:19:31 PM kiteshop.controller.BestellingenController createBestelRegels
+INFO: bestelregels gemaakt
+okt 09, 2017 10:19:31 PM kiteshop.controller.BestellingenController createBestelRegels
+INFO: bestelregels gemaakt
+okt 09, 2017 10:19:31 PM kiteshop.controller.BestellingenController createBestelling
+INFO: nieuwe bestelling gemaakt
+okt 09, 2017 10:19:31 PM kiteshop.View.MenuBestellingen createBestelling
+INFO: bereken de prijs
+okt 09, 2017 10:23:47 PM kiteshop.controller.BestellingenController createBestelRegels
+INFO: bestelregels gemaakt
+okt 09, 2017 10:23:47 PM kiteshop.controller.BestellingenController createBestelling
+INFO: nieuwe bestelling gemaakt
+okt 09, 2017 10:23:47 PM kiteshop.View.MenuBestellingen createBestelling
+INFO: bereken de prijs
+okt 09, 2017 10:27:39 PM kiteshop.controller.BestellingenController createBestelRegels
+INFO: bestelregels gemaakt
+okt 09, 2017 10:27:39 PM kiteshop.controller.BestellingenController createBestelRegels
+INFO: bestelregels gemaakt
+okt 09, 2017 10:27:39 PM kiteshop.controller.BestellingenController createBestelling
+INFO: nieuwe bestelling gemaakt
+okt 09, 2017 10:27:39 PM kiteshop.View.MenuBestellingen createBestelling
+INFO: bereken de prijs

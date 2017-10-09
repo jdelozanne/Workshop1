@@ -27,6 +27,7 @@ public class BestellingenController {
     public void createBestelling(Bestelling bestelling) {
         bestellingDAO.createBestelling(bestelling);
         createBestelRegels(bestelling);
+        logger.info("nieuwe bestelling gemaakt");
     }
     
     public void createBestelRegels(Bestelling bestelling){
@@ -34,6 +35,8 @@ public class BestellingenController {
         bestelregels = bestelling.getBestelling();
         for(BestelRegel b : bestelregels){
             bestelRegelDAO.createBestelRegel(b);
+            System.out.println("prijs: "+ b.pricePerLine());
+            logger.info("bestelregels gemaakt");
         }
         
     }

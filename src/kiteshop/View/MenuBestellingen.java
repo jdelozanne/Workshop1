@@ -5,27 +5,29 @@
  */
 package kiteshop.View;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.logging.Logger;
 import kiteshop.controller.BestelRegelController;
 import kiteshop.controller.BestellingenController;
 import kiteshop.daos.*;
 
 import kiteshop.pojos.*;
+import kiteshop.test.ProjectLog;
+
 /**
  *
  * @author julia
  */
 public class MenuBestellingen {
-    
 
-/**
- *
- * @author julia
- */
-
-    
+    /**
+     *
+     * @author julia
+     */
+    private final Logger logger = ProjectLog.getLogger();
 
     private Scanner input = new Scanner(System.in);
 
@@ -64,28 +66,24 @@ public class MenuBestellingen {
         KlantDAO k = new KlantDAO();
         Klant klant = k.readKlant(achternaam);
         Bestelling bestelling = new Bestelling(klant);
-       
+
         System.out.println("Wilt u iets toevoegen aan de bestelling? J/N");
-        
+
         String antwoord = input.nextLine();
         while (antwoord.equalsIgnoreCase("J")) {
             BestelRegel bestelRegelToBeAdded = createBestelRegel(bestelling);
             bestelling.addBestelRegel(bestelRegelToBeAdded);
             System.out.println("Wilt u iets toevoegen aan de bestelling? J/N");
             antwoord = input.nextLine();
-        } 
-        System.out.println("klaar met bestelling");
-            List <BestelRegel> br = new ArrayList<>();
-                   br = bestelling.getBestelling();
-                   for( BestelRegel b : br){
-                       System.out.println(b.toString());
-                   }
-//bestelling hier doorsturen met de arraylist gevuld met regels
+        }
+        System.out.println("totaalprijs van de bestelling: EURO " + bestelling.calculatePrijs(bestelling.getBestelling()));
+       
         controller.createBestelling(bestelling);
+        logger.info("bereken de prijs");
     }
 
     public BestelRegel createBestelRegel(Bestelling bestelling) {
-//hier nog zonder DAO, dus enkel om in de bestelregels lijst te stoppen
+
         System.out.println("Welk product wilt u toevoegen aan de bestelling");
         String productnaam = input.nextLine();
         Product p = new ProductDAO().readProduct(productnaam);
@@ -95,12 +93,11 @@ public class MenuBestellingen {
         input.nextLine();
 
         BestelRegel b = new BestelRegel(bestelling, p, aantal);
-        
-        return b;
-        }
 
-    
-    public void showBestelling(){
+        return b;
+    }
+
+    public void showBestelling() {
         System.out.println("Geef het bestelnummer: ");
         BestelRegelController c = new BestelRegelController();
         c.showBestelling(input.nextInt());
@@ -109,6 +106,5 @@ public class MenuBestellingen {
     public static void main(String[] args) {
         new MenuBestellingen().createBestelling();
     }
-         
-    
+
 }

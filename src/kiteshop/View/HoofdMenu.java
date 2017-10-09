@@ -74,7 +74,7 @@ public class HoofdMenu {
     
     public static void main(String[] args) {
         
-                new MenuBestellingen().start();
+                new HoofdMenu().start();
                         
                    
                             
