@@ -41,7 +41,7 @@ public class BestelRegelDAO implements BestelRegelDAOInterface {
             statement.setInt(1, 0);
             statement.setInt(2, regel.getProduct().getProductID());
             statement.setInt(3, regel.getAantal());
-            statement.setInt(4, regel.getBestellingID());
+            statement.setInt(4, regel.getBestelling().getBestellingID());
 
             statement.execute();
 
@@ -93,10 +93,7 @@ public class BestelRegelDAO implements BestelRegelDAOInterface {
     public void deleteBestelRegel(BestelRegel regel) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    public static void main(String[] args) {
-        new BestelRegelDAO().readBestelRegel('1');
-        new BestelRegelDAO().readBestelRegel('2');
-    }
+    
   
     
       

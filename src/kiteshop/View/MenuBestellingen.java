@@ -5,18 +5,27 @@
  */
 package kiteshop.View;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 import kiteshop.controller.BestelRegelController;
 import kiteshop.controller.BestellingenController;
 import kiteshop.daos.*;
 
 import kiteshop.pojos.*;
-
 /**
  *
  * @author julia
  */
 public class MenuBestellingen {
+    
+
+/**
+ *
+ * @author julia
+ */
+
+    
 
     private Scanner input = new Scanner(System.in);
 
@@ -48,7 +57,6 @@ public class MenuBestellingen {
     }
 
     public void createBestelling() {
-        int id;
 
         System.out.println("Voor welke klant is deze bestelling? Geef de achternaam");
 
@@ -56,18 +64,28 @@ public class MenuBestellingen {
         KlantDAO k = new KlantDAO();
         Klant klant = k.readKlant(achternaam);
         Bestelling bestelling = new Bestelling(klant);
-        id = controller.createBestelling(bestelling);
-
+       
         System.out.println("Wilt u iets toevoegen aan de bestelling? J/N");
-        if (input.nextLine().equalsIgnoreCase("J")) {
-            createBestelRegel(id);
-        } else {
-            new HoofdMenu().start();
-        }
+        
+        String antwoord = input.nextLine();
+        while (antwoord.equalsIgnoreCase("J")) {
+            BestelRegel bestelRegelToBeAdded = createBestelRegel(bestelling);
+            bestelling.addBestelRegel(bestelRegelToBeAdded);
+            System.out.println("Wilt u iets toevoegen aan de bestelling? J/N");
+            antwoord = input.nextLine();
+        } 
+        System.out.println("klaar met bestelling");
+            List <BestelRegel> br = new ArrayList<>();
+                   br = bestelling.getBestelling();
+                   for( BestelRegel b : br){
+                       System.out.println(b.toString());
+                   }
+//bestelling hier doorsturen met de arraylist gevuld met regels
+        controller.createBestelling(bestelling);
     }
 
-    public void createBestelRegel(int bestellingID) {
-
+    public BestelRegel createBestelRegel(Bestelling bestelling) {
+//hier nog zonder DAO, dus enkel om in de bestelregels lijst te stoppen
         System.out.println("Welk product wilt u toevoegen aan de bestelling");
         String productnaam = input.nextLine();
         Product p = new ProductDAO().readProduct(productnaam);
@@ -76,18 +94,11 @@ public class MenuBestellingen {
         int aantal = input.nextInt();
         input.nextLine();
 
-        BestelRegel b = new BestelRegel(bestellingID, p, aantal);
-
-        controller2.createBestelRegel(b);
-
-        System.out.println("Wilt u (nog)iets toevoegen aan de bestelling? J/N");
-        if (input.nextLine().equalsIgnoreCase("J")) {
-            createBestelRegel(bestellingID);
-        } else {
-            new HoofdMenu().start();
+        BestelRegel b = new BestelRegel(bestelling, p, aantal);
+        
+        return b;
         }
 
-    }
     
     public void showBestelling(){
         System.out.println("Geef het bestelnummer: ");
@@ -96,8 +107,8 @@ public class MenuBestellingen {
     }
 
     public static void main(String[] args) {
-
-        new MenuBestellingen().start();
+        new MenuBestellingen().createBestelling();
     }
-
+         
+    
 }

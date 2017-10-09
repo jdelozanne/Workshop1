@@ -6,22 +6,19 @@ public class BestelRegel {
     private Product product;
     private int aantal;
     private Bestelling bestelling;
-    private int bestellingID;
+    
 
     /**
      *
      */
+    
     public BestelRegel(){
         product = new Product();
         bestelling = new Bestelling();
     }
     
-    public BestelRegel(int bestellingID) {
-        this.bestellingID = bestellingID;
-    }
-
-    public BestelRegel(int bestellingID, Product product, int aantal) {
-        this.bestellingID = bestellingID;
+    public BestelRegel(Bestelling bestelling, Product product, int aantal) {
+        this.bestelling = bestelling;
         this.product = product;
         this.aantal = aantal;
     }
@@ -59,11 +56,8 @@ public class BestelRegel {
     }
 
     public int getBestellingID() {
-        return bestellingID;
-    }
-
-    public void setBestellingID(int bestellingID) {
-        this.bestellingID = bestellingID;
+        return getBestelling().getBestellingID();
+        
     }
     
 
