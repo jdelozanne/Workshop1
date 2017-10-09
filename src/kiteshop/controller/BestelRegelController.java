@@ -28,6 +28,10 @@ public class BestelRegelController {
         bestelRegelDAO.createBestelRegel(regel);
         
     }
+    
+    public void showBestelling(int bestellingID){
+        bestelRegelDAO.readBestelRegel(bestellingID);
+    }
    
      
 }

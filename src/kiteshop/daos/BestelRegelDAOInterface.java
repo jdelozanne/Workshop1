@@ -5,6 +5,7 @@
  */
 package kiteshop.daos;
 
+import java.util.ArrayList;
 import kiteshop.pojos.BestelRegel;
 
 /**
@@ -15,7 +16,7 @@ public interface BestelRegelDAOInterface {
     
     void createBestelRegel(BestelRegel regel);
 
-    BestelRegel readBestelRegel(int bestelRegelID);
+    void readBestelRegel(int bestellingID);
 
     void updateBestelRegel(BestelRegel regel);
 

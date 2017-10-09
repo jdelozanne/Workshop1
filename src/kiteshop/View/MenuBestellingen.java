@@ -26,25 +26,30 @@ public class MenuBestellingen {
     public void start() {
         System.out.println("Kies wat je wilt doen:");
         System.out.println("Kies 1 voor Nieuwe bestelling maken");
-        System.out.println("Kies 5 voor terug naar Startscherm");
+        System.out.println("Kies 2 voor een bestelling bekijken");
+        System.out.println("Kies 3 om terug te keren naar het hoofdmenu");
         int keuze = input.nextInt();
         input.nextLine();
 
         switch (keuze) {
             case 1:
                 createBestelling();
-                System.out.println("voeg bestelregels toe aan de bestelling");
-                
 
-            case 5:
+                break;
+            case 2:
+                //hiervoor moet de productID worden omgezet naar productnaam bij een toString()
+                showBestelling();
+                break;
+
+            case 3:
                 new HoofdMenu().start();
+                break;
         }
     }
 
     public void createBestelling() {
-       int id;
+        int id;
 
-        //Vraag naar de klant aan wie de bestelling gericht is
         System.out.println("Voor welke klant is deze bestelling? Geef de achternaam");
 
         String achternaam = input.nextLine();
@@ -52,12 +57,13 @@ public class MenuBestellingen {
         Klant klant = k.readKlant(achternaam);
         Bestelling bestelling = new Bestelling(klant);
         id = controller.createBestelling(bestelling);
-        
+
         System.out.println("Wilt u iets toevoegen aan de bestelling? J/N");
-                if (input.nextLine().equalsIgnoreCase("J")){
-                   createBestelRegel(id);      
-                }
-                else new HoofdMenu().start();
+        if (input.nextLine().equalsIgnoreCase("J")) {
+            createBestelRegel(id);
+        } else {
+            new HoofdMenu().start();
+        }
     }
 
     public void createBestelRegel(int bestellingID) {
@@ -65,27 +71,33 @@ public class MenuBestellingen {
         System.out.println("Welk product wilt u toevoegen aan de bestelling");
         String productnaam = input.nextLine();
         Product p = new ProductDAO().readProduct(productnaam);
-        
+
         System.out.println("Hoeveel stuks wilt u van dit specifieke product toevoegen?");
         int aantal = input.nextInt();
         input.nextLine();
-        
+
         BestelRegel b = new BestelRegel(bestellingID, p, aantal);
-        
-        
+
         controller2.createBestelRegel(b);
-        
+
         System.out.println("Wilt u (nog)iets toevoegen aan de bestelling? J/N");
-                if (input.nextLine().equalsIgnoreCase("J")){
-                   createBestelRegel(bestellingID);      
-                }
-                else new HoofdMenu().start();
-        
+        if (input.nextLine().equalsIgnoreCase("J")) {
+            createBestelRegel(bestellingID);
+        } else {
+            new HoofdMenu().start();
+        }
+
     }
-    public static void main(String[] args) {
-        
-   
-    new MenuBestellingen().createBestelRegel(3);
- }
     
+    public void showBestelling(){
+        System.out.println("Geef het bestelnummer: ");
+        BestelRegelController c = new BestelRegelController();
+        c.showBestelling(input.nextInt());
+    }
+
+    public static void main(String[] args) {
+
+        new MenuBestellingen().start();
+    }
+
 }

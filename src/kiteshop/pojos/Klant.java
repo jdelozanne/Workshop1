@@ -61,8 +61,8 @@ public class Klant {
     
     @Override
 	public String toString() {
-		return "Klant [klantID=" + klantID + ", adres=" + adres + ", voornaam=" + voornaam + ", tussenvoegsel="
-				+ tussenvoegsel + ", achternaam=" + achternaam + "]";
+		return "KlantID = " + klantID + " voornaam = " + voornaam + " tussenvoegsel = "
+				+ tussenvoegsel + " achternaam = " + achternaam;
 	}
 
 	//Benodigd voor het testen met JUnit

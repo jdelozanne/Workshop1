@@ -80,9 +80,7 @@ public class KlantDAO implements KlantDAOInterface {
             k.setTussenvoegsel(result.getString(3));
             k.setAchternaam(result.getString(4));
             }
-            connection.close();
-            statement.close();
-            result.close();
+            
 
 
         } catch (SQLException ex) {
@@ -195,8 +193,9 @@ public class KlantDAO implements KlantDAOInterface {
             while(result.next()){
                 Klant k = new Klant();
                 k.setKlantID(result.getInt(1));
-                k.setTussenvoegsel(result.getString(2));
-                k.setAchternaam(result.getString(3));
+                k.setVoornaam(result.getString(2));
+                k.setTussenvoegsel(result.getString(3));
+                k.setAchternaam(result.getString(4));
         
             allKlanten.add(k);
             }

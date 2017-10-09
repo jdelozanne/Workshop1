@@ -9,7 +9,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import kiteshop.pojos.BestelRegel;
+import kiteshop.pojos.Bestelling;
 import kiteshop.pojos.Product;
 
 /**
@@ -34,6 +36,7 @@ public class BestelRegelDAO implements BestelRegelDAOInterface {
                     + "(bestel_regelID, productID, aantal, bestellingID)"
                     + "values (?,?,?,?)";
             this.statement = connection.prepareStatement(sql);
+            
 
             statement.setInt(1, 0);
             statement.setInt(2, regel.getProduct().getProductID());
@@ -48,9 +51,10 @@ public class BestelRegelDAO implements BestelRegelDAOInterface {
         }
     }
 
+    
     @Override
-    public BestelRegel readBestelRegel(int bestellingID) {
-        
+    public void readBestelRegel(int bestellingID) {
+        Bestelling b = new Bestelling();
         BestelRegel r = new BestelRegel();
         try {
             String query = "Select * from bestel_regel where bestellingID = ?";
@@ -65,13 +69,18 @@ public class BestelRegelDAO implements BestelRegelDAOInterface {
             r.getProduct().setProductID(result.getInt(2));
             r.setAantal(result.getInt(3));
             r.getBestelling().setBestellingID(result.getInt(4));
+            
+            
+            b.addBestelRegel(r);
             }
+            
+            System.out.println(b.getBestelling().toString());
 
 
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
-        return r;
+        
       
     }
 

@@ -70,6 +70,16 @@ public class Bestelling {
         
     }
     
+    @Override
+    public String toString(){
+        
+        String regel = null;
+        for(BestelRegel b : bestelling){
+            regel += b.toString() + "\n";
+        }
+        return regel;
+    }
+    
     public BigDecimal calculatePrijs() {
         BigDecimal result = null;
         for(BestelRegel b : bestelling){

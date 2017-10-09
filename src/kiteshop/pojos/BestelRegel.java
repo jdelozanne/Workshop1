@@ -12,6 +12,8 @@ public class BestelRegel {
      *
      */
     public BestelRegel(){
+        product = new Product();
+        bestelling = new Bestelling();
     }
     
     public BestelRegel(int bestellingID) {
@@ -102,7 +104,7 @@ public class BestelRegel {
     @Override
     public String toString() {
 
-        return "BestelRegel{" + "aantal=" + aantal + ", product=" + product + '}';
+        return "BestelRegel: product = " + product.toString()+ " aantal = " + aantal;
     }
 
 }

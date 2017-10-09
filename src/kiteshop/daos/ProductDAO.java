@@ -73,6 +73,29 @@ public class ProductDAO implements ProductDAOInterface {
         }
         return p;
     }
+    
+    public String readProduct(int productID) {
+        Product p = new Product();
+        try {
+            String query = "Select productnaam from product where productID = ?";
+            this.statement = this.connection.prepareStatement(query);
+            statement.setInt(1, productID);
+
+            result = statement.executeQuery();
+            while (result.next()) {
+
+                p.setProductID(result.getInt(1));
+                p.setNaam(result.getString(2));
+                p.setPrijs(result.getBigDecimal(3));
+                p.setVoorraad(result.getInt(4));
+            }
+
+            
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return p.getNaam() ;
+    }
 
     @Override
     public void updateProduct(Product product) {

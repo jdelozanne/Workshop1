@@ -60,6 +60,7 @@ public class Product {
 
     @Override
     public String toString() {
+        
         String productDisplay = this.getNaam();
         return productDisplay;
     }

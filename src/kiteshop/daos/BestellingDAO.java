@@ -45,29 +45,26 @@ public class BestellingDAO implements BestellingDAOInterface {
                 result.next();
                 id = result.getInt(1);
                 System.out.println("Nieuwe bestelling aangemaakt met bestelling id: " + id);
-                
+
             }
 
-            statement.close();
-            result.close();
-            connection.close();
         } catch (SQLException ex) {
         }
         return id;
     }
 
-    @Override
-    public void readBestelling(Bestelling bestelling) {
-
-    }
-
-    @Override
-    public void updateBestelling(Bestelling bestelling) {
+@Override
+        public void updateBestelling(Bestelling bestelling) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void deleteBestelling(Bestelling bestelling) {
+        public void deleteBestelling(Bestelling bestelling) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void readBestelling(int bestellingID) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
