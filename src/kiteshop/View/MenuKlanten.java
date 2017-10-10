@@ -220,8 +220,8 @@ public class MenuKlanten {
 
 	
 	public static void main (String args[]){
-		AdresType adresType = AdresType.BEZOEKADRES;
-		System.out.println(adresType);
+	
+
 		new MenuKlanten().start();
 	}
 	

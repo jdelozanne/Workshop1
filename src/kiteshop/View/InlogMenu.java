@@ -51,8 +51,10 @@ public class InlogMenu {
 
     }
     
+    
     public static void main (String args[]){
-    	new InlogMenu().inloggen();
+    	 	new InlogMenu().inloggen();
     }
+   
 }
   
