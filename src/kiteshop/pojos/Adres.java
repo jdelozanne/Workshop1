@@ -18,11 +18,22 @@ public class Adres {
     private String toevoeging;
     private String email;
     private int telefoon;
+    
+    private AdresType adresType = AdresType.BEZOEKADRES;
 
     public Adres() {
     }
 
-    public String getWoonplaats() {
+       
+    public AdresType getAdresType() {
+		return adresType;
+	}
+
+    public void setAdresType(AdresType adresType) {
+		this.adresType = adresType;
+	}
+
+	public String getWoonplaats() {
         return woonplaats;
     }
 
