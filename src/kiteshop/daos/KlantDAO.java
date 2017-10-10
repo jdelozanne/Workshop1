@@ -47,13 +47,13 @@ public class KlantDAO implements KlantDAOInterface {
             statement.setString(2, klant.getVoornaam());
             statement.setString(3, klant.getTussenvoegsel());
             statement.setString(4, klant.getAchternaam());
-            statement.setString(5, klant.getAdres().getEmail());
+            statement.setString(5, klant.getEmail());
             statement.setString(6, klant.getAdres().getStraatnaam());
             statement.setInt(7, klant.getAdres().getHuisnummer());
             statement.setString(8, klant.getAdres().getToevoeging());
             statement.setString(9, klant.getAdres().getPostcode());
             statement.setString(10, klant.getAdres().getWoonplaats());
-            statement.setInt(11, klant.getAdres().getTelefoon());
+            statement.setString(11, klant.getTelefoonnummer());
 
             statement.execute();
 
@@ -103,13 +103,13 @@ public class KlantDAO implements KlantDAOInterface {
             statement.setString(2, klant.getVoornaam());
             statement.setString(3, klant.getTussenvoegsel());
             statement.setString(4, klant.getAchternaam());
-            statement.setString(5, klant.getAdres().getEmail());
+            statement.setString(5, klant.getEmail());
             statement.setString(6, klant.getAdres().getStraatnaam());
             statement.setInt(7, klant.getAdres().getHuisnummer());
             statement.setString(8, klant.getAdres().getToevoeging());
             statement.setString(9, klant.getAdres().getPostcode());
             statement.setString(10, klant.getAdres().getWoonplaats());
-            statement.setInt(11, klant.getAdres().getTelefoon());
+            statement.setString(11, klant.getTelefoonnummer());
 
             statement.execute();
 
@@ -157,6 +157,7 @@ public class KlantDAO implements KlantDAOInterface {
                 String toevoeging = rSet.getString(8);
                 String postcode = rSet.getString(9);
                 String woonplaats = rSet.getString(10);
+                String telefoonnummer = rSet.getString(11);
 
                 Adres adres = new Adres();
                 adres.setStraatnaam(straatnaam);
@@ -168,7 +169,7 @@ public class KlantDAO implements KlantDAOInterface {
                 klant.setVoornaam(voornaam);
                 klant.setTussenvoegsel(tussenvoegsel);
                 klant.setAchternaam(achternaam);
-                adres.setEmail(emailadres);
+                klant.setEmail(emailadres);
                 klant.setAdres(adres);
 
                 selectionKlanten.add(klant);
