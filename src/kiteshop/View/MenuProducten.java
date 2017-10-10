@@ -90,4 +90,7 @@ public class MenuProducten {
         //print lijst product en maak een keuze welk product je wilt verwijderen
         //als alleen de eigenaar mag wijzigen verifieren met een ww
     }
+    public static void main (String args[]){
+	 	new MenuProducten().start();
+}
 }
