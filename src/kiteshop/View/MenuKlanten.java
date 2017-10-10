@@ -118,7 +118,7 @@ public class MenuKlanten {
 			factuurAdres.setAdresType(AdresType.FACTUURADRES);
 			klant.setFactuurAdres(factuurAdres);
 		} else {
-			bezoekadres.setAdresType(AdresType.FACTUURADRES);
+			
 			klant.setFactuurAdres(bezoekadres);
 		}
 		
