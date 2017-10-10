@@ -84,7 +84,7 @@ public class MenuKlanten {
 		// neemt wel iets meer plaats in
 		
 		Klant klant = new Klant();
-                Adres adres = new Adres();
+                
 
 		System.out.println("geef voornaam: ");
 		String voornaam = input.next();
@@ -98,11 +98,35 @@ public class MenuKlanten {
 		String achternaam = input.next();
 		klant.setAchternaam(achternaam);
 		
+		System.out.println("geef emailadres: ");
+		String email = input.next();
+		klant.setEmail(email);
+				
+		System.out.println("geef telefoonnummer: ");
+		String  telefoonnr = input.next();
+		klant.setTelefoonnummer(telefoonnr);
+			
+		System.out.println("Nu wordt het bezoekadres gevraagd");
+		Adres bezoekadres = createAdres();
+		bezoekadres.setAdresType(AdresType.BEZOEKADRES);
+		klant.setBezoekAdres(bezoekadres);
 		
-
+		System.out.println("Wilt u een apart factuuradres toevoegen?");
+		if(input.next().equalsIgnoreCase("J")){
+			System.out.println("Nu wordt het factuuradres gevraagd");
+			Adres factuurAdres = createAdres();
+			klant.setFactuurAdres(factuurAdres);
+		} else {
+			klant.setFactuurAdres(bezoekadres);
+		}
 		
+		controller.createKlant(klant);
 
-		System.out.println("geef woonplaats: ");
+	}
+	
+	private Adres createAdres(){
+		Adres adres = new Adres();
+		System.out.println("geef plaats: ");
 		String woonplaats = input.next();
 		adres.setWoonplaats(woonplaats);
 
@@ -115,24 +139,15 @@ public class MenuKlanten {
 		adres.setStraatnaam(straatnaam);
 		
 		int huisnummer = geefHuisnummer();  // aparte methode van gemaakt om te checken voor int en evt te herhalen
-		
+		adres.setHuisnummer(huisnummer);
 		
 		System.out.println("geef toevoeging: ");
 		String toevoeging = input.next();
 		adres.setToevoeging(toevoeging);
-                
-		System.out.println("geef emailadres: ");
-		String email = input.next();
-		klant.setEmail(email);
-				
-		System.out.println("geef telefoonnummer: ");
-		String  telefoonnr = input.next();
-		klant.setTelefoonnummer(telefoonnr);
-		klant.setBezoekAdres(adres);
+		return adres;
 		
-		controller.createKlant(klant);
-
 	}
+	
         
         public void readKlanten(){
             controller.showAllKlanten();
@@ -206,6 +221,8 @@ public class MenuKlanten {
 
 	
 	public static void main (String args[]){
+		AdresType adresType = AdresType.BEZOEKADRES;
+		System.out.println(adresType);
 		new MenuKlanten().start();
 	}
 	
