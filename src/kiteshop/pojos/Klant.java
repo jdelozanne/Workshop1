@@ -13,6 +13,8 @@ public class Klant {
     private String voornaam;
     private String tussenvoegsel;
     private String achternaam;
+    private String email;
+    private String telefoonnummer;
     
     public Klant() {
     }
@@ -57,22 +59,39 @@ public class Klant {
         this.achternaam = achternaam;
     }
 
-    
-    
-    @Override
-	public String toString() {
-		return "KlantID = " + klantID + " voornaam = " + voornaam + " tussenvoegsel = "
-				+ tussenvoegsel + " achternaam = " + achternaam;
+       
+    public String getEmail() {
+		return email;
 	}
 
-	//Benodigd voor het testen met JUnit
+	public String getTelefoonnummer() {
+		return telefoonnummer;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public void setTelefoonnummer(String telefoonnummer) {
+		this.telefoonnummer = telefoonnummer;
+	}
+
+	@Override
+	public String toString() {
+		return "Klant [klantID=" + klantID + ", adres=" + adres + ", voornaam=" + voornaam + ", tussenvoegsel="
+				+ tussenvoegsel + ", achternaam=" + achternaam + ", email=" + email + ", telefoonnummer="
+				+ telefoonnummer + "]";
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((achternaam == null) ? 0 : achternaam.hashCode());
 		result = prime * result + ((adres == null) ? 0 : adres.hashCode());
+		result = prime * result + ((email == null) ? 0 : email.hashCode());
 		result = prime * result + klantID;
+		result = prime * result + ((telefoonnummer == null) ? 0 : telefoonnummer.hashCode());
 		result = prime * result + ((tussenvoegsel == null) ? 0 : tussenvoegsel.hashCode());
 		result = prime * result + ((voornaam == null) ? 0 : voornaam.hashCode());
 		return result;
@@ -97,7 +116,17 @@ public class Klant {
 				return false;
 		} else if (!adres.equals(other.adres))
 			return false;
+		if (email == null) {
+			if (other.email != null)
+				return false;
+		} else if (!email.equals(other.email))
+			return false;
 		if (klantID != other.klantID)
+			return false;
+		if (telefoonnummer == null) {
+			if (other.telefoonnummer != null)
+				return false;
+		} else if (!telefoonnummer.equals(other.telefoonnummer))
 			return false;
 		if (tussenvoegsel == null) {
 			if (other.tussenvoegsel != null)
@@ -111,6 +140,8 @@ public class Klant {
 			return false;
 		return true;
 	}
+
+	
 
     
     
