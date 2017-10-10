@@ -223,52 +223,93 @@ public class KlantDAO implements KlantDAOInterface {
         }
     }
 
-    @Override
-    public ArrayList<Klant> readSelectedKlantenAchternaam(String a) {
+    @Override   // nog afmaken
+    public ArrayList<Klant> readSelectedKlantenAchternaam(String achternaam) {
 
         ArrayList<Klant> selectionKlanten = new ArrayList<Klant>();
-        try {
-            PreparedStatement statement = connection.prepareStatement("select * from klant where achternaam = ?");
+        
+    	
+    	
+    	try {
+    		// De juiste klanten zoeken en ze in de arraylist stoppen
+    		String query = "Select * from klant where achternaam = ?";
+    		PreparedStatement statement = connection.prepareStatement(query);
+    		statement.setString(1, achternaam);
 
-            statement.setString(1, a);
+    		ResultSet result = statement.executeQuery();
 
-            ResultSet rSet = statement.executeQuery();
+    		while(result.next()){
+    			Klant klant = new Klant();
+    			klant.setKlantID(result.getInt(1));
+    			klant.setVoornaam(result.getString(2));
+    			klant.setTussenvoegsel(result.getString(3));
+    			klant.setAchternaam(result.getString(4));
+    			klant.setEmail(result.getString(5));
+    			klant.setTelefoonnummer(result.getString(6));
+    			logger.info("In first loop");
+    			selectionKlanten.add(klant);
+    		}
 
-            while (rSet.next()) {
-                int KlantID = rSet.getInt(1);
-                String voornaam = rSet.getString(2);
-                String tussenvoegsel = rSet.getString(3);
-                String achternaam = rSet.getString(4);
-                String emailadres = rSet.getString(5);
-                String straatnaam = rSet.getString(6);
-                int huismummer = rSet.getInt(7);
-                String toevoeging = rSet.getString(8);
-                String postcode = rSet.getString(9);
-                String woonplaats = rSet.getString(10);
-                String telefoonnummer = rSet.getString(11);
+    		// Nu de volgestopte arraylist afgaan en per klant met het klant id het adres erbij zoeken en toevoegen
+    		for(int i = 0; i < selectionKlanten.size(); i++){
+    			try {
+    			Adres bezoekAdres = new Adres();
+    	    	Adres factuurAdres = new Adres();
 
-                Adres adres = new Adres();
-                adres.setStraatnaam(straatnaam);
-                adres.setHuisnummer(huismummer);
-                adres.setToevoeging(toevoeging);
-                adres.setPostcode(postcode);
-                adres.setWoonplaats(woonplaats);
-                Klant klant = new Klant();
-                klant.setVoornaam(voornaam);
-                klant.setTussenvoegsel(tussenvoegsel);
-                klant.setAchternaam(achternaam);
-                klant.setEmail(emailadres);
-                klant.setBezoekAdres(adres);
+    			String query2 = "Select * from adres where klantIDadres = ? and adres_type = ?";
+    			PreparedStatement statement2 = connection.prepareStatement(query2);
+    			statement2.setInt(1, selectionKlanten.get(i).getKlantID());
+    			statement2.setString(2, "BEZOEKADRES");
 
-                selectionKlanten.add(klant);
-                System.out.println(voornaam + tussenvoegsel + achternaam + emailadres + straatnaam + huismummer + toevoeging + postcode + woonplaats);
+    			
+    			ResultSet result2 = statement2.executeQuery();
 
-            }
-        } catch (SQLException e) {
+    			while(result2.next()){
+    				logger.info("In while loop voor bezoekadres, "+ result2.getString(3));
+    				bezoekAdres.setStraatnaam(result2.getString(3));
+    				bezoekAdres.setHuisnummer(result2.getInt(4));
+    				bezoekAdres.setToevoeging(result2.getString(5));
+    				bezoekAdres.setPostcode(result2.getString(6));
+    				bezoekAdres.setWoonplaats(result2.getString(7));
+    				bezoekAdres.setAdresType(AdresType.BEZOEKADRES);
 
-            e.printStackTrace();
-        }
-        return selectionKlanten;
+
+    			}
+    			selectionKlanten.get(i).setBezoekAdres(bezoekAdres);
+    		
+    			
+					String query3 = "Select * from adres where klantIDadres = ? and adres_type = ?";
+					PreparedStatement statement3 = connection.prepareStatement(query3);
+					statement3.setInt(1, selectionKlanten.get(i).getKlantID());
+					statement3.setString(2, "FACTUURADRES");
+
+					ResultSet result3 = statement3.executeQuery();
+
+
+					while(result3.next()){
+						factuurAdres.setStraatnaam(result3.getString(3));
+						factuurAdres.setHuisnummer(result3.getInt(4));
+						factuurAdres.setToevoeging(result3.getString(5));
+						factuurAdres.setPostcode(result3.getString(6));
+						factuurAdres.setWoonplaats(result3.getString(7));
+						factuurAdres.setAdresType(AdresType.FACTUURADRES);
+					}
+
+					logger.info("just before set besoekadres");
+				
+					selectionKlanten.get(i).setFactuurAdres(factuurAdres);
+					
+					
+				} catch (NullPointerException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+    		}
+    	} catch (SQLException ex) {
+    		ex.printStackTrace();
+    	}
+    
+         return selectionKlanten;
     }
     
     @Override
