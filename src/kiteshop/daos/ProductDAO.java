@@ -32,7 +32,7 @@ public class ProductDAO implements ProductDAOInterface {
     public void createProduct(Product product) {
         try {
             String sql = "INSERT INTO product"
-                    + "(idProduct, productnaam, voorraad, prijs)"
+                    + "(productID, productnaam, voorraad, prijs)"
                     + "values (?,?,?,?)";
             this.statement = connection.prepareStatement(sql);
             statement.setInt(1, 0);
