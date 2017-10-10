@@ -28,8 +28,8 @@ public class KlantDAO implements KlantDAOInterface {
 
     Connection connection;
 
-    PreparedStatement statement;
-    ResultSet result;
+    
+    
 
     public KlantDAO() {
         this.connection = DBConnect.getConnection();
@@ -38,24 +38,49 @@ public class KlantDAO implements KlantDAOInterface {
     @Override
     public void createKlant(Klant klant) {
         try {
-            String sql = "INSERT INTO klant" + "(KlantID, voornaam, tussenvoegsel, achternaam, "
-                    + "emailadres, straatnaam, huisnummer, toevoeging, postcode, plaats, telefoonnummer)" 
-                    + "values (?,?,?,?,?,?,?,?,?,?,?)";
-            this.statement = connection.prepareStatement(sql);
+            String sql1 = "INSERT INTO klant" + "(KlantID, voornaam, tussenvoegsel, achternaam, "
+                    + "emailadres, telefoonnummer)" 
+                    + "values (?,?,?,?,?, ?)";
+            
+            PreparedStatement statement1 = connection.prepareStatement(sql1,Statement.RETURN_GENERATED_KEYS);
 
-            statement.setInt(1, 0);
-            statement.setString(2, klant.getVoornaam());
-            statement.setString(3, klant.getTussenvoegsel());
-            statement.setString(4, klant.getAchternaam());
-            statement.setString(5, klant.getEmail());
-            statement.setString(6, klant.getAdres().getStraatnaam());
-            statement.setInt(7, klant.getAdres().getHuisnummer());
-            statement.setString(8, klant.getAdres().getToevoeging());
-            statement.setString(9, klant.getAdres().getPostcode());
-            statement.setString(10, klant.getAdres().getWoonplaats());
-            statement.setString(11, klant.getTelefoonnummer());
+            statement1.setInt(1, 0);
+            statement1.setString(2, klant.getVoornaam());
+            statement1.setString(3, klant.getTussenvoegsel());
+            statement1.setString(4, klant.getAchternaam());
+            statement1.setString(5, klant.getEmail());
+            statement1.setString(6, klant.getTelefoonnummer());
+            statement1.execute();
+            
+            ResultSet result = statement1.getGeneratedKeys();
+            
+            int generatedkey = 0;
+            
+            if (result.isBeforeFirst()) {
+            	result.next();
+                generatedkey = result.getInt(1);
+                logger.info("KLant gegevens verwerkt, key gegenereert: " +generatedkey);
+            }
+            
+            
+            
+            String sql2 = "INSERT INTO `juliaworkshop`.`adres` (`klantIDadres`, `straatnaam`, `huisnummer`, `toevoeging`, `postcode`, `woonplaats`, `adres_type`) "
+            		+ "VALUES ('sadfasd', 'sadf', '5', 'fd', 'fdf', 'df', 'dfd')";
+            
+            
+            /*
+            
+            
+            PreparedStatement statement2 = connection.prepareStatement()
+            
+            
+            statement1.setString(6, klant.getAdres().getStraatnaam());
+            statement1.setInt(7, klant.getAdres().getHuisnummer());
+            statement1.setString(8, klant.getAdres().getToevoeging());
+            statement1.setString(9, klant.getAdres().getPostcode());
+            statement1.setString(10, klant.getAdres().getWoonplaats());
 
-            statement.execute();
+            */
 
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -68,10 +93,10 @@ public class KlantDAO implements KlantDAOInterface {
         Klant k = new Klant();
         try {
             String query = "Select * from klant where achternaam = ?";
-            this.statement = connection.prepareStatement(query);
+           PreparedStatement statement = connection.prepareStatement(query);
             statement.setString(1, achternaam);
 
-            result = statement.executeQuery();
+            ResultSet result = statement.executeQuery();
             
             while(result.next()){
 
@@ -104,14 +129,19 @@ public class KlantDAO implements KlantDAOInterface {
             statement.setString(3, klant.getTussenvoegsel());
             statement.setString(4, klant.getAchternaam());
             statement.setString(5, klant.getEmail());
-            statement.setString(6, klant.getAdres().getStraatnaam());
-            statement.setInt(7, klant.getAdres().getHuisnummer());
-            statement.setString(8, klant.getAdres().getToevoeging());
-            statement.setString(9, klant.getAdres().getPostcode());
-            statement.setString(10, klant.getAdres().getWoonplaats());
+            
+            
             statement.setString(11, klant.getTelefoonnummer());
 
             statement.execute();
+            
+            
+
+            statement.setString(6, klant.getBezoekAdres().getStraatnaam());
+            statement.setInt(7, klant.getBezoekAdres().getHuisnummer());
+            statement.setString(8, klant.getBezoekAdres().getToevoeging());
+            statement.setString(9, klant.getBezoekAdres().getPostcode());
+            statement.setString(10, klant.getBezoekAdres().getWoonplaats());
 
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -140,7 +170,7 @@ public class KlantDAO implements KlantDAOInterface {
 
         ArrayList<Klant> selectionKlanten = new ArrayList<Klant>();
         try {
-            statement = connection.prepareStatement("select * from klant where achternaam = ?");
+            PreparedStatement statement = connection.prepareStatement("select * from klant where achternaam = ?");
 
             statement.setString(1, a);
 
@@ -170,7 +200,7 @@ public class KlantDAO implements KlantDAOInterface {
                 klant.setTussenvoegsel(tussenvoegsel);
                 klant.setAchternaam(achternaam);
                 klant.setEmail(emailadres);
-                klant.setAdres(adres);
+                klant.setBezoekAdres(adres);
 
                 selectionKlanten.add(klant);
                 System.out.println(voornaam + tussenvoegsel + achternaam + emailadres + straatnaam + huismummer + toevoeging + postcode + woonplaats);
@@ -187,9 +217,9 @@ public class KlantDAO implements KlantDAOInterface {
     public void readAllKlanten(){
         ArrayList <Klant> allKlanten = new ArrayList<>();
         try {
-            statement = connection.prepareStatement("select * from klant");
+            PreparedStatement statement = connection.prepareStatement("select * from klant");
             
-            result = statement.executeQuery();
+            ResultSet result = statement.executeQuery();
             
             while(result.next()){
                 Klant k = new Klant();

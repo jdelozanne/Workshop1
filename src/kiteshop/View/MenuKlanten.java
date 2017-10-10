@@ -123,12 +123,12 @@ public class MenuKlanten {
                 
 		System.out.println("geef emailadres: ");
 		String email = input.next();
-		adres.setEmail(email);
+		klant.setEmail(email);
 				
-		System.out.println("geef telefoon: ");
-		int telefoonnr = input.nextInt();
-		adres.setTelefoon(telefoonnr);
-		klant.setAdres(adres);
+		System.out.println("geef telefoonnummer: ");
+		String  telefoonnr = input.next();
+		klant.setTelefoonnummer(telefoonnr);
+		klant.setBezoekAdres(adres);
 		
 		controller.createKlant(klant);
 
