@@ -9,7 +9,8 @@ public class Klant {
 
     
     private int klantID;
-    private Adres adres;
+    private Adres bezoekAdres;
+    private Adres factuurAdres;
     private String voornaam;
     private String tussenvoegsel;
     private String achternaam;
@@ -75,12 +76,28 @@ public class Klant {
 	public void setTelefoonnummer(String telefoonnummer) {
 		this.telefoonnummer = telefoonnummer;
 	}
+	
+	public Adres getBezoekAdres() {
+		return bezoekAdres;
+	}
+
+	public Adres getFactuurAdres() {
+		return factuurAdres;
+	}
+
+	public void setBezoekAdres(Adres bezoekAdres) {
+		this.bezoekAdres = bezoekAdres;
+	}
+
+	public void setFactuurAdres(Adres factuurAdres) {
+		this.factuurAdres = factuurAdres;
+	}
 
 	@Override
 	public String toString() {
-		return "Klant [klantID=" + klantID + ", adres=" + adres + ", voornaam=" + voornaam + ", tussenvoegsel="
-				+ tussenvoegsel + ", achternaam=" + achternaam + ", email=" + email + ", telefoonnummer="
-				+ telefoonnummer + "]";
+		return "Klant [klantID=" + klantID + ", bezoekAdres=" + bezoekAdres + ", factuurAdres=" + factuurAdres
+				+ ", voornaam=" + voornaam + ", tussenvoegsel=" + tussenvoegsel + ", achternaam=" + achternaam
+				+ ", email=" + email + ", telefoonnummer=" + telefoonnummer + "]";
 	}
 
 	@Override
@@ -88,8 +105,9 @@ public class Klant {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((achternaam == null) ? 0 : achternaam.hashCode());
-		result = prime * result + ((adres == null) ? 0 : adres.hashCode());
+		result = prime * result + ((bezoekAdres == null) ? 0 : bezoekAdres.hashCode());
 		result = prime * result + ((email == null) ? 0 : email.hashCode());
+		result = prime * result + ((factuurAdres == null) ? 0 : factuurAdres.hashCode());
 		result = prime * result + klantID;
 		result = prime * result + ((telefoonnummer == null) ? 0 : telefoonnummer.hashCode());
 		result = prime * result + ((tussenvoegsel == null) ? 0 : tussenvoegsel.hashCode());
@@ -111,15 +129,20 @@ public class Klant {
 				return false;
 		} else if (!achternaam.equals(other.achternaam))
 			return false;
-		if (adres == null) {
-			if (other.adres != null)
+		if (bezoekAdres == null) {
+			if (other.bezoekAdres != null)
 				return false;
-		} else if (!adres.equals(other.adres))
+		} else if (!bezoekAdres.equals(other.bezoekAdres))
 			return false;
 		if (email == null) {
 			if (other.email != null)
 				return false;
 		} else if (!email.equals(other.email))
+			return false;
+		if (factuurAdres == null) {
+			if (other.factuurAdres != null)
+				return false;
+		} else if (!factuurAdres.equals(other.factuurAdres))
 			return false;
 		if (klantID != other.klantID)
 			return false;
@@ -140,6 +163,8 @@ public class Klant {
 			return false;
 		return true;
 	}
+
+	
 
 	
 
