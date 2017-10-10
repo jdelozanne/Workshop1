@@ -117,10 +117,7 @@ public class MenuKlanten {
 			Adres factuurAdres = createAdres();
 			factuurAdres.setAdresType(AdresType.FACTUURADRES);
 			klant.setFactuurAdres(factuurAdres);
-		} else {
-			
-			klant.setFactuurAdres(bezoekadres);
-		}
+		} 
 		
 		controller.createKlant(klant);
 

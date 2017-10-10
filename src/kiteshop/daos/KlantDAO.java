@@ -15,6 +15,7 @@ import java.util.logging.Logger;
 
 import kiteshop.pojos.Account;
 import kiteshop.pojos.Adres;
+import kiteshop.pojos.AdresType;
 import kiteshop.pojos.Klant;
 import kiteshop.test.ProjectLog;
 
@@ -89,22 +90,7 @@ public class KlantDAO implements KlantDAOInterface {
             statement3.setString(6, klant.getFactuurAdres().getWoonplaats());
             statement3.setString(7, klant.getFactuurAdres().getAdresType().toString());
             statement3.execute();
-            
-            
-            
-            /*
-            
-            
-            PreparedStatement statement2 = connection.prepareStatement()
-            
-            
-            statement1.setString(6, klant.getAdres().getStraatnaam());
-            statement1.setInt(7, klant.getAdres().getHuisnummer());
-            statement1.setString(8, klant.getAdres().getToevoeging());
-            statement1.setString(9, klant.getAdres().getPostcode());
-            statement1.setString(10, klant.getAdres().getWoonplaats());
-
-            */
+                     
 
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -114,33 +100,81 @@ public class KlantDAO implements KlantDAOInterface {
     
     @Override
     public Klant readKlant(String achternaam) {
-        Klant k = new Klant();
-        try {
-            String query = "Select * from klant where achternaam = ?";
-           PreparedStatement statement = connection.prepareStatement(query);
-            statement.setString(1, achternaam);
+    	Klant klant = new Klant();
+    	Adres bezoekAdres = new Adres();
+    	Adres factuurAdres = new Adres();
+    	
+    	try {
+    		String query = "Select * from klant where achternaam = ?";
+    		PreparedStatement statement = connection.prepareStatement(query);
+    		statement.setString(1, achternaam);
 
-            ResultSet result = statement.executeQuery();
-            
-            while(result.next()){
+    		ResultSet result = statement.executeQuery();
 
-            k.setKlantID(result.getInt(1));
-            k.setVoornaam(result.getString(2));
-            k.setTussenvoegsel(result.getString(3));
-            k.setAchternaam(result.getString(4));
-            }
-            
+    		while(result.next()){
+    			klant.setKlantID(result.getInt(1));
+    			klant.setVoornaam(result.getString(2));
+    			klant.setTussenvoegsel(result.getString(3));
+    			klant.setAchternaam(result.getString(4));
+    			klant.setEmail(result.getString(5));
+    			klant.setTelefoonnummer(result.getString(6));
+    			logger.info("In first loop");
+    		}
+
+    		String query2 = "Select * from adres where klantIDadres = ? ";
+    		PreparedStatement statement2 = connection.prepareStatement(query2);
+    		statement.setInt(1, klant.getKlantID());
+    		//statement.setString(1, klant.getBezoekAdres().getAdresType().toString());
+
+    		ResultSet result2 = statement2.executeQuery();
+
+    		while(result2.next()){
+    			logger.info("In while loop voor bezoekadres, "+ result2.getString(3));
+    			bezoekAdres.setStraatnaam(result2.getString(3));
+    			bezoekAdres.setHuisnummer(result2.getInt(4));
+    			bezoekAdres.setToevoeging(result2.getString(5));
+    			bezoekAdres.setPostcode(result2.getString(6));
+    			bezoekAdres.setWoonplaats(result2.getString(7));
+    			bezoekAdres.setAdresType(AdresType.BEZOEKADRES);
 
 
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        }
-        return k;
+    		}
+
+    		String query3 = "Select * from adres where klantIDadres = ? and adres_type = ?";
+    		PreparedStatement statement3 = connection.prepareStatement(query3);
+    		statement.setInt(1, klant.getKlantID());
+    		statement.setString(1, klant.getFactuurAdres().getAdresType().toString());
+
+    		ResultSet result3 = statement3.executeQuery();
+
+
+    		while(result3.next()){
+    			factuurAdres.setStraatnaam(result3.getString(3));
+    			factuurAdres.setHuisnummer(result3.getInt(4));
+    			factuurAdres.setToevoeging(result3.getString(5));
+    			factuurAdres.setPostcode(result3.getString(6));
+    			factuurAdres.setWoonplaats(result3.getString(7));
+    			factuurAdres.setAdresType(AdresType.FACTUURADRES);
+    		}
+    		
+    		logger.info("just before set besoekadres");
+    		klant.setBezoekAdres(bezoekAdres);
+    		klant.setFactuurAdres(factuurAdres);
+    		
+    	} catch (SQLException ex) {
+    		ex.printStackTrace();
+    	}
+    
+    	
+    	
+    	return klant;
+    	
+    	
     }
 
     @Override
     public void updateKlant(Klant klant) {
-        try {
+    	try {
 
             String sql = " UPDATE klant " + "(KlantID, voornaam, tussenvoegsel, achternaam, "
                     + "emailadres, straatnaam, huisnummer, toevoeging, postcode, plaats, telefoonnummer )" 
