@@ -28,14 +28,6 @@ public class Klant {
         this.klantID = id;
     }
 
-    public Adres getAdres() {
-        return adres;
-    }
-
-    public void setAdres(Adres adres) {
-        this.adres = adres;
-    }
-
     public String getVoornaam() {
         return voornaam;
     }
