@@ -115,8 +115,10 @@ public class MenuKlanten {
 		if(input.next().equalsIgnoreCase("J")){
 			System.out.println("Nu wordt het factuuradres gevraagd");
 			Adres factuurAdres = createAdres();
+			factuurAdres.setAdresType(AdresType.FACTUURADRES);
 			klant.setFactuurAdres(factuurAdres);
 		} else {
+			bezoekadres.setAdresType(AdresType.FACTUURADRES);
 			klant.setFactuurAdres(bezoekadres);
 		}
 		

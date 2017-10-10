@@ -53,19 +53,43 @@ public class KlantDAO implements KlantDAOInterface {
             statement1.execute();
             
             ResultSet result = statement1.getGeneratedKeys();
-            
             int generatedkey = 0;
-            
             if (result.isBeforeFirst()) {
             	result.next();
                 generatedkey = result.getInt(1);
-                logger.info("KLant gegevens verwerkt, key gegenereert: " +generatedkey);
+                logger.info("Klant gegevens verwerkt, key gegenereerd: " +generatedkey);
             }
             
+            //Creeeren van het bezoekadres
+            String sql2 = "INSERT INTO `juliaworkshop`.`adres` (`adresID`, `klantIDadres`, `straatnaam`, `huisnummer`, `toevoeging`, `postcode`, `woonplaats`, `adres_type` ) "
+            		+ "VALUES (?,?,?,?, ?,?, ?, ?)";
             
+            PreparedStatement statement2 = connection.prepareStatement(sql2);
+            statement2.setInt(1, 0);
+            statement2.setInt(2, generatedkey);
+            statement2.setString(3, klant.getBezoekAdres().getStraatnaam());
+            statement2.setInt(4, klant.getBezoekAdres().getHuisnummer());
+            statement2.setString(5, klant.getBezoekAdres().getToevoeging());
+            statement2.setString(6, klant.getBezoekAdres().getPostcode());
+            statement2.setString(7, klant.getBezoekAdres().getWoonplaats());
+            statement2.setString(8, klant.getBezoekAdres().getAdresType().toString());
+            statement2.execute();
             
-            String sql2 = "INSERT INTO `juliaworkshop`.`adres` (`klantIDadres`, `straatnaam`, `huisnummer`, `toevoeging`, `postcode`, `woonplaats`, `adres_type`) "
-            		+ "VALUES ('sadfasd', 'sadf', '5', 'fd', 'fdf', 'df', 'dfd')";
+          //Creeeren van het factuuradres
+            String sql3 = "INSERT INTO `juliaworkshop`.`adres` (`klantIDadres`, `straatnaam`, `huisnummer`, `toevoeging`, `postcode`, `woonplaats`, `adres_type`) "
+            		+ "VALUES (?,?,?,?,?,?, ?)";
+            
+            PreparedStatement statement3 = connection.prepareStatement(sql3);
+            
+            statement3.setInt(1, generatedkey);
+            statement3.setString(2, klant.getFactuurAdres().getStraatnaam());
+            statement3.setInt(3, klant.getFactuurAdres().getHuisnummer());
+            statement3.setString(4, klant.getFactuurAdres().getToevoeging());
+            statement3.setString(5, klant.getFactuurAdres().getPostcode());
+            statement3.setString(6, klant.getFactuurAdres().getWoonplaats());
+            statement3.setString(7, klant.getFactuurAdres().getAdresType().toString());
+            statement3.execute();
+            
             
             
             /*
