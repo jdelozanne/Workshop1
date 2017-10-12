@@ -47,7 +47,6 @@ public class BestellingDAO implements BestellingDAOInterface {
                 bestelling.setBestellingID(result.getInt(1));
                 
                 System.out.println("Nieuwe bestelling aangemaakt met bestelling id: " + bestelling.getBestellingID());
-
             }
 
         } catch (SQLException ex) {
