@@ -12,6 +12,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import kiteshop.pojos.Product;
 
 /**
@@ -35,7 +37,7 @@ public class ProductDAO implements ProductDAOInterface {
     public void createProduct(Product product) {
         try {
             String sql = "INSERT INTO product"
-                    + "(idProduct, productnaam, voorraad, prijs)"
+                    + "(productID, productnaam, voorraad, prijs)"
                     + "values (?,?,?,?)";
             statement = connection.prepareStatement(sql);
             statement.setInt(1, 0);
@@ -97,7 +99,7 @@ public class ProductDAO implements ProductDAOInterface {
         }
         return p.getNaam();
     }
-    //aanpassen
+    
     @Override
     public ArrayList<Product> showProducten(){
         ArrayList<Product> producten = new ArrayList<>();
@@ -125,7 +127,20 @@ public class ProductDAO implements ProductDAOInterface {
 
     @Override
     public void updateProduct(Product product) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("updaten naar database");
+        String update = "UPDATE product SET productnaam = ?, voorraad = ?, prijs = ? where productID = ?";
+        try {
+            statement = this.connection.prepareStatement(update);
+            statement.setString(1, product.getNaam());
+            statement.setInt(2, product.getVoorraad());
+            statement.setBigDecimal(3, product.getPrijs());
+            statement.setInt(4, product.getProductID());
+            
+            statement.executeUpdate();
+            
+        } catch (SQLException ex) {
+           ex.printStackTrace();
+        }
     }
 
     @Override

@@ -20,21 +20,24 @@ public class ProductenController {
 
     public void createProduct(Product product) {
         productDAO.createProduct(product);
-
+    }
+    
+    public Product showSpecificProduct(String naam){
+        return productDAO.readProduct(naam);
     }
 
     public void showProducten() {
-        ArrayList<Product> producten =productDAO.showProducten();
-        displayProducten(producten);
-       
+        ArrayList<Product> producten = productDAO.showProducten();
+        displayProducten(producten);  
     }
     
     public void displayProducten(ArrayList<Product> lijst){
         for(Product p : lijst)
-            System.out.println(p.toString());
+            System.out.printf("%s50\n", p.toString());
     }
 
-    public void updateProduct() {
+    public void updateProduct(Product p) {
+        productDAO.updateProduct(p);
 
     }
 

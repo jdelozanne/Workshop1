@@ -61,7 +61,7 @@ public class Product {
     @Override
     public String toString() {
         
-        String productDisplay ="ProductID: " + this.getProductID()+ " Product: " + this.getNaam() + " Prijs: " + this.getPrijs() + " Voorraad: " + this.getVoorraad();
+        String productDisplay = "ProductID: " + this.getProductID() + "\tProduct: " + this.getNaam() + "\tPrijs: " + this.getPrijs() + "\tVoorraad: " + this.getVoorraad();
         return productDisplay;
     }
 }

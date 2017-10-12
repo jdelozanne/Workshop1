@@ -152,3 +152,53 @@ okt 09, 2017 10:27:39 PM kiteshop.controller.BestellingenController createBestel
 INFO: nieuwe bestelling gemaakt
 okt 09, 2017 10:27:39 PM kiteshop.View.MenuBestellingen createBestelling
 INFO: bereken de prijs
+okt 12, 2017 12:40:06 PM kiteshop.View.InlogMenu inloggen
+INFO: Gebruikersnaam en wachtwoord ingegeven
+okt 12, 2017 12:40:06 PM kiteshop.controller.AccountController checkLogin
+INFO: Gebruikers naam :julia Wachtwoord :wwJuiste wachtwoord :ww
+okt 12, 2017 1:31:01 PM kiteshop.controller.KlantenController createKlant
+INFO: Klant Klant [klantID=0, bezoekAdres=Adres [woonplaats=amsterdam, postcode=1092, straatnaam=wagenaar, huisnummer=34, toevoeging=geen, adresType=BEZOEKADRES], factuurAdres=null, voornaam=j, tussenvoegsel=de, achternaam=lo, email=dummy, telefoonnummer=0206173234] wordt toegevoegd aan database
+okt 12, 2017 1:31:01 PM kiteshop.daos.KlantDAO createKlant
+INFO: Klant gegevens verwerkt, key gegenereerd: 4
+okt 12, 2017 1:31:37 PM kiteshop.controller.KlantenController createKlant
+INFO: Klant Klant [klantID=0, bezoekAdres=Adres [woonplaats=er, postcode=1032, straatnaam=wagege, huisnummer=89, toevoeging=geen, adresType=BEZOEKADRES], factuurAdres=null, voornaam=j, tussenvoegsel=de, achternaam=lo, email=jd, telefoonnummer=03] wordt toegevoegd aan database
+okt 12, 2017 1:31:37 PM kiteshop.daos.KlantDAO createKlant
+INFO: Klant gegevens verwerkt, key gegenereerd: 5
+okt 12, 2017 1:33:42 PM kiteshop.daos.KlantDAO readKlant
+INFO: In first loop
+okt 12, 2017 1:33:42 PM kiteshop.daos.KlantDAO readKlant
+INFO: In first loop
+okt 12, 2017 1:47:21 PM kiteshop.controller.KlantenController createKlant
+INFO: Klant Klant [klantID=0, bezoekAdres=Adres [woonplaats=ams, postcode=10292, straatnaam=wege, huisnummer=67, toevoeging=, adresType=BEZOEKADRES], factuurAdres=null, voornaam=ju, tussenvoegsel=de, achternaam=lo, email=juder, telefoonnummer=0654923] wordt toegevoegd aan database
+okt 12, 2017 1:47:21 PM kiteshop.daos.KlantDAO createKlant
+INFO: Klant gegevens verwerkt, key gegenereerd: 6
+okt 12, 2017 1:49:31 PM kiteshop.controller.KlantenController createKlant
+INFO: Klant Klant [klantID=0, bezoekAdres=Adres [woonplaats=am, postcode=24354, straatnaam=htr, huisnummer=67, toevoeging=, adresType=BEZOEKADRES], factuurAdres=Adres [woonplaats=rot, postcode=trwrf, straatnaam=brhrg, huisnummer=73, toevoeging=, adresType=FACTUURADRES], voornaam=j, tussenvoegsel=de, achternaam=l, email=de, telefoonnummer=8374] wordt toegevoegd aan database
+okt 12, 2017 1:49:31 PM kiteshop.daos.KlantDAO createKlant
+INFO: Klant gegevens verwerkt, key gegenereerd: 7
+okt 12, 2017 1:49:39 PM kiteshop.daos.KlantDAO readAllKlanten
+INFO: In while loop voor bezoekadres, wege
+okt 12, 2017 1:49:39 PM kiteshop.daos.KlantDAO readAllKlanten
+INFO: In while loop voor bezoekadres, htr
+okt 12, 2017 1:51:37 PM kiteshop.daos.KlantDAO readKlant
+INFO: In first loop
+okt 12, 2017 1:55:23 PM kiteshop.daos.KlantDAO readKlant
+INFO: In first loop
+okt 12, 2017 1:55:54 PM kiteshop.controller.BestellingenController createBestelRegels
+INFO: bestelregels gemaakt
+okt 12, 2017 1:55:54 PM kiteshop.controller.BestellingenController createBestelRegels
+INFO: bestelregels gemaakt
+okt 12, 2017 1:55:54 PM kiteshop.controller.BestellingenController createBestelling
+INFO: nieuwe bestelling gemaakt
+okt 12, 2017 1:55:54 PM kiteshop.View.MenuBestellingen createBestelling
+INFO: bereken de prijs
+okt 12, 2017 2:22:54 PM kiteshop.daos.KlantDAO readKlant
+INFO: In first loop
+okt 12, 2017 2:23:11 PM kiteshop.controller.BestellingenController createBestelRegels
+INFO: bestelregels gemaakt
+okt 12, 2017 2:23:11 PM kiteshop.controller.BestellingenController createBestelRegels
+INFO: bestelregels gemaakt
+okt 12, 2017 2:23:11 PM kiteshop.controller.BestellingenController createBestelling
+INFO: nieuwe bestelling gemaakt
+okt 12, 2017 2:23:11 PM kiteshop.View.MenuBestellingen createBestelling
+INFO: bereken de prijs
